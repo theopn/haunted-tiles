@@ -1,6 +1,6 @@
 # Haunted-Tiles
 
-| <img src="./assets/out.png" width="250" alt="Haunted Tiles logo"> |
+| <img src="./assets/haunted-tiles-logo.png" width="250" alt="Haunted Tiles logo"> |
 |:--:|
 | Cute Logo |
 | ![i3-sc](./assets/i3-sc.png) |
