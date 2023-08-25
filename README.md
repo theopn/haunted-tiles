@@ -9,8 +9,8 @@
 | Sway |
 
 
-Haunted-tiles is my personal i3 WM and Sway configurations, along with accommodating tools.
-It used to be a part of my [dotfiles repository](https://github.com/theopn/dotfile), but with the growing number of configurations and shared scripts between i3 and Sway, I made a separate repository for it.
+Haunted Tiles is my personal i3 WM and Sway setup, along with essential tiling WM tools.
+It used to be a part of my [dotfiles repository](https://github.com/theopn/dotfile), and with the growing size of configurations and shared scripts between i3 and Sway, I made a separate repository for it.
 
 - Both X11 and Wayland strive to be a minimal setup that gets out of your way
 - The overall theme is [Dracula](https://draculatheme.com/contribute), hence the name "Haunted"-tiles
@@ -18,7 +18,7 @@ It used to be a part of my [dotfiles repository](https://github.com/theopn/dotfi
 
 ## i3 Dependencies
 
-These are packages get directly called in the i3 config or one of the scripts:
+These are packages that get directly called in the i3 config or one of the scripts:
 
 - Brightnessctl: Backlight control
 - Clipit: Clipboard manager
@@ -60,7 +60,7 @@ List of keybindings differing from the default i3/Sway:
 - `jkl;` -> `hjkl`
 - `$mod + h` -> `$mod + z`: hori[z]ontal split
 - `$mod + Space`: launches Rofi (you can also use the default `$mod+d`)
-- `$mod + Shift + c/r/e`: launches `i3_mode`/`sway_mode`, from which you can choose to reload config, restart, or exit i3/Sway
+- `$mod + Shift + c/r/e`: launches `i3_mode`/`sway_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
 - `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
 - `$mod + Shift + s`: screenshot tool
 
@@ -74,6 +74,10 @@ List of keybindings differing from the default i3/Sway:
     - Toggle compositor (Picom)
     - Toggle nightlight (redshift)
 - You can mute sound by clicking the volume icon
-- You can view current month calendar by clicking the date
-    - You can view the last month calendar by right-clicking the date
+- You can view the current month's calendar by clicking the date
+    - You can view the last month's calendar by right-clicking the date
+
+## Credits
+
+- `./scripts/spotify.py` is heavily based on [polybar-spotify](https://github.com/Jvanrhijn/polybar-spotify/blob/master/spotify_status.py)
 
