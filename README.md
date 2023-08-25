@@ -1,12 +1,15 @@
 # Haunted-Tiles
 
-| ![i3-sc]() |
+![haunted-tiles-logo](./assets/haunted-tiles-logo.png =250x250)
+
+| ![i3-sc](./assets/i3-sc.png) |
 |:--:|
 | i3 |
 
 | ![sway-sc]() |
 |:--:|
 | Sway |
+
 
 My i3 and Sway configurations, along with accommodating tools.
 
@@ -17,7 +20,18 @@ git clone  ~/.config/haunted-tiles
 ~/.config/haunted-tiles/install.sh
 ```
 
-## Dependencies
+## Keybindings
+
+List of keybindings differing from the default:
+
+- `jkl;` -> `hjkl`
+- `$mod + h` -> `$mod + z`: "hori[z]ontal" split
+- `$mod + Space`: launches Rofi as well as the default `$mod+d`
+- `$mod + Shift + c/r/e`: launches `i3_mode`, from which you can choose config reload, restart, or exit i3
+- `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
+- `$mod + Shift + s`: Screenshot tool
+
+## i3 Dependencies
 
 List of packages required for my configuration:
 
@@ -41,17 +55,6 @@ Not necessary but helpful packages:
 - Blueman: GUI Bluetooth manager
 - Pavucontrol: Volume control for Pulseaudio (or Pipewire that pretends to be Pulseaudio)
 - xrandr: External display output control, should be a dependency for X11 server
-
-## Keybindings
-
-List of keybindings differing from the default:
-
-- `jkl;` -> `hjkl`
-- `$mod + h` -> `$mod + z`: "hori[z]ontal" split
-- `$mod + Space`: launches Rofi as well as the default `$mod+d`
-- `$mod + Shift + c/r/e`: launches `i3_mode`, from which you can choose config reload, restart, or exit i3
-- `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
-- `$mod + Shift + s`: Screenshot tool
 
 ## Polybar
 
