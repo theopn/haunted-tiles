@@ -2,7 +2,7 @@
 
 LOCK_SCREEN=~/.config/haunted-tiles/assets/naomi-solarsys-draculafied-lockscreen.png
 
-function lock() {
+lock() {
   if [ -e $LOCK_SCREEN ]
   then
     i3lock -i $LOCK_SCREEN

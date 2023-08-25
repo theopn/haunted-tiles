@@ -10,7 +10,7 @@
 # {{{ VARIABLES
 set $mod Mod4
 # Script var
-set $lock ~/.config/haunted-tiles/scripts/i3-lock.sh
+set $lock ~/.config/haunted-tiles/scripts/lock.sh
 set $rofi_powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
 set $volume_ctrl ~/.config/haunted-tiles/scripts/volume-ctrl.sh
 # Program var
