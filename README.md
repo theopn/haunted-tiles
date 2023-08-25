@@ -1,13 +1,11 @@
 # Haunted-Tiles
 
-![haunted-tiles-logo](./assets/haunted-tiles-logo.png =250x250)
-
+| <img src="./assets/haunted-tiles-logo.png" width="250" alt="Haunted Tiles logo"> |
+|:--:|
+| Cute Logo |
 | ![i3-sc](./assets/i3-sc.png) |
-|:--:|
 | i3 |
-
 | ![sway-sc]() |
-|:--:|
 | Sway |
 
 
@@ -67,5 +65,3 @@ Not necessary but helpful packages:
 - You can mute sound by clicking the volume icon
 - You can view current month calendar by clicking the date
     - You canview the last month calendar by right-clicking the date
-
-
