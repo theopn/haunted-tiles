@@ -9,7 +9,10 @@
 | Sway |
 
 
-My i3 and Sway configurations, along with accommodating tools.
+Haunted-tiles is my i3 WM and Sway configurations, along with accommodating tools.
+It used to be a part of my [dotfiles repository](https://github.com/theopn/dotfile), but with the growing number of configurations and shared scripts between i3 and Sway, I made a separate repository for it.
+
+Both WM has 
 
 ## Installation
 
@@ -24,14 +27,12 @@ List of keybindings differing from the default:
 
 - `jkl;` -> `hjkl`
 - `$mod + h` -> `$mod + z`: "hori[z]ontal" split
-- `$mod + Space`: launches Rofi as well as the default `$mod+d`
-- `$mod + Shift + c/r/e`: launches `i3_mode`, from which you can choose config reload, restart, or exit i3
+- `$mod + Space`: launches Rofi (you can also use the default `$mod+d`)
+- `$mod + Shift + c/r/e`: launches `i3_mode`/`sway_mode`, from which you can choose to reload config, restart, or exit i3/Sway
 - `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
-- `$mod + Shift + s`: Screenshot tool
+- `$mod + Shift + s`: screenshot tool
 
 ## i3 Dependencies
-
-List of packages required for my configuration:
 
 - Brightnessctl: Backlight control
 - Clipit: Clipboard manager
@@ -56,7 +57,8 @@ Not necessary but helpful packages:
 
 ## Polybar
 
-- Clicking the cat icon in the top left gives you hidden options.
+- Clicking the cat icon in the top left gives you hidden options
+    ![polybar-super-cat-menu-demo](./assets/polybar-super-cat-menu-demo.png)
     - Current Spotify music
     - Weather using `wttr.in`
     - Toggle do not disturb
@@ -64,4 +66,4 @@ Not necessary but helpful packages:
     - Toggle nightlight (redshift)
 - You can mute sound by clicking the volume icon
 - You can view current month calendar by clicking the date
-    - You canview the last month calendar by right-clicking the date
+    - You can view the last month calendar by right-clicking the date
