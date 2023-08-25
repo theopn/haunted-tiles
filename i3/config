@@ -14,7 +14,7 @@ set $lock ~/.config/haunted-tiles/scripts/i3-lock.sh
 set $rofi_powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
 set $volume_ctrl ~/.config/haunted-tiles/scripts/volume-ctrl.sh
 # Program var
-set $bar ~/.config/haunted-tiles/scripts/polybar-launch.sh
+set $bar ~/.config/haunted-tiles/scripts/polybar-launch.sh dracula
 set $clipboard clipit
 set $compositor picom
 set $menu "rofi -modi drun,run -show drun"
@@ -23,7 +23,7 @@ set $nightlight redshift -P -l 40.7:-73.9 -t 5600:3500 -m randr
 set $notification dunst
 set $screenshot flameshot launcher
 set $term kitty
-set $wallpaper feh --no-fehbg --bg-fill "$XDG_CONFIG_HOME/haunted-tiles/assets/naomi-solarsys-draculafied.png"
+set $wallpaper feh --no-fehbg --bg-fill "/home/theopn/.config/haunted-tiles/assets/naomi-solarsys-draculafied.png"
 # This is used to set the natural scrolling and tab to click
 set $trackpad_id 'SynPS/2 Synaptics TouchPad'
 # Key var
@@ -196,7 +196,7 @@ exec --no-startup-id $bar
 exec --no-startup-id $clipboard
 exec --no-startup-id $compositor
 exec --no-startup-id $network
-exec --no-startup-id $nightlight
+#exec --no-startup-id $nightlight
 exec --no-startup-id $notification
 exec --no-startup-id $wallpaper
 # }}}
