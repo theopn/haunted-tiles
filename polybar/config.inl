@@ -75,17 +75,17 @@ label-separator-foreground = ${colors.comment}
 
 ; Fun stuff
 menu-0-0 = "󰝚"
-menu-0-0-exec = notify-send "$(~/dotfiles/polybar/polybar-spotify.py)"
+menu-0-0-exec = notify-send "$(~/.config/haunted-tiles/scripts/spotify.py)"
 menu-0-1 = "󰖐"
-menu-0-1-exec = ~/dotfiles/polybar/polybar-weather.sh
+menu-0-1-exec = ~/.config/haunted-tiles/scripts/weather.sh
 menu-0-2 = ""
-menu-0-2-exec = ~/dotfiles/polybar/polybar-dunst-toggle.sh
+menu-0-2-exec = ~/.config/haunted-tiles/scripts/dunst-toggle.sh
 
 ; Display options
 menu-0-3 = "󰀿 Picom"
-menu-0-3-exec = ~/dotfiles/polybar/polybar-display-tools-toggle.sh compositor
+menu-0-3-exec = ~/.config/haunted-tiles/scripts/display-tools-toggle.sh compositor
 menu-0-4 = "󰖦 Redshift"
-menu-0-4-exec = ~/dotfiles/polybar/polybar-display-tools-toggle.sh nightlight
+menu-0-4-exec = ~/.config/haunted-tiles/scripts/display-tools-toggle.sh nightlight
 
 [module/i3]
 type = internal/i3
@@ -263,8 +263,8 @@ time = %H:%M
 label = %date% %time%
 format-prefix = "  "
 format-prefix-foreground = ${colors.orange}
-; A1 Left click, A2 middle, A3 right click, A4 Scroll up, A5 scroll down, etc
-format = %{A1:~/dotfiles/polybar/polybar-calendar.sh curr:}%{A3:~/dotfiles/polybar/polybar-calendar.sh next:}<label>%{A}%{A}
+; A1 Left click, A2 middle, A3 right click, A4 Scroll up, A5 scroll down, etc.
+format = %{A1:~/.config/haunted-tiles/scripts/calendar.sh curr:}%{A3:~/.config/haunted-tiles/scripts/calendar.sh next:}<label>%{A}%{A}
 
 ;;;;;;;;;; Unused Modules ;;;;;;;;;;
 [module/xworkspaces]
