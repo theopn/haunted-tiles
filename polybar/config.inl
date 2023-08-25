@@ -85,7 +85,7 @@ menu-0-2-exec = ~/.config/haunted-tiles/scripts/dunst-toggle.sh
 menu-0-3 = "󰀿 Picom"
 menu-0-3-exec = ~/.config/haunted-tiles/scripts/display-tools-toggle.sh compositor
 menu-0-4 = "󰖦 Redshift"
-menu-0-4-exec = ~/.config/haunted-tiles/scripts/display-tools-toggle.sh nightlight
+menu-0-4-exec = ~/.config/haunted-tiles/scripts/display-tools-toggle.sh redshift
 
 [module/i3]
 type = internal/i3

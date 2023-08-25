@@ -196,7 +196,7 @@ exec --no-startup-id $bar
 exec --no-startup-id $clipboard
 exec --no-startup-id $compositor
 exec --no-startup-id $network
-#exec --no-startup-id $nightlight
+exec --no-startup-id $nightlight
 exec --no-startup-id $notification
 exec --no-startup-id $wallpaper
 # }}}

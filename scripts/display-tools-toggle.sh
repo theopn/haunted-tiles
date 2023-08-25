@@ -1,7 +1,7 @@
 #!/bin/bash
 
 case $1 in
-  nightlight)
+  redshift)
     if [[ $(ps -aux | grep [r]edshift | wc -l) > 0 ]]; then
       redshift -x
       pkill -USR1 redshift
