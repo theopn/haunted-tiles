@@ -1,14 +1,6 @@
 #!/bin/bash
 
-case $1 in
-  dracula)
-    bar=~/dotfiles/polybar/config-dracula.inl
-    ;;
-  *)
-    echo 'No such bar exists!'
-    exit 1
-    ;;
-esac
+bar=~/.config/haunted-tiles/polybar/config.inl
 
 # Kill previous instances of polybar and wait until they are actually killed
 killall -q polybar
