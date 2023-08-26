@@ -7,7 +7,7 @@
 #╚═╝╚═════╝  ╚══╝╚══╝ ╚═╝     ╚═╝#
 ##################################
 
-# {{{ VARIABLES
+# Variables {{{
 set $mod Mod4
 # Script var
 set $lock ~/.config/haunted-tiles/scripts/lock.sh
@@ -15,7 +15,8 @@ set $rofi_powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
 set $volume_ctrl ~/.config/haunted-tiles/scripts/volume-ctrl.sh
 # Program var
 set $bar ~/.config/haunted-tiles/scripts/polybar-launch.sh dracula
-set $clipboard clipit
+set $clipboard copyq
+set $clipboard_show copyq show
 set $compositor picom
 set $menu "rofi -modi drun,run -show drun"
 set $network nm-applet --indicator
@@ -49,7 +50,11 @@ set $ws9 "9"
 set $ws10 "10"
 # }}}
 
-# {{{ BASE KEYBINDINGS
+# Window classes {{{
+for_window [instance="copyq"] floating enable, resize set 600 400, move position center, border pixel 5
+# }}}
+
+# Keybindings {{{
 # Use pactl to adjust volume in PulseAudio.
 #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 #bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -124,7 +129,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 # }}}
 
-# {{{ MODES
+# Modes {{{
 # Window resize mode
 set $resize_mode RESIZE MODE: (hjkl, arrows) Resize (esc, return, super+r) Exit
 mode "$resize_mode" {
@@ -158,15 +163,15 @@ bindsym $mod+Shift+r mode "$i3_mode"
 bindsym $mod+Shift+e mode "$i3_mode"
 # }}}
 
-# {{{ CUSTOM KEYBINDINGS
+# Utility Keybindings {{{
 # Accessing clipboard manager and screenshot tool
-#bindsym $mod+Shift+v exec --no-startup-id $clipboard
+bindsym $mod+Shift+v exec --no-startup-id $clipboard_show
 bindsym $mod+Shift+s exec --no-startup-id $screenshot
 # Rofi powermenu
 bindsym $mod+Shift+p exec --no-startup-id $rofi_powermenu
 # }}}
 
-# {{{ APPEARANCE
+# Appearance {{{
 font pango:CaskaydiaCove Nerd Font 8
 # class                 border  bground text    indicator child_border
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
@@ -181,9 +186,10 @@ for_window [class=".*"] border pixel 3
 gaps inner 3
 gaps outer 3
 ####### I3-GAPS ONLY SETTINGS #######
+smart_borders on
 # }}}
 
-# {{{ STARTUP APPLICATIONS
+# Startup App {{{
 # Using xss-lock to automatically lock computer before going to sleep
 exec --no-startup-id xss-lock --transfer-sleep-lock -- $lock --nofork
 # Swap Caps Lock and Control. No more Emacs pinky

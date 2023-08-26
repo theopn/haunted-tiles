@@ -21,7 +21,7 @@ It used to be a part of my [dotfiles repository](https://github.com/theopn/dotfi
 These are packages that get directly called in the i3 config or one of the scripts:
 
 - Brightnessctl: Backlight control
-- Clipit: Clipboard manager
+- CopyQ: Clipboard manager
 - Dunst: Notification daemon
 - Feh: Wallpaper
 - Flameshot: Screenshot on X
@@ -59,10 +59,12 @@ List of keybindings differing from the default i3/Sway:
 
 - `jkl;` -> `hjkl`
 - `$mod + h` -> `$mod + z`: hori[z]ontal split
-- `$mod + Space`: launches Rofi (you can also use the default `$mod+d`)
+- `$mod + Space`: launches Rofi or `sway-launcher-desktop` (you can also use the default `$mod+d`)
 - `$mod + Shift + c/r/e`: launches `i3_mode`/`sway_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
 - `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
-- `$mod + Shift + s`: screenshot tool
+    !{rofi-powermenu}(./assets/rofi-powermenu.png)
+- `$mod + Shift + s`: launches the screenshot tool
+- `$mod + Shift + v`: shows the clipboard manager
 
 ## Polybar
 
