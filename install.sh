@@ -1,22 +1,21 @@
 #!/bin/bash
 
-# Define var related to 
 HAUNTED_TILES_DIR=~/.config/haunted-tiles
 HT_BAK_DIR=~/haunted-tiles.bak
 
 # Echo $1 in ANSI green
 function green_echo() {
-  echo -e "\033[0;32m[Hunted-Tiles]${1}\033[0m"
+  echo -e "\033[0;32m[Haunted Tiles]${1}\033[0m"
 }
 
 # Echo $1 in ANSI yellow
 function yellow_echo() {
-  echo -e "\033[0;31m[Hunted-Tiles] ${1}\033[0m"
+  echo -e "\033[0;33m[Haunted Tiles] ${1}\033[0m"
 }
 
 # Echo $1 in ANSI red
 function red_echo() {
-  echo -e "\033[0;31m[Hunted-Tiles] ${1}\033[0m"
+  echo -e "\033[0;31m[Haunted Tiles] ${1}\033[0m"
 }
 
 # Check if this script was executed in $HAUNTED_TILES_DIR
@@ -28,10 +27,24 @@ verify_script_dir() {
     exit 1
   fi
 }
+#
+# Prompts user yes/no for the installation of $1
+selection_prompt() {
+  yellow_echo "Would you like to install $1 related files?"
+  read -p "y/n? > " -n1 -r REPLY
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    green_echo "Deploying $1 related files..."
+    true
+  else
+    green_echo "Skipping $1 related files..."
+    false
+  fi
+}
 
 # Attempt to create a symlink for $1 in $2
 # If a folder or file exists in $2, move to $HT_BAK_DIR
-function backup_then_symlink() {
+backup_then_symlink() {
   if [[ -e $2 ]]; then
     yellow_echo "Existing $2 will be moved to $HT_BAK_DIR"
     mkdir -p $HT_BAK_DIR
@@ -45,19 +58,39 @@ function backup_then_symlink() {
 main() {
   verify_script_dir
 
-  green_echo "Installing common utility configurations..."
-  backup_then_symlink "$HAUNTED_TILES_DIR/dunst" "$XDG_CONFIG_HOME/dunst"
-  backup_then_symlink "$HAUNTED_TILES_DIR/rofi" "$XDG_CONFIG_HOME/rofi"
-  green_echo "Done!"
+  if selection_prompt 'Dunst'; then
+    mkdir -p ~/.config/dunst/
+    backup_then_symlink ${HAUNTED_TILES_DIR}/dunst/dunstrc ~/.config/dunst/dunstrc
+  fi
 
-  green_echo "Installing i3 and Polybar configurations..."
-  backup_then_symlink "$HAUNTED_TILES_DIR/i3" "$XDG_CONFIG_HOME/i3"
-  backup_then_symlink "$HAUNTED_TILES_DIR/polybar" "$XDG_CONFIG_HOME/polybar"
-  green_echo "Done!"
+  if selection_prompt 'Rofi'; then
+    mkdir -p ~/.config/rofi/
+    backup_then_symlink ${HAUNTED_TILES_DIR}/rofi/config.rasi ~/.config/rofi/config.rasi
+  fi
 
-  green_echo "Installing Sway and Waybar configurations..."
-  backup_then_symlink "$HAUNTED_TILES_DIR/sway" "$XDG_CONFIG_HOME/sway"
-  backup_then_symlink "$HAUNTED_TILES_DIR/waybar" "$XDG_CONFIG_HOME/waybar"
+  if selection_prompt 'i3'; then
+    mkdir -p ~/.config/i3/
+    backup_then_symlink ${HAUNTED_TILES_DIR}/i3/config ~/.config/i3/config
+  fi
+
+  if selection_prompt 'Polybar'; then
+    mkdir -p ~/.config/polybar/
+    backup_then_symlink ${HAUNTED_TILES_DIR}/polybar/config.inl ~/.config/polybar/config.inl
+  fi
+
+  if selection_prompt 'Sway'; then
+    mkdir -p ~/.config/sway/
+    backup_then_symlink ${HAUNTED_TILES_DIR}/sway/config ~/.config/sway/config
+  fi
+
+  if selection_prompt 'Waybar'; then
+    mkdir -p ~/.config/waybar/
+    CURRENT_FILES=("config" "style.css")
+    for FILE in ${CURRENT_FILES[@]}; do
+      backup_then_symlink ${HAUNTED_TILES_DIR}/waybar/${FILE} ~/.config/waybar/${FILE}
+    done
+  fi
+
   green_echo "Done!"
 }
 
