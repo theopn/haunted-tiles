@@ -73,6 +73,11 @@ main() {
     backup_then_symlink ${HAUNTED_TILES_DIR}/i3/config ~/.config/i3/config
   fi
 
+  feh --bg-fill ~/.config/haunted-tiles/assets/naomi-solarsys-draculafied.png
+  echo
+  yellow_echo 'Setting wallapaper... Modify ~/.fehbg to change the wallpaper'
+  echo
+
   if selection_prompt 'Polybar'; then
     mkdir -p ~/.config/polybar/
     backup_then_symlink ${HAUNTED_TILES_DIR}/polybar/config.inl ~/.config/polybar/config.inl

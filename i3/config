@@ -23,7 +23,7 @@ set $nightlight redshift -P -l 40.7:-73.9 -t 5600:3500 -m randr
 set $notification dunst
 set $screenshot flameshot launcher
 set $term kitty
-set $wallpaper feh --no-fehbg --bg-fill "/home/theopn/.config/haunted-tiles/assets/naomi-solarsys-draculafied.png"
+set $wallpaper ~/.fehbg
 # This is used to set the natural scrolling and tab to click
 set $trackpad_id 'SynPS/2 Synaptics TouchPad'
 # Key var
