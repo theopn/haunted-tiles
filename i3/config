@@ -7,31 +7,41 @@
 #╚═╝╚═════╝  ╚══╝╚══╝ ╚═╝     ╚═╝#
 ##################################
 
+# Window classes {{{
+for_window [instance="copyq"] floating enable, resize set 600 400, move position center, border pixel 5
+# }}}
+
 # Variables {{{
+# Essentials
 set $mod Mod4
-# Script var
+set $term kitty
+set $menu "rofi -modi drun,run -show drun"
+
+# Scripts for keybindings
+set $clipboard_show copyq show
 set $lock ~/.config/haunted-tiles/scripts/lock.sh
-set $rofi_powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
+set $powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
+set $screenshot flameshot launcher
 set $volume_ctrl ~/.config/haunted-tiles/scripts/volume-ctrl.sh
-# Program var
+
+# Startup app
 set $bar ~/.config/haunted-tiles/scripts/polybar-launch.sh dracula
 set $clipboard copyq
-set $clipboard_show copyq show
 set $compositor picom
-set $menu "rofi -modi drun,run -show drun"
 set $network nm-applet --indicator
 set $nightlight redshift -P -l 40.7:-73.9 -t 5600:3500 -m randr
 set $notification dunst
-set $screenshot flameshot launcher
-set $term kitty
 set $wallpaper ~/.fehbg
+
 # This is used to set the natural scrolling and tab to click
 set $trackpad_id 'SynPS/2 Synaptics TouchPad'
+
 # Key var
 set $left h
 set $down j
 set $up k
 set $right l
+
 # workspace var
 # 1, 2 - Development and web: Terminal with tmux and Neovim, Firefox
 set $ws1 "1:  "
@@ -48,10 +58,6 @@ set $ws7 "7: 󰪭 "
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-# }}}
-
-# Window classes {{{
-for_window [instance="copyq"] floating enable, resize set 600 400, move position center, border pixel 5
 # }}}
 
 # Keybindings {{{
@@ -168,7 +174,7 @@ bindsym $mod+Shift+e mode "$i3_mode"
 bindsym $mod+Shift+v exec --no-startup-id $clipboard_show
 bindsym $mod+Shift+s exec --no-startup-id $screenshot
 # Rofi powermenu
-bindsym $mod+Shift+p exec --no-startup-id $rofi_powermenu
+bindsym $mod+Shift+p exec --no-startup-id $powermenu
 # }}}
 
 # Appearance {{{
@@ -185,7 +191,7 @@ for_window [class=".*"] border pixel 3
 ####### I3-GAPS ONLY SETTINGS #######
 gaps inner 3
 gaps outer 3
-####### I3-GAPS ONLY SETTINGS #######
+# Remove border when there is only one window
 smart_borders on
 # }}}
 
