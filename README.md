@@ -87,14 +87,14 @@ List of keybindings differing from the default i3/Sway:
 - `$mod + Space`: launch Rofi or `sway-launcher-desktop` (you can also use the default `$mod+d`)
 - `$mod + Shift + c/r/e`: launch `i3_mode`/`sway_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
 - `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
-    ![rofi-powermenu](./assets/rofi-powermenu.png)
+    ![rofi-powermenu](./assets/rofi-powermenu-demo.png)
 - `$mod + Shift + s`: launches the screenshot tool
 - `$mod + Shift + v`: shows the clipboard manager
 
 Sway only keybindings:
 
 - `$mod + Shift + Return`: simulates the "Cat Menu" of X11 Polybar (see the Polybar section below) in the form of a floating fzf script
-    ![sway-super-cat-menu-demo](./assets/sway-super-cat-menu-demo.png)
+    ![sway-super-cat-menu-demo](./assets/super-cat-menu-demo.png)
 - `$mod + Shift + r`: clears clipboard history (there is no "restart" keybinding in Sway)
 
 ## Polybar
