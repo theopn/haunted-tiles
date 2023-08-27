@@ -1,20 +1,23 @@
 # Haunted-Tiles
 
 | <img src="./assets/haunted-tiles-logo.png" width="250" alt="Haunted Tiles logo"> |
-|:--:|
-| Cute Logo |
-| ![i3-sc](./assets/i3-sc.png) |
-| i3 |
+| :--: |
 | ![sway-sc](./assets/sway-sc.png) |
 | Sway |
+| ![i3-sc](./assets/i3-sc.png) |
+| i3 |
 
 
-Haunted Tiles is my personal i3 WM and Sway setup, along with essential tiling WM tools.
+Haunted Tiles is my personal i3 WM and Sway setup, along with essential tiling WM tools like notification daemon, app launcher, and Bash/Python scripts to bring some of the DE experience to minimal tiling WMs.
 It used to be a part of my [dotfiles repository](https://github.com/theopn/dotfile), and with the growing size of configurations and shared scripts between i3 and Sway, I made a separate repository for it.
 
-- Both X11 and Wayland strive to be a minimal setup that gets out of your way
-- The overall theme is [Dracula](https://draculatheme.com/contribute), hence the name "Haunted"-tiles
-    - It's also because I like naming everything
+Both sets of configuration strive to be a minimal setup that gets out of your way while providing practical features and being aesthetically pleasing.
+The overall theme is [Dracula](https://draculatheme.com/contribute), hence the name "Haunted"-tiles (it's also partially because I like naming everything).
+
+Also, feel free to check out:
+
+- [Theovim](https://github.com/theopn/theovim/), my Neovim configuration
+- Rest of my [dotfiles](https://github.com/theopn/dotfiles)
 
 ## i3 Dependencies
 
@@ -39,14 +42,13 @@ Not necessary but helpful packages:
 
 - Blueman: GUI Bluetooth manager
 - Pavucontrol: Volume control for Pulseaudio (or Pipewire that pretends to be Pulseaudio)
-- xrandr: External display output control, should be a dependency for X11 server
 
 ## Sway Dependencies
 
-- Clipman & wl-clipboard: Wayland clipboard utility (wl-clipboard) and terminal command-line clipboard history manager (clipman).
-- fzf: Fuzzy finder is needed to launch the [sway-launcher-desktop](https://github.com/Biont/sway-launcher-desktop).
+- Clipman & wl-clipboard: Wayland clipboard utility (wl-clipboard) and terminal command-line clipboard history manager (clipman)
+- fzf: I use fzf as a rofi replacement in some scripts. As Rofi becomes stable in Wayland, this won't be necessary
 - Gammastep: Redshift replacement
-- Grim & Slurp: Select a region in Wayland compositor (Slurp) and take a screenshot (Grim).
+- Grim & Slurp: Select a region in Wayland compositor (Slurp) and take a screenshot (Grim)
 - Waybar: Bar
 
 ## Installation
@@ -63,19 +65,20 @@ git clone  ~/.config/haunted-tiles
 
 ## Keybindings
 
-Most of the default i3/Sway keybindings are used. Notable keybindings include:
+Most of the default i3/Sway keybindings are kept. Notable keybindings include:
 
 - `$mod` is the super key
 - `$mod + Return`: opens terminal
 - `$mod + hjkl`: focuses the left, down, up, or right window
-- `$mod + Shift + hjkl`: moves the current window to left, donw, up, or right
-- `$mod + f`: toggles the full screen mode
+- `$mod + Shift + hjkl`: moves the current window to left, down, up, or right
+- `$mod + f`: toggles the full-screen mode
 - `$mod + s/w/e`: toggles the stacking, tabbed, or split (tiling) layout
 - `$mod + Shift space`: toggles floating mode for the current window
 - `$mod + 1-9`: moves to workspace 1 - 9
 - `$mod + Shift + 1-9`: moves the current window to workspace 1 - 9
 - `$mod + r`: enters the resize mode
-- For the complete list of keybindings, reference the config file
+
+For the complete list of keybindings, reference the config file.
 
 List of keybindings differing from the default i3/Sway:
 
@@ -90,7 +93,7 @@ List of keybindings differing from the default i3/Sway:
 
 Sway only keybindings:
 
-- `$mod + Shift + Return`: Simulate the "Super Cat Menu" of X11 Polybar (see the Polybar section below) in the form of floating fzf script
+- `$mod + Shift + Return`: simulates the "Cat Menu" of X11 Polybar (see the Polybar section below) in the form of a floating fzf script
     ![sway-super-cat-menu-demo](./assets/sway-super-cat-menu-demo.png)
 - `$mod + Shift + r`: clears clipboard history (there is no "restart" keybinding in Sway)
 
@@ -109,6 +112,8 @@ Sway only keybindings:
 
 ## Credits
 
-- 
+- The artwork for [the logo](./assets/haunted-tiles-logo.png), [solar system wallpaper](./assets/naomi-solarsys-draculafied.png), and [lock screen](./assets/naomi-solarsys-draculafied-lockscreen.png) are done by my girlfriend Naomi. If you are using one of the images, please credit her by crediting this repository
+- Wallpapers in `./assets/dracula-wallpaper/` are from the [official Dracula wallpaper collection](https://github.com/dracula/dracula-theme)
+- [sway-launcher-desktop](https://github.com/Biont/sway-launcher-desktop) is included
 - `./scripts/spotify.py` is heavily based on [polybar-spotify](https://github.com/Jvanrhijn/polybar-spotify/blob/master/spotify_status.py)
 
