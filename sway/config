@@ -36,7 +36,7 @@ set $network nm-applet --indicator
 set $nightlight gammastep -P -l 40.7:-73.9 -t 5600:3500
 set $notification dunst
 #set $wallpaper ~/.config/haunted-tiles/assets/naomi-solarsys-draculafied.png
-set $wallpaper ~/Documents/wallpaper/first-collection/fedora.png
+set $wallpaper ~/.config/haunted-tiles/assets/dracula-wallpaper/dracula-leaves-6272a4-dark.png
 
 # Key var
 set $left h
