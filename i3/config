@@ -19,7 +19,7 @@ set $menu "rofi -modi drun,run -show drun"
 
 # Scripts for keybindings
 set $clipboard_show copyq show
-set $lock ~/.config/haunted-tiles/scripts/lock.sh
+set $lock ~/.config/haunted-tiles/scripts/i3lock.sh
 set $powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
 set $screenshot flameshot launcher
 set $volume_ctrl ~/.config/haunted-tiles/scripts/volume-ctrl.sh
