@@ -121,7 +121,7 @@ window#waybar {
 }
 
 #battery {
-  background-color: rgba(80, 250, 123, 0.5); /* Dracula Green */
+  background-color: rgba(139, 233, 253, 0.5); /* Dracula Cyan */
 }
 
 #battery.charging, #battery.plugged {
