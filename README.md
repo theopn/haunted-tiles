@@ -5,7 +5,7 @@
 | Cute Logo |
 | ![i3-sc](./assets/i3-sc.png) |
 | i3 |
-| ![sway-sc]() |
+| ![sway-sc](./assets/sway-sc.png) |
 | Sway |
 
 
