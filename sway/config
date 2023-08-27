@@ -8,8 +8,8 @@
 ######################################
 
 # Window classes {{{
-for_window [app_id="^small_float$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10, move center
-for_window [app_id="^large_float$"] floating enable, sticky enable, resize set 70 ppt 70 ppt, border pixel 10, move center
+for_window [app_id="^small_float$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 5, move center
+for_window [app_id="^large_float$"] floating enable, sticky enable, resize set 70 ppt 70 ppt, border pixel 5, move center
 set $small_float kitty --class=small_float -e
 set $large_float kitty --class=large_float
 # }}}
@@ -23,9 +23,10 @@ set $menu $small_float ~/.config/haunted-tiles/scripts/sway-launcher-desktop.sh
 # Scripts for keybindings
 set $clipboard_clear clipman clear --all
 set $clipboard_show $small_float clipman pick --print0 --tool=CUSTOM --tool-args="fzf --prompt 'pick > ' --bind 'tab:up' --cycle --read0"
-set $lock swaylock -i ~/.config/haunted-tiles/assets/naomi-solarsys-draculafied-lockscreen.png
-set $powermenu $small_float ~/.config/haunted-tiles/scripts/fzf-powermenu.sh
+set $lock ~/.config/haunted-tiles/scripts/swaylock.sh
+set $powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
 set $screenshot grim -g "$(slurp)"
+set $supercatmenu $small_float ~/.config/haunted-tiles/scripts/super-cat-menu.sh
 set $volume_ctrl ~/.config/haunted-tiles/scripts/volume-ctrl.sh
 
 # Startup app
@@ -34,7 +35,8 @@ set $clipboard wl-paste -t text --watch clipman store
 set $network nm-applet --indicator
 set $nightlight gammastep -P -l 40.7:-73.9 -t 5600:3500
 set $notification dunst
-set $wallpaper ~/dotfiles/assets/naomi-solarsys-draculafied.png
+#set $wallpaper ~/.config/haunted-tiles/assets/naomi-solarsys-draculafied.png
+set $wallpaper ~/Documents/wallpaper/first-collection/fedora.png
 
 # Key var
 set $left h
@@ -94,7 +96,6 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+Return exec $term --class=large_float
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 bindsym $mod+space exec $menu
@@ -176,8 +177,8 @@ mode "$resize_mode" {
 }
 bindsym $mod+r mode "$resize_mode"
 # Sway related options mode
-set $sway_mode Sway MODE: (c) Config reload (e) Exit Sway (l) Lock (esc) Exit
-mode "$system_mode" {
+set $sway_mode Sway MODE: (c) Config reload (e) Exit Sway (esc, Return, Mode+Shift+c/e) Exit
+mode "$sway_mode" {
   bindsym c reload, mode "default"
   bindsym e exec "swaynag -t warning -m 'Exit Sway?' -B 'Sure' 'swaymsg exit'"
   bindsym Escape mode "default"
@@ -191,12 +192,14 @@ bindsym $mod+Shift+e mode "$sway_mode"
 
 # Utility keybindings {{{
 # Clipboard
-bindsym $mod+Shift+c exec $clipboard_clear
+bindsym $mod+Shift+r exec $clipboard_clear
 bindsym $mod+Shift+v exec $clipboard_show
 # Screenshot
 bindsym $mod+Shift+s exec $screenshot
 # Powermenu
 bindsym $mod+Shift+p exec $powermenu
+# My custom menu
+bindsym $mod+Shift+Return exec $supercatmenu
 # }}}
 
 # Appearance {{{
