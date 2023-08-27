@@ -17,7 +17,11 @@ no=' 󰜺 no'
 shutdown_cmd='systemctl poweroff'
 suspend_cmd='systemctl suspend'
 reboot_cmd='systemctl reboot'
-lock_cmd=~/.config/haunted-tiles/scripts/lock.sh
+if [[ "$DESKTOP_SESSION" == "i3" ]]; then
+  lock_cmd=~/.config/haunted-tiles/scripts/lock.sh
+elif [[ "$DESKTOP_SESSION" == "sway" ]]; then
+  lock_cmd=~/.config/haunted-tiles/scripts/swaylock.sh
+fi
 
 function exit_wm() {
   if [[ "$DESKTOP_SESSION" == "i3" ]]; then
