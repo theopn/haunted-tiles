@@ -18,7 +18,7 @@ set $large_float kitty --class=large_float
 # Essentials
 set $mod Mod4
 set $term kitty
-set $menu $small_float ~/.config/haunted-tiles/scripts/sway-launcher-desktop.sh
+set $menu "rofi -modi drun,run -show drun"
 
 # Scripts for keybindings
 set $clipboard_clear clipman clear --all
