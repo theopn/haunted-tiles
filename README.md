@@ -41,6 +41,14 @@ Not necessary but helpful packages:
 - Pavucontrol: Volume control for Pulseaudio (or Pipewire that pretends to be Pulseaudio)
 - xrandr: External display output control, should be a dependency for X11 server
 
+## Sway Dependencies
+
+- Clipman & wl-clipboard: Wayland clipboard utility (wl-clipboard) and terminal command-line clipboard history manager (clipman).
+- fzf: Fuzzy finder is needed to launch the [sway-launcher-desktop](https://github.com/Biont/sway-launcher-desktop).
+- Gammastep: Redshift replacement
+- Grim & Slurp: Select a region in Wayland compositor (Slurp) and take a screenshot (Grim).
+- Waybar: Bar
+
 ## Installation
 
 - Installation script will ask you before creating a symlink for each configuration file
@@ -82,8 +90,9 @@ List of keybindings differing from the default i3/Sway:
 
 Sway only keybindings:
 
-- `$mod + Shift + Return`: opens floating terminal
-- `$mod + Shift + r`: clears clipboard history (it is because there is no "restart" keybinding in Sway)
+- `$mod + Shift + Return`: Simulate the "Super Cat Menu" of X11 Polybar (see the Polybar section below) in the form of floating fzf script
+    ![sway-super-cat-menu-demo](./assets/sway-super-cat-menu-demo.png)
+- `$mod + Shift + r`: clears clipboard history (there is no "restart" keybinding in Sway)
 
 ## Polybar
 
