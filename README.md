@@ -109,5 +109,6 @@ Sway only keybindings:
 
 ## Credits
 
+- 
 - `./scripts/spotify.py` is heavily based on [polybar-spotify](https://github.com/Jvanrhijn/polybar-spotify/blob/master/spotify_status.py)
 
