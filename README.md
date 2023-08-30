@@ -1,4 +1,4 @@
-# Haunted-Tiles
+# Haunted Tiles
 
 | <img src="./assets/haunted-tiles-logo.png" width="250" alt="Haunted Tiles logo"> |
 | :--: |
@@ -14,7 +14,7 @@ It used to be a part of my [dotfiles repository](https://github.com/theopn/dotfi
 Both sets of configuration strive to be a minimal setup that gets out of your way while providing practical features and being aesthetically pleasing.
 The overall theme is [Dracula](https://draculatheme.com/contribute), hence the name "Haunted"-tiles (it's also partially because I like naming everything).
 
-Also, feel free to check out:
+Feel free to check out:
 
 - [Theovim](https://github.com/theopn/theovim/), my Neovim configuration
 - Rest of my [dotfiles](https://github.com/theopn/dotfiles)
@@ -49,11 +49,11 @@ Not necessary but helpful packages:
 - fzf: I use fzf as a rofi replacement in some scripts. As Rofi becomes stable in Wayland, this won't be necessary
 - Gammastep: Redshift replacement
 - Grim & Slurp: Select a region in Wayland compositor (Slurp) and take a screenshot (Grim)
-- Waybar: Bar
+- Waybar: The bar
 
 ## Installation
 
-- Installation script will ask you before creating a symlink for each configuration file
+- Installation script will prompt you before creating a symlink for each configuration file
 - If there is a file/directory in the destination, it will be moved to `~/haunted-tiles.bak`
 - **Make sure you have Nerd Font installed!**
     Haunted-tiles uses [CaskaydiaCove Nerd Font](https://www.nerdfonts.com/font-downloads).
@@ -84,18 +84,18 @@ List of keybindings differing from the default i3/Sway:
 
 - `jkl;` -> `hjkl`
 - `$mod + h` -> `$mod + z`: toggle hori[z]ontal split
-- `$mod + Space`: launch Rofi or `sway-launcher-desktop` (you can also use the default `$mod+d`)
-- `$mod + Shift + c/r/e`: launch `i3_mode`/`sway_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
+- `$mod + Space`: launches Rofi (you can also use the default `$mod+d`)
+- `$mod + Shift + c/r/e`: launches `i3_mode`/`sway_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
 - `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
     ![rofi-powermenu](./assets/rofi-powermenu-demo.png)
 - `$mod + Shift + s`: launches the screenshot tool
-- `$mod + Shift + v`: shows the clipboard manager
+- `$mod + Shift + v`: launches the clipboard manager
 
 Sway only keybindings:
 
 - `$mod + Shift + Return`: simulates the "Cat Menu" of X11 Polybar (see the Polybar section below) in the form of a floating fzf script
     ![sway-super-cat-menu-demo](./assets/super-cat-menu-demo.png)
-- `$mod + Shift + r`: clears clipboard history (there is no "restart" keybinding in Sway)
+- `$mod + Shift + r`: clears clipboard history (replaces one of the `i3_mode` keybindings, since there is no "[r]estart" in Sway)
 
 ## Polybar
 
@@ -115,5 +115,5 @@ Sway only keybindings:
 - The artwork for [the logo](./assets/haunted-tiles-logo.png), [solar system wallpaper](./assets/naomi-solarsys-draculafied.png), and [lock screen](./assets/naomi-solarsys-draculafied-lockscreen.png) are done by my girlfriend Naomi. If you are using one of the images, please credit her by crediting this repository
 - Wallpapers in `./assets/dracula-wallpaper/` are from the [official Dracula wallpaper collection](https://github.com/dracula/dracula-theme)
 - [sway-launcher-desktop](https://github.com/Biont/sway-launcher-desktop) is included
-- `./scripts/spotify.py` is heavily based on [polybar-spotify](https://github.com/Jvanrhijn/polybar-spotify/blob/master/spotify_status.py)
+- `./scripts/spotify.py` is heavily based on [polybar-spotify](https://github.com/Jvanrhijn/polybar-spotify/)
 
