@@ -19,11 +19,18 @@ If you are using one of the images, please credit her by crediting this reposito
 - Fedora i3 spin comes with: `brightnessctl, dunst, feh, i3lock, nm-applet, pavucontrol, setxkbmap, xss-lock`.
 - Install: `sudo dnf install arandr blueman copyq flameshot lxpolkit picom polybar redshift rofi xinput`
 
-Also install Git.
+Personally, I would also install git, kitty, nnn, and vim.
 
 Install UbuntuMono Nerd Font:
 
 ```sh
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts
+wget -O tmp.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/UbuntuMono.zip
+unzip tmp.zip
+fc-cache -vf
+rm tmp.zip
+cd -
 ```
 
 Finally, clone the repository and run the installation script:
