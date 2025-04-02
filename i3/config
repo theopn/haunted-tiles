@@ -22,7 +22,6 @@ set $clipboard_show copyq show
 set $lock ~/.config/haunted-tiles/scripts/i3lock.sh
 set $powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
 set $screenshot flameshot launcher
-set $volume_ctrl ~/.config/haunted-tiles/scripts/volume-ctrl.sh
 
 # Startup app
 set $bar ~/.config/haunted-tiles/scripts/polybar-launch.sh dracula
@@ -62,12 +61,9 @@ set $ws10 "10"
 
 # Keybindings {{{
 # Use pactl to adjust volume in PulseAudio.
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec --no-startup-id $volume_ctrl up
-bindsym XF86AudioLowerVolume exec --no-startup-id $volume_ctrl down
-bindsym XF86AudioMute exec --no-startup-id $volume_ctrl mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 # Use brightnessctl to adjust brightness with function row keys
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
