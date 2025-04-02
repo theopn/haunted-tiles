@@ -23,7 +23,7 @@
     frame_color = "#282A36"
     separator_color = frame
     sort = yes
-    font = CaskaydiaCove Nerd Font 12
+    font = UbuntuMono Nerd Font 12
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"

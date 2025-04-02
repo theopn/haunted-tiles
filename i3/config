@@ -72,6 +72,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use brightnessctl to adjust brightness with function row keys
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+# Call arandr to adjust monitor settings
+bindsym XF86Display exec --no-startup-id arandr
 
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
@@ -178,7 +180,7 @@ bindsym $mod+Shift+p exec --no-startup-id $powermenu
 # }}}
 
 # Appearance {{{
-font pango:CaskaydiaCove Nerd Font 8
+font pango:UbuntuMono Nerd Font 8
 # class                 border  bground text    indicator child_border
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
