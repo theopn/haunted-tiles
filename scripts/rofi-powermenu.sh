@@ -5,13 +5,13 @@
 #
 
 # Options
-shutdown='  shutdown'
-reboot=' 󰜉 reboot'
-lock='  lock'
-suspend=' 󰤄 suspend'
-logout=' 󰗼 logout'
-yes='  yes'
-no=' 󰜺 no'
+shutdown='   shutdown'
+reboot=' 󰜉  reboot'
+lock='   lock'
+suspend=' 󰤄  suspend'
+logout=' 󰗼  logout'
+yes='   yes'
+no=' 󰜺  no'
 
 # List of commands
 shutdown_cmd='systemctl poweroff'
