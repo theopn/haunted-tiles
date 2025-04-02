@@ -6,7 +6,7 @@
 
 Collection of utilities and scripts for my Fedora i3-spin setup.
 
-I had an ambitous plan of making this repository the next best tiling window manager "distro" for i3 and Sway, but yeah, it is just my minimal, Dracula-themed config for my ThinkPad which I use as a focused development machine.
+I had an ambitous plan of making this repository the next best tiling window manager "distro" for i3 and Sway, but yeah, now it is just my minimal, Dracula-themed config for my ThinkPad which I use as a focused development machine.
 
 You can get the glimps of my Sway config and other quirky and unnecessary scripts I used to have in the `deprecated` directory.
 I still have some ridiculous features like a weather widget using [wttr.in](https://github.com/chubin/wttr.in).
@@ -33,7 +33,7 @@ git clone https://github.com/theopn/haunted-tiles.git ~/.config/haunted-tiles
 ~/.config/haunted-tiles/install.sh
 ```
 
-## i3
+## Usage
 
 List of keybindings differing from the default i3/Sway:
 
@@ -45,13 +45,5 @@ List of keybindings differing from the default i3/Sway:
 - `$mod + Shift + s`: launches the screenshot tool
 - `$mod + Shift + v`: launches the clipboard manager
 
-## Dunst
-
-- To view the previous notification, use `dunstctl history-pop` (repeatable)
-
-## Other Tips
-
-- Install `xenv` and run `xev -event keyboard | egrep -o 'keycode.*\)'` to check the keycode for 
-- When you mess something up, tty (`<C-M-<F2 - F?>>`) is your friend
-- Reference 
+If you need any help on using i3/Sway, reference my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips) for more information.
 
