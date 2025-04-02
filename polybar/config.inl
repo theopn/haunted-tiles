@@ -41,7 +41,7 @@ module-margin = 1
 separator =
 separator-foreground = ${colors.comment}
 
-font-0 = CaskaydiaCove Nerd Font:size=12;1
+font-0 = UbuntuMono Nerd Font:size=12;1
 
 modules-left = super-cat-menu i3 xwindow
 modules-center = temperature cpu memory network
