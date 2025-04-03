@@ -28,7 +28,7 @@ set $bar ~/.config/haunted-tiles/scripts/polybar-launch.sh dracula
 set $clipboard copyq
 set $compositor picom
 set $network nm-applet --indicator
-set $nightlight redshift -P -l 40.7:-73.9 -t 5600:3500 -m randr
+set $nightlight redshift -P
 set $notification dunst
 set $wallpaper ~/.fehbg
 

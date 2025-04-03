@@ -40,6 +40,30 @@ git clone https://github.com/theopn/haunted-tiles.git ~/.config/haunted-tiles
 ~/.config/haunted-tiles/install.sh
 ```
 
+Create `~/.Xresources` for the DPI and other X11 related control. E.g.:
+
+```
+> cat .Xresources 
+Xft.dpi: 120
+```
+
+Create `~/.config/redshift.conf` to control the behavior of the "nightlight" utility:
+
+```
+[redshift]
+temp-day=5600
+temp-night=3500
+gamma=0.8
+adjustment-method=randr
+location-provider=manual
+
+[manual]
+lat=<decimal degree of your loc>
+lon=<decimal degree of your loc>
+```
+
+For other tips on using i3/Sway tiling WM, read my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips) for more information.
+
 ## Usage
 
 List of keybindings differing from the default i3/Sway:
@@ -51,6 +75,4 @@ List of keybindings differing from the default i3/Sway:
 - `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
 - `$mod + Shift + s`: launches the screenshot tool
 - `$mod + Shift + v`: launches the clipboard manager
-
-If you need any help on using i3/Sway, reference my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips) for more information.
 
