@@ -66,12 +66,13 @@ For other tips on using i3/Sway tiling WM, read my [i3-sway-tips repository](htt
 
 ## Usage
 
-List of keybindings differing from the default i3/Sway:
+List of keybindings differing from the default i3:
 
 - `jkl;` -> `hjkl`
-- `$mod + h` -> `$mod + z`: toggle hori[z]ontal split
-- `$mod + Space`: switch focus between floating windows and tiling windows -> launches Rofi (you can also use the default `$mod+d`)
-- `$mod + Shift + c/r/e`: launches `i3_mode`/`sway_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
+- `$mod + h` -> `$mod + z`: toggles hori[z]ontal split
+- `$mod + Space`: switches focus between floating windows and tiling windows -> launches Rofi (you can also use the default `$mod+d`)
+- `$mod + Shift + c/r/e`:  toggles the `i3_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
+- `$mod + Shift + m`: toggles the `monitor_mode`, where you can choose shortcuts for Xrandr commands (`--right-as`, `--left-as`, `--same-as`, and `--off`)
 - `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
 - `$mod + Shift + s`: launches the screenshot tool
 - `$mod + Shift + v`: launches the clipboard manager

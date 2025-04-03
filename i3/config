@@ -57,6 +57,11 @@ set $ws7 "7: 󰪭 "
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+# Multi monitors
+workspace $ws8 output DP-1
+workspace $ws9 output DP-1
+workspace $ws10 output DP-1
 # }}}
 
 # Keybindings {{{
@@ -165,6 +170,18 @@ mode "$i3_mode" {
 bindsym $mod+Shift+c mode "$i3_mode"
 bindsym $mod+Shift+r mode "$i3_mode"
 bindsym $mod+Shift+e mode "$i3_mode"
+# Multi monitor mode
+set $monitor_mode Monitor MODE: output DP-1 to (l) --left-of (r) --right-of (s) --same-as (x) --off (esc, Return, Mod+Shift+m) Exit
+mode "$monitor_mode" {
+  bindsym l exec --no-startup-id xrandr --output DP-1 --auto --left-of eDP-1; mode "default"
+  bindsym r exec --no-startup-id xrandr --output DP-1 --auto --right-of eDP-1; mode "default"
+  bindsym s exec --no-startup-id xrandr --output DP-1 --auto --same-as eDP-1; mode "default"
+  bindsym x exec --no-startup-id xrandr --output DP-1 --off; mode "default"
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+  bindsym $mod+Shift+m mode "default"
+}
+bindsym $mod+Shift+m mode "$monitor_mode"
 # }}}
 
 # Utility Keybindings {{{
