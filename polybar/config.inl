@@ -45,15 +45,12 @@ font-0 = UbuntuMono Nerd Font:size=12;1
 
 modules-left = super-cat-menu i3 xwindow
 modules-center = temperature cpu memory network
-modules-right = pulseaudio backlight battery0 battery1 date
+modules-right = tray pulseaudio backlight battery0 battery1 date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 enable-ipc = true
-
-tray-position = right
-tray-padding = 1
 
 ; wm-restack = i3
 
@@ -74,18 +71,16 @@ label-separator = |
 label-separator-foreground = ${colors.comment}
 
 ; Fun stuff
-menu-0-0 = "󰝚"
-menu-0-0-exec = notify-send "$(~/.config/haunted-tiles/scripts/spotify.py)"
-menu-0-1 = "󰖐"
-menu-0-1-exec = ~/.config/haunted-tiles/scripts/weather.sh
-menu-0-2 = ""
-menu-0-2-exec = ~/.config/haunted-tiles/scripts/dunst-toggle.sh
+menu-0-0 = "󰖐  Weather"
+menu-0-0-exec = ~/.config/haunted-tiles/scripts/weather.sh
+menu-0-1 = " Dunst"
+menu-0-1-exec = ~/.config/haunted-tiles/scripts/dunst-toggle.sh
 
 ; Display options
-menu-0-3 = "󰀿 Picom"
-menu-0-3-exec = ~/.config/haunted-tiles/scripts/display-tools-toggle.sh compositor
-menu-0-4 = "󰖦 Redshift"
-menu-0-4-exec = ~/.config/haunted-tiles/scripts/display-tools-toggle.sh redshift
+menu-0-2 = "󰀿 Picom"
+menu-0-2-exec = ~/.config/haunted-tiles/scripts/display-tools-toggle.sh compositor
+menu-0-3 = "󰖦 Redshift"
+menu-0-3-exec = ~/.config/haunted-tiles/scripts/display-tools-toggle.sh redshift
 
 [module/i3]
 type = internal/i3
@@ -178,6 +173,12 @@ label-disconnected = 󰖪  no wifi?
 label-disconnected-foreground = ${colors.comment}
 
 ;;;;;;;;;; Left   Modules ;;;;;;;;;;
+[module/tray]
+type = internal/tray
+
+format-margin = 8px
+tray-spacing = 8px
+
 [module/pulseaudio]
 type = internal/pulseaudio
 use-ui-max = true
