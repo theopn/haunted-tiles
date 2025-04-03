@@ -100,18 +100,18 @@ label-mode-background = ${colors.current-line}
 label-mode-foreground = ${colors.foreground}
 
 ; Current WS
-label-focused = %name%
+#label-focused = %name%
 label-focused-foreground = ${colors.cyan}
 label-focused-underline = ${colors.orange}
 label-focused-padding = 2
 
 ; Other WS
-label-unfocused = %index%: %name%
+#label-unfocused = %index%: %name%
 label-unfocused-foreground = ${colors.comment}
 label-unfocused-padding = 2
 
 ; Urgent WS
-label-urgent = %index%: %name%
+#label-urgent = %index%: %name%
 label-urgent-background = ${colors.red}
 label-urgent-padding = 2
 
