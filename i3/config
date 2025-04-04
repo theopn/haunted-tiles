@@ -24,7 +24,7 @@ set $powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
 set $screenshot flameshot launcher
 
 # Startup app
-set $bar ~/.config/haunted-tiles/scripts/polybar-launch.sh dracula
+set $bar ~/.config/haunted-tiles/scripts/polybar-launch.sh
 set $clipboard copyq
 set $compositor picom
 set $network nm-applet --indicator
