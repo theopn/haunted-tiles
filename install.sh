@@ -80,20 +80,7 @@ main() {
 
   if selection_prompt 'Polybar'; then
     mkdir -p ~/.config/polybar/
-    backup_then_symlink ${HAUNTED_TILES_DIR}/polybar/config.inl ~/.config/polybar/config.inl
-  fi
-
-  if selection_prompt 'Sway'; then
-    mkdir -p ~/.config/sway/
-    backup_then_symlink ${HAUNTED_TILES_DIR}/sway/config ~/.config/sway/config
-  fi
-
-  if selection_prompt 'Waybar'; then
-    mkdir -p ~/.config/waybar/
-    CURRENT_FILES=("config" "style.css")
-    for FILE in ${CURRENT_FILES[@]}; do
-      backup_then_symlink ${HAUNTED_TILES_DIR}/waybar/${FILE} ~/.config/waybar/${FILE}
-    done
+    backup_then_symlink ${HAUNTED_TILES_DIR}/polybar/config.ini ~/.config/polybar/config.ini
   fi
 
   green_echo "Done!"
