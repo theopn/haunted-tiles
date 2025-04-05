@@ -27,6 +27,8 @@ set $screenshot flameshot launcher
 set $bar ~/.config/haunted-tiles/scripts/polybar-launch.sh
 set $clipboard copyq
 set $compositor picom
+#set $input ibus-daemon --daemonize --xim --replace
+set $input fcitx5 -d --replace
 set $network nm-applet --indicator
 set $nightlight redshift -P
 set $notification dunst
@@ -215,6 +217,8 @@ exec --no-startup-id xinput --set-prop $trackpad_id "libinput Natural Scrolling 
 exec --no-startup-id $bar
 exec --no-startup-id $clipboard
 exec --no-startup-id $compositor
+# I personally like turning it on manually
+#exec --no-startup-id $input
 exec --no-startup-id $network
 exec --no-startup-id $nightlight
 exec --no-startup-id $notification
