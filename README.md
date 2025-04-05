@@ -6,20 +6,23 @@
 
 Collection of utilities and scripts for my Fedora i3-spin setup.
 
-I had an ambitous plan of making this repository the next best tiling window manager "distro" for i3 and Sway, but yeah, now it is just my minimal, Dracula-themed config for my ThinkPad which I use as a focused development machine.
+I had an ambitious plan of making this repository the next best tiling window manager "distro" for i3 and Sway, but yeah, now it is just my minimal, Dracula-themed config for my ThinkPad which I use as a focused development machine.
 
-You can get the glimps of my Sway config and other quirky and unnecessary scripts I used to have in the `deprecated` directory.
+You can get the glimpse of my Sway config and other quirky and unnecessary scripts I used to have in the `deprecated` directory.
 I still have some ridiculous features like a weather widget using [wttr.in](https://github.com/chubin/wttr.in).
 
 The artwork for [the logo](./assets/haunted-tiles-logo.png), [solar system wallpaper](./assets/naomi-solarsys-draculafied.png), and [the lock screen](./assets/naomi-solarsys-draculafied-lockscreen.png) are done by my girlfriend Naomi.
 If you are using one of the images, please credit her by crediting this repository
 
-## Installation
+## How I Setup Fedora i3-spin
 
-- Fedora i3 spin comes with: `brightnessctl, dunst, feh, i3lock, nm-applet, pavucontrol, setxkbmap, xss-lock`.
-- Install: `sudo dnf install arandr blueman copyq flameshot lxpolkit picom polybar redshift rofi xinput`
+Install packages:
 
-Personally, I would also install git, kitty, nnn, and vim.
+- Fedora i3 spin comes with: `brightnessctl, dunst, feh, i3lock, nm-applet, pavucontrol, setxkbmap, xss-lock`
+- Somewhat necessary: `lxpolkit picom polybar rofi xinput`
+- Quality of life tools :`arandr blueman copyq fcitx5 fcitx5-choice-of-your-input flameshot redshift`
+- Korean input: `adobe-source-han-sans-kr-fonts fcitx6 fcitx5-hangul`
+- Also install: `git kitty vim`
 
 Install UbuntuMono Nerd Font:
 
@@ -40,13 +43,6 @@ git clone https://github.com/theopn/haunted-tiles.git ~/.config/haunted-tiles
 ~/.config/haunted-tiles/install.sh
 ```
 
-Create `~/.Xresources` for the DPI and other X11 related control. E.g.:
-
-```
-> cat .Xresources 
-Xft.dpi: 120
-```
-
 Create `~/.config/redshift.conf` to control the behavior of the "nightlight" utility:
 
 ```
@@ -60,6 +56,25 @@ location-provider=manual
 [manual]
 lat=<decimal degree of your loc>
 lon=<decimal degree of your loc>
+```
+
+Create `~/.Xresources` for the DPI and other X11 related control. E.g.:
+
+```
+$ cat .Xresources 
+Xft.dpi: 120
+```
+
+Set fcitx5 as the default input source in `~/.bash_profile` ([fcitx5 Wiki recommends `bash_profile`](https://fcitx-im.org/wiki/Setup_Fcitx_5#GLFW_IM_MODULE)) using environment variables:
+
+```
+$ cat ~/.bash_profile
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus
+export XMODIFIERS=@im=fcitx
 ```
 
 For other tips on using i3/Sway tiling WM, read my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips) for more information.
