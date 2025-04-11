@@ -20,12 +20,12 @@ set $menu "rofi -modi drun,run -show drun"
 # Scripts for keybindings
 set $clipboard_show copyq show
 set $lock $XDG_CONFIG_HOME/haunted-tiles/scripts/i3lock.sh
-set $monitor /home/theopn/.config/haunted-tiles/scripts/xrandr.sh
+set $monitor $XDG_CONFIG_HOME/haunted-tiles/scripts/xrandr.sh
 set $powermenu $XDG_CONFIG_HOME/haunted-tiles/scripts/rofi-powermenu.sh
 set $screenshot flameshot launcher
 
 # Startup app
-set $bar ~/.config/haunted-tiles/scripts/polybar-launch.sh
+set $bar $XDG_CONFIG_HOME/haunted-tiles/scripts/polybar-launch.sh
 set $clipboard copyq
 set $compositor picom
 #set $input ibus-daemon --daemonize --xim --replace
