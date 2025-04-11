@@ -88,7 +88,7 @@ List of keybindings differing from the default i3:
 - `$mod + Space`: switches focus between floating windows and tiling windows -> launches Rofi (you can also use the default `$mod+d`)
 - `$mod + {/}`: moves the current workspace to the monitor to the left/right
 - `$mod + Shift + c/r/e`:  toggles the `i3_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
-- `$mod + Shift + m`: toggles the `monitor_mode`, where you can choose shortcuts for Xrandr commands (`--right-as`, `--left-as`, `--same-as`, and `--off`)
+- `$mod + Shift + m`: launches a Rofi script to control connected outputs
     - After connecting the external monitor, you might want to run `./scripts/polybar-launch.sh` to render the secondary bar in the monitor
 - `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
 - `$mod + Shift + s`: launches the screenshot tool

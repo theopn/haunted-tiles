@@ -19,8 +19,9 @@ set $menu "rofi -modi drun,run -show drun"
 
 # Scripts for keybindings
 set $clipboard_show copyq show
-set $lock ~/.config/haunted-tiles/scripts/i3lock.sh
-set $powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
+set $lock $XDG_CONFIG_HOME/haunted-tiles/scripts/i3lock.sh
+set $monitor /home/theopn/.config/haunted-tiles/scripts/xrandr.sh
+set $powermenu $XDG_CONFIG_HOME/haunted-tiles/scripts/rofi-powermenu.sh
 set $screenshot flameshot launcher
 
 # Startup app
@@ -165,25 +166,14 @@ mode "$i3_mode" {
 bindsym $mod+Shift+c mode "$i3_mode"
 bindsym $mod+Shift+r mode "$i3_mode"
 bindsym $mod+Shift+e mode "$i3_mode"
-# Multi monitor mode
-set $monitor_mode Monitor MODE: output DP-1 to (l) --left-of (r) --right-of (s) --same-as (x) --off (esc, Return, Mod+Shift+m) Exit
-mode "$monitor_mode" {
-  bindsym l exec --no-startup-id xrandr --output DP-1 --auto --left-of eDP-1; mode "default"
-  bindsym r exec --no-startup-id xrandr --output DP-1 --auto --right-of eDP-1; mode "default"
-  bindsym s exec --no-startup-id xrandr --output DP-1 --auto --same-as eDP-1; mode "default"
-  bindsym x exec --no-startup-id xrandr --output DP-1 --off; mode "default"
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
-  bindsym $mod+Shift+m mode "default"
-}
-bindsym $mod+Shift+m mode "$monitor_mode"
 # }}}
 
 # Utility Keybindings {{{
 # Accessing clipboard manager and screenshot tool
 bindsym $mod+Shift+v exec --no-startup-id $clipboard_show
 bindsym $mod+Shift+s exec --no-startup-id $screenshot
-# Rofi powermenu
+# Rofi monitor control and powermenu scripts
+bindsym $mod+Shift+m exec --no-startup-id $monitor
 bindsym $mod+Shift+p exec --no-startup-id $powermenu
 # }}}
 
