@@ -16,13 +16,19 @@ If you are using one of the images, please credit her by crediting this reposito
 
 ## How I Setup Fedora i3-spin
 
-Install packages:
+Install common utilities: `git kitty vim`
+- 
+Install packages for i3:
 
 - Fedora i3 spin comes with: `brightnessctl, dunst, feh, i3lock, nm-applet, pavucontrol, setxkbmap, xss-lock`
 - Somewhat necessary: `lxpolkit picom polybar rofi xinput`
-- Quality of life tools :`arandr blueman copyq fcitx5 fcitx5-choice-of-your-input flameshot redshift`
-- Korean input: `adobe-source-han-sans-kr-fonts fcitx6 fcitx5-hangul`
-- Also install: `git kitty vim`
+- Quality of life tools :`arandr blueman copyq flameshot redshift`
+- Korean input: `adobe-source-han-sans-kr-fonts fcitx5 fcitx5-hangul`
+
+Install packages for Sway:
+
+- Fedora Sway spin comes with: TODO
+- Quality of life tools: `clipman slurp`
 
 Install UbuntuMono Nerd Font:
 

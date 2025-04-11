@@ -23,20 +23,19 @@ set $menu "rofi -modi drun,run -show drun"
 # Scripts for keybindings
 set $clipboard_clear clipman clear --all
 set $clipboard_show $small_float clipman pick --print0 --tool=CUSTOM --tool-args="fzf --prompt 'pick > ' --bind 'tab:up' --cycle --read0"
-set $lock ~/.config/haunted-tiles/scripts/swaylock.sh
-set $powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
+set $lock $XDG_CONFIG_HOME/haunted-tiles/scripts/swaylock.sh
+#set $monitor $XDG_CONFIG_HOME/.config/haunted-tiles/scripts/TODO.sh
+set $powermenu $XDG_CONFIG_HOME/haunted-tiles/scripts/rofi-powermenu.sh
 set $screenshot grim -g "$(slurp)"
-set $supercatmenu $small_float ~/.config/haunted-tiles/scripts/super-cat-menu.sh
-set $volume_ctrl ~/.config/haunted-tiles/scripts/volume-ctrl.sh
 
 # Startup app
 set $bar waybar
 set $clipboard wl-paste -t text --watch clipman store
+set $input fcitx5 -d --replace
 set $network nm-applet --indicator
 set $nightlight gammastep -P -l 40.7:-73.9 -t 5600:3500
 set $notification dunst
-#set $wallpaper ~/.config/haunted-tiles/assets/naomi-solarsys-draculafied.png
-set $wallpaper ~/.config/haunted-tiles/assets/dracula-wallpaper/dracula-leaves-6272a4-dark.png
+set $wallpaper $XDG_CONFIG_HOME/haunted-tiles/assets/naomi-solarsys-draculafied.png
 
 # Key var
 set $left h
@@ -45,51 +44,23 @@ set $up k
 set $right l
 
 # workspace var
-# 1, 2 - Development and web: Terminal with tmux and Neovim, Firefox
-set $ws1 "1:  "
-set $ws2 "2:  "
-# 3, 4 - Communication: Email and other communication apps
-set $ws3 "3: 󰵅 "
-set $ws4 "4: 󰏶 "
-# 5, 6 - Productivity: Emacs, calendar, daily agenda, and music
-set $ws5 "5: 󰇴 "
-set $ws6 "6:  "
-# 7 - Park: Background processes and apps no longer used
-set $ws7 "7: 󰪭 "
-# Rest of the workspaces are often unused
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 # }}}
 
-# Settings {{{
-# Wallpaper
-output * bg $wallpaper fill
-# Display scaling
-#output eDP-1 scale 1.1
-# Keyboard and trackpad settings
-input "type:keyboard" {
-  xkb_options ctrl:swapcaps
-}
-input "type:touchpad" {
-  dwt enabled
-  tap enabled
-  natural_scroll enabled
-  middle_emulation enabled
-}
-# Idle actions
-exec swayidle -w \
-  timeout 300 '$lock' \
-  timeout 600 'swaymsg "output * dpms off"' \
-  resume 'swaymsg "output * dpms on"' \
-  before-sleep '$lock'
-# }}}
-
 # Keybindings {{{
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec $volume_ctrl up
-bindsym XF86AudioLowerVolume exec $volume_ctrl down
-bindsym XF86AudioMute exec $volume_ctrl mute
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 # Use brightnessctl to adjust brightness with function row keys
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
@@ -191,20 +162,18 @@ bindsym $mod+Shift+e mode "$sway_mode"
 # }}}
 
 # Utility keybindings {{{
-# Clipboard
+# Accessing clipboard manager and screenshot tool
 bindsym $mod+Shift+r exec $clipboard_clear
 bindsym $mod+Shift+v exec $clipboard_show
-# Screenshot
 bindsym $mod+Shift+s exec $screenshot
-# Powermenu
+# Rofi monitor control and powermenu scripts
+#bindsym $mod+Shift+m exec $monitor
 bindsym $mod+Shift+p exec $powermenu
-# My custom menu
-bindsym $mod+Shift+Return exec $supercatmenu
 # }}}
 
 # Appearance {{{
 # Font and colors
-font pango:CaskaydiaCove Nerd Font 8
+font pango:UbuntuMono Nerd Font 8
 # class                 border  bground text    indicator child_border
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
@@ -222,9 +191,34 @@ gaps outer 3
 smart_borders on
 # }}}
 
+# Settings {{{
+# Wallpaper
+output * bg $wallpaper fill
+# Display scaling
+#output eDP-1 scale 1.1
+# Keyboard and trackpad settings
+input "type:keyboard" {
+  xkb_options ctrl:swapcaps
+}
+input "type:touchpad" {
+  dwt enabled
+  tap enabled
+  natural_scroll enabled
+  middle_emulation enabled
+}
+# Idle actions
+exec swayidle -w \
+  timeout 300 '$lock' \
+  timeout 600 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' \
+  before-sleep '$lock'
+# }}}
+
 # Startup App {{{
 exec $bar
 exec $clipboard
+# I personally like turning it on manually
+#exec --no-startup-id $input
 exec $network
 exec $nightlight
 exec $notification
