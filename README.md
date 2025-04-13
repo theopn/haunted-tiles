@@ -106,3 +106,7 @@ List of keybindings differing from the default i3/Sway:
 - `$mod + Shift + v`: launches the clipboard manager (Copy Qin i3, Clipman in Sway)
     - `$mod + shift + r`: (Sway) resets Clipman
 
+`[3]=` indicator in Waybar means that there are 3 windows in the scratchpad.
+You can add a window to a scratchpad with `$mod + Shift + -` and cycle through the scratchpad with `$mod + -`.
+`[]=` is inspired by the tiling window indicator in the dwm statusbar, which does not make sense in this context, but I thought it looked cute.
+
