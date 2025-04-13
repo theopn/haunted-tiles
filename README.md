@@ -3,7 +3,6 @@
 | <img src="./assets/haunted-tiles-logo.png" width="250" alt="Haunted Tiles logo"> |
 | :--:                                                                             |
 | ![sway-sc](./assets/sway-sc.png)                                                 |
-| :--:                                                                             |
 | ![i3-sc](./assets/i3-sc.png)                                                     |
 
 Collection of utilities and scripts for my Fedora Sway and i3 spin setup.
@@ -21,7 +20,7 @@ If you are using one of the artworks, please credit her by crediting this reposi
 Install common utilities:
 
 - Tools: `fzf git kitty vim`
-- Linux utilities: `lxpolkit`
+- Polkit: `lxpolkit`
 - Korean input: `adobe-source-han-sans-kr-fonts fcitx5 fcitx5-hangul`
 
 Install packages for i3:
@@ -100,10 +99,10 @@ List of keybindings differing from the default i3/Sway:
 - `$mod + {/}`: moves the current workspace to the monitor to the left/right
 - `$mod + Shift + c/r/e`:  toggles the `i3_mode`/`sway_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
 - `$mod + Shift + m`: launches a Rofi script to control connected outputs
-    - In Sway, it launches "monitor_mode" in which you can control outputs
+    - (Sway) launches `monitor_mode`, which you can control outputs
 - `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
 - `$mod + Shift + s`: launches the screenshot tool (Flamshot)
-    - In Sway, it launches "screenshot_mode" in which you can choose area, screen, or window capture from Grimshot
+    - (Sway) launches `screenshot_mode` which you can choose area, screen, or window capture from Grimshot
 - `$mod + Shift + v`: launches the clipboard manager (Copy Qin i3, Clipman in Sway)
-    - `$mod + shift + r`: in Sway resets Clipman
+    - `$mod + shift + r`: (Sway) resets Clipman
 
