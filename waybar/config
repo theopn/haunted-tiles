@@ -17,6 +17,7 @@
     "spacing": 4,
 
     "modules-left": [
+      "custom/power",
       "sway/workspaces",
       "sway/scratchpad",
       "sway/mode",
@@ -40,6 +41,20 @@
     ],
 
     /* Modules-Left */
+
+    "custom/power": {
+      "format" : " 󰄛 ",
+      "tooltip": true,
+      "tooltip-format": "Power menu",
+      "menu": "on-click",
+      "menu-file": "$XDG_CONFIG_HOME/haunted-tiles/scripts/power_menu.xml",
+      "menu-actions": {
+        "logout": "swaymsg exit",
+        "suspend": "systemctl suspend",
+        "reboot": "reboot",
+        "shutdown": "shutdown",
+      }
+    },
 
     "sway/workspaces": {
       "disable-scroll": true,
@@ -131,6 +146,7 @@
     },
 
     "battery": {
+      "bat": "BAT0",
       "states": {
         "good": 95,
         "warning": 30,
@@ -142,10 +158,6 @@
       "format-icons": [" ", " ", " ", " ", " "],
       "tooltip-format": "{timeTo}",
       "interval": 30
-    },
-
-    "battery#bat0": {
-      "bat": "BAT0",
     },
 
     "battery#bat1": {
