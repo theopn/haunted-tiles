@@ -6,114 +6,75 @@
  *            /___/                        /___/
  */
 
-/* Bar Configuration */
-
 * {
-  font-family: CaskaydiaCove Nerd Font, FantasqueSansMono Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-family: "UbuntuMono Nerd Font";
+  font-size: 16px;
 }
+
 
 window#waybar {
-  border-top: 0px;
-  border-bottom: 0px;
-  border-radius: 7px;
-  background-color: rgba(40, 42, 54, 0.0); /* Dracula BG Transparent */
-  color: rgb(248, 248, 242); /* Dracula FG */
-  transition-property: background-color;
-  transition-duration: .5s;
+  background-color: #282A36;  /* Dracula BG */
+  color: #F8F8F2;             /* Dracula FG */
 }
 
-/* Modules-Center */
+
+/* Modules-Right */
 
 #workspaces {
-  border-radius: 10px;
 }
+
 
 #workspaces button {
-  background-color: rgba(40, 42, 54, 0.5); /* Dracula BG Semi Transparent */
-  box-shadow: inset 0 -3px transparent;
-  color: rgb(248, 248, 242); /* Dracula FG */
-  margin: 1px 1px;
-  padding: 0 5px;
+  padding: 0px 11px 0px 11px;
+  min-width: 1px;
+  color: #6272A4;  /* Dracula Comment */
 }
 
-#workspaces button:hover {
-  color: rgb(241, 250, 140); /* Dracula Yellow */
-  box-shadow: inset 0 -3px rgb(241, 250, 140); /* Dracula Yellow */
-}
 
 #workspaces button.focused {
-  background-color: rgba(68, 71, 90, 0.5); /* Dracula Current Line */
-  box-shadow: inset 0 -3px rgb(139, 233, 253); /* Dracula Cyan */
+  background-color: #44475A;  /* Dracula Current Line */
+  color: #F8F8F2;             /* Dracula FG */
 }
 
-#workspaces button.urgent {
-  background-color: rgb(255, 85, 85); /* Dracula Red */
+#scratchpad {
+  color: #6272A4;  /* Dracula Comment */
+  padding: 0px 5px 0px 5px;
 }
 
 #mode {
-  box-shadow: inset 0 -3px rgb(139, 233, 253); /* Dracula Cyan */
-  color: rgb(139, 233, 253); /* Dracula Cyan */
-  padding: 0 5px;
+  background-color: #FF5555;  /* Dracula Red */
+  padding: 0px 5px 0px 5px;
 }
 
-/* Universal Module Settings */
 
-#disk, #temperature, #cpu, #memory, #disk, #tray, #custom-dunst_toggle,
-#custom-spotify, #pulseaudio, #backlight, #custom-nightlight_toggle, #battery, #network, #clock, #custom-weather {
-  border-radius: 10px;
-  color: rgb(248, 248, 242); /* Dracula FG */
-  margin: 3px 3px;
-  padding: 0 10px;
+#window {
+  background-color: #44475A;  /* Dracula Current Line */
+  color:  #FF79C6;            /* Dracula Pink */
+  padding: 0px 10px 0px 10px;
+}
+
+
+window#waybar.empty #window {
+  background-color: transparent;
+  color: transparent;
 }
 
 /* Modules-Left */
 
-#disk {
-  background-color: rgba(139, 233, 253, 0.5); /* Dracula Cyan */
+#temperature, #cpu, #memory,
+#backlight, #pulseaudio, #battery,
+#network,
+#clock {
+  margin: 5px 5px;
+  padding: 0 5px;
 }
-
-#temperature {
-  background-color: rgba(80, 250, 123, 0.5); /* Dracula Green */
-}
-
-#cpu {
-  background-color: rgba(255, 184, 108, 0.5); /* Dracula Orange */
-}
-
-#memory {
-  background-color: rgba(255, 121, 198, 0.5); /* Dracula Pink */
-}
-
-#network {
-  background-color: rgba(189, 147, 249, 0.5); /* Dracula Purple */
-}
-
-#network.disconnected {
-  background-color: rgba(98, 114, 164, 0.5); /* Dracula Comment */
-}
-
-#tray {
-  background-color: rgba(255, 85, 85, 0.5); /* Dracula Red */
-}
-
-#tray > .passive {
-  -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: rgb(255, 85, 85); /* Dracula Red */
-}
-
-/* Modules-Right */
 
 #pulseaudio {
-  background-color: rgba(241, 250, 140, 0.5); /* Dracula Yellow */
+  color: rgba(241, 250, 140, 0.5); /* Dracula Yellow */
 }
 
 #pulseaudio.muted {
-  background-color: rgba(98, 114, 164, 0.5); /* Dracula Comment */
+  color: rgba(98, 114, 164, 0.5); /* Dracula Comment */
 }
 
 #backlight {
