@@ -96,7 +96,7 @@ List of keybindings differing from the default i3/Sway:
 - `jkl;` -> `hjkl`
 - `$mod + h` -> `$mod + z`: toggles hori[z]ontal split
 - `$mod + Space`: switches focus between floating windows and tiling windows -> launches Rofi (you can also use the default `$mod+d`)
-- `$mod + {/}`: moves the current workspace to the monitor to the left/right
+- `$mod + [/]`: moves the current workspace to the monitor to the left/right
 - `$mod + Shift + c/r/e`:  toggles the `i3_mode`/`sway_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
 - `$mod + Shift + m`: launches a Rofi script to control connected outputs
     - (Sway) launches `monitor_mode`, which you can control outputs
