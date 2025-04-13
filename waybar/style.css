@@ -19,6 +19,11 @@ window#waybar {
 
 /* Modules-Right */
 
+#custom-power {
+  color:  #FF79C6;            /* Dracula Pink */
+  padding: 0px 5px 0px 5px;
+}
+
 #workspaces {
 }
 
@@ -45,7 +50,6 @@ window#waybar {
 
 #window {
   background-color: #44475A;  /* Dracula Current Line */
-  color:  #FF79C6;            /* Dracula Pink */
   padding: 0px 10px 0px 10px;
 }
 
