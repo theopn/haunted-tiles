@@ -63,7 +63,7 @@
     },
 
     "sway/scratchpad": {
-      "format": "[{count}]=",
+      "format": "><{count}>",
       "show-empty": true,
       "tooltip": true,
       "tooltip-format": "{app}: {title}"
