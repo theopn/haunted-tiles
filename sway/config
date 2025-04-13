@@ -22,15 +22,17 @@ set $menu "rofi -modi drun,run -show drun"
 
 # Scripts for keybindings
 set $clipboard_clear clipman clear --all
-set $clipboard_show $small_float clipman pick --print0 --tool=CUSTOM --tool-args="fzf --prompt 'pick > ' --bind 'tab:up' --cycle --read0"
+#set $clipboard_show $small_float clipman pick --print0 --tool=CUSTOM --tool-args="fzf --prompt 'pick > ' --bind 'tab:up' --cycle --read0"
+set $clipboard_show clipman pick -t rofi
 set $lock $XDG_CONFIG_HOME/haunted-tiles/scripts/swaylock.sh
-#set $monitor $XDG_CONFIG_HOME/.config/haunted-tiles/scripts/TODO.sh
+#set $monitor "Use the mode"
 set $powermenu $XDG_CONFIG_HOME/haunted-tiles/scripts/rofi-powermenu.sh
-set $screenshot grim -g "$(slurp)"
+#set $screenshot grim -g "$(slurp)"
+set $screenshot grimshot --notify save
 
 # Startup app
 set $bar waybar
-set $clipboard wl-paste -t text --watch clipman store
+set $clipboard exec wl-paste -p -t text --watch clipman store -P
 set $input fcitx5 -d --replace
 set $network nm-applet --indicator
 set $nightlight gammastep -P -l 40.7:-73.9 -t 5600:3500
@@ -128,6 +130,9 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
+# Multiple monitor
+bindsym $mod+Shift+bracketleft move workspace to output left
+bindsym $mod+Shift+bracketright move workspace to output right
 # }}}
 
 # Modes {{{
@@ -165,9 +170,24 @@ bindsym $mod+Shift+e mode "$sway_mode"
 # Accessing clipboard manager and screenshot tool
 bindsym $mod+Shift+r exec $clipboard_clear
 bindsym $mod+Shift+v exec $clipboard_show
-bindsym $mod+Shift+s exec $screenshot
-# Rofi monitor control and powermenu scripts
-#bindsym $mod+Shift+m exec $monitor
+# Sway related options mode
+set $screenshot_mode Screenshot MODE: (w) Window (s) Entire screen (a) Area (esc, Return) Exit
+mode "$screenshot_mode" {
+  bindsym w exec $screenshot window; mode "default"
+  bindsym s exec $screenshot screen; mode "default"
+  bindsym a exec $screenshot area; mode "default"
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+bindsym $mod+Shift+s mode "$screenshot_mode"
+set $monitor_mode Monitor MODE: (l) left to eDP-1 (esc, Return) Exit
+mode "$monitor_mode" {
+  bindsym l exec notify-send "TODO"; mode "default"
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+bindsym $mod+Shift+m mode "$monitor_mode"
+# Rofi powermenu scripts
 bindsym $mod+Shift+p exec $powermenu
 # }}}
 
@@ -195,7 +215,7 @@ smart_borders on
 # Wallpaper
 output * bg $wallpaper fill
 # Display scaling
-#output eDP-1 scale 1.1
+output eDP-1 scale 1.1
 # Keyboard and trackpad settings
 input "type:keyboard" {
   xkb_options ctrl:swapcaps
