@@ -180,9 +180,10 @@ mode "$screenshot_mode" {
   bindsym Return mode "default"
 }
 bindsym $mod+Shift+s mode "$screenshot_mode"
-set $monitor_mode Monitor MODE: (l) left to eDP-1 (esc, Return) Exit
+set $monitor_mode Monitor MODE: (l) left to eDP-1 (t) toggle (esc, Return) Exit
 mode "$monitor_mode" {
-  bindsym l exec notify-send "TODO"; mode "default"
+  bindsym t output DP-1 toggle; mode "default"
+  bindsym l output DP-1 pos 0 0; mode "default"
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
