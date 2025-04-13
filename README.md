@@ -1,34 +1,39 @@
 # Haunted Tiles
 
 | <img src="./assets/haunted-tiles-logo.png" width="250" alt="Haunted Tiles logo"> |
-| :--: |
-| ![i3-sc](./assets/i3-sc.png) |
+| :--:                                                                             |
+| ![sway-sc](./assets/sway-sc.png)                                                 |
+| :--:                                                                             |
+| ![i3-sc](./assets/i3-sc.png)                                                     |
 
-Collection of utilities and scripts for my Fedora i3-spin setup.
+Collection of utilities and scripts for my Fedora Sway and i3 spin setup.
 
-I had an ambitious plan of making this repository the next best tiling window manager "distro" for i3 and Sway, but yeah, now it is just my minimal, Dracula-themed config for my ThinkPad which I use as a focused development machine.
+I had an ambitious plan of making this repository the next best tiling window manager "distro", but now it is just my minimal, Dracula-themed tiling WM config for my ThinkPad which I use as a focused development machine.
 
-You can get the glimpse of my Sway config and other quirky and unnecessary scripts I used to have in the `deprecated` directory.
+You can get the glimpse of all quirky and unnecessary scripts I used to have in the `deprecated` directory.
 I still have some ridiculous features like a weather widget using [wttr.in](https://github.com/chubin/wttr.in).
 
 The artwork for [the logo](./assets/haunted-tiles-logo.png), [solar system wallpaper](./assets/naomi-solarsys-draculafied.png), and [the lock screen](./assets/naomi-solarsys-draculafied-lockscreen.png) are done by my girlfriend Naomi.
-If you are using one of the images, please credit her by crediting this repository
+If you are using one of the artworks, please credit her by crediting this repository
 
 ## How I Setup Fedora i3-spin
 
-Install common utilities: `git kitty vim`
-- 
+Install common utilities:
+
+- Tools: `fzf git kitty vim`
+- Linux utilities: `lxpolkit`
+- Korean input: `adobe-source-han-sans-kr-fonts fcitx5 fcitx5-hangul`
+
 Install packages for i3:
 
 - Fedora i3 spin comes with: `brightnessctl, dunst, feh, i3lock, nm-applet, pavucontrol, setxkbmap, xss-lock`
-- Somewhat necessary: `lxpolkit picom polybar rofi xinput`
-- Quality of life tools :`arandr blueman copyq flameshot redshift`
-- Korean input: `adobe-source-han-sans-kr-fonts fcitx5 fcitx5-hangul`
+- X11 tools: `copyq flameshot picom polybar redshift rofi xinput`
+- Not necessary but recommended: `arandr blueman`
 
 Install packages for Sway:
 
 - Fedora Sway spin comes with: TODO
-- Quality of life tools: `clipman slurp`
+- Wayland tools: `clipman gammashift grimshot`
 
 Install UbuntuMono Nerd Font:
 
@@ -87,16 +92,18 @@ For other tips on using i3/Sway tiling WM, read my [i3-sway-tips repository](htt
 
 ## Usage
 
-List of keybindings differing from the default i3:
+List of keybindings differing from the default i3/Sway:
 
 - `jkl;` -> `hjkl`
 - `$mod + h` -> `$mod + z`: toggles hori[z]ontal split
 - `$mod + Space`: switches focus between floating windows and tiling windows -> launches Rofi (you can also use the default `$mod+d`)
 - `$mod + {/}`: moves the current workspace to the monitor to the left/right
-- `$mod + Shift + c/r/e`:  toggles the `i3_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
+- `$mod + Shift + c/r/e`:  toggles the `i3_mode`/`sway_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
 - `$mod + Shift + m`: launches a Rofi script to control connected outputs
-    - After connecting the external monitor, you might want to run `./scripts/polybar-launch.sh` to render the secondary bar in the monitor
+    - In Sway, it launches "monitor_mode" in which you can control outputs
 - `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
-- `$mod + Shift + s`: launches the screenshot tool
-- `$mod + Shift + v`: launches the clipboard manager
+- `$mod + Shift + s`: launches the screenshot tool (Flamshot)
+    - In Sway, it launches "screenshot_mode" in which you can choose area, screen, or window capture from Grimshot
+- `$mod + Shift + v`: launches the clipboard manager (Copy Qin i3, Clipman in Sway)
+    - `$mod + shift + r`: in Sway resets Clipman
 
