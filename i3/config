@@ -9,6 +9,7 @@
 
 # Window classes {{{
 for_window [instance="copyq"] floating enable, resize set 600 400, move position center, border pixel 5
+for_window [instance="pavucontrol"] floating enable move position center
 # }}}
 
 # Variables {{{
