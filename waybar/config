@@ -75,7 +75,7 @@
     },
 
     "sway/window": {
-      "format": "[{shell}] {title}",
+      "format": "[{shell}] {app_id}: {title}",
       "max-length": 150
     },
 
