@@ -28,7 +28,7 @@ set $screenshot grimshot --notify save
 
 # Startup app
 set $bar waybar
-set $clipboard exec wl-paste -p -t text --watch clipman store -P
+set $clipboard exec wl-paste -t text --watch clipman store --no-persist
 set $input fcitx5 -d --replace
 set $network nm-applet --indicator
 set $nightlight gammastep -P -l 40.7:-73.9 -t 5600:3500
