@@ -38,6 +38,11 @@ window#waybar {
   color: #F8F8F2;             /* Dracula FG */
 }
 
+#workspaces button.urgent {
+  background-color: #FF5555; /* Dracula Red */
+  color: #F8F8F2;             /* Dracula FG */
+}
+
 #scratchpad {
   color: #6272A4;  /* Dracula Comment */
   padding: 0px 5px 0px 5px;
