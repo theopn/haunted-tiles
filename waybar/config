@@ -20,11 +20,11 @@
       "custom/power",
       "sway/workspaces",
       "sway/scratchpad",
-      "sway/mode",
       "sway/window"
     ],
 
     "modules-center": [
+      "sway/mode",
     ],
 
     "modules-right": [
@@ -69,17 +69,17 @@
       "tooltip-format": "{app}: {title}"
     },
 
-    "sway/mode": {
-      "format": "<span style=\"italic\">{}</span>",
-      "max-length": 100,
-    },
-
     "sway/window": {
       "format": "[{shell}] {app_id}: {title}",
       "max-length": 150
     },
 
     /* Modules-Center */
+
+    "sway/mode": {
+      "format": "<span style=\"italic\">{}</span>",
+      "max-length": 150,
+    },
 
     /* Modules-Right */
 

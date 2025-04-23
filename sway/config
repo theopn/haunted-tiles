@@ -217,7 +217,7 @@ smart_borders on
 # Wallpaper
 output * bg $wallpaper fill
 # Display scaling
-#output eDP-1 scale 1.1
+output eDP-1 scale 1.1
 # Keyboard and trackpad settings
 input "type:keyboard" {
   xkb_options ctrl:swapcaps
