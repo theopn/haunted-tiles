@@ -36,7 +36,7 @@ set $bar waybar
 set $clipboard exec wl-paste -t text --watch clipman store --no-persist
 set $input fcitx5 -d --replace
 set $network nm-applet --indicator
-set $nightlight gammastep -P -l 40.7:-73.9 -t 5600:3500
+set $nightlight gammastep -P
 set $notification dunst
 set $wallpaper $XDG_CONFIG_HOME/haunted-tiles/assets/naomi-solarsys-draculafied.png
 
@@ -61,13 +61,13 @@ set $ws10 "10"
 
 # Keybindings {{{
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 # Use brightnessctl to adjust brightness with function row keys
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
