@@ -7,32 +7,31 @@
 
 Collection of utilities and scripts for my Fedora Sway and i3 spin setup.
 
-I had an ambitious plan of making this repository the next best tiling window manager "distro", but now it is just my minimal, Dracula-themed tiling WM config for my ThinkPad which I use as a focused development machine.
-
-You can get the glimpse of all quirky and unnecessary scripts I used to have in the `deprecated` directory.
-I still have some ridiculous features like a weather widget using [wttr.in](https://github.com/chubin/wttr.in).
+I had an ambitious plan of making this repository the next best tiling window manager "distro", but now it is just my minimal, Dracula-themed tiling WM config for my ThinkPad X270 which I use as a focused development machine.
 
 The artwork for [the logo](./assets/haunted-tiles-logo.png), [solar system wallpaper](./assets/naomi-solarsys-draculafied.png), and [the lock screen](./assets/naomi-solarsys-draculafied-lockscreen.png) are done by my girlfriend Naomi.
 If you are using one of the artworks, please credit her by crediting this repository
-
-## How I Setup Fedora i3-spin
 
-Install common utilities:
+## How I Setup Fedora Sway/i3 spin
+
+Install utilities:
 
 - Tools: `fzf git kitty vim`
-- Polkit: `lxpolkit`
+- GUI polkit: `lxpolkit`
 - Korean input: `adobe-source-han-sans-kr-fonts fcitx5 fcitx5-hangul`
 
 Install packages for i3:
 
-- Fedora i3 spin comes with: `brightnessctl, dunst, feh, i3lock, nm-applet, pavucontrol, setxkbmap, xss-lock`
-- X11 tools: `copyq flameshot picom polybar redshift rofi xinput`
+- Check the `i3.spec` file of the [i3-config-fedora repository](https://src.fedoraproject.org/rpms/i3/tree/rawhide) for the complete list of packages out of the box
+    - Notable packages are: `xss-lock network-manager-applet brightnessctl dunst feh setxkbmap`
+- Other tools: `copyq flameshot picom polybar redshift rofi xinput`
 - Not necessary but recommended: `arandr blueman`
 
 Install packages for Sway:
 
-- Fedora Sway spin comes with: TODO
-- Wayland tools: `clipman gammashift grimshot`
+- Check the `.rpkg` file of the [sway-config-fedora repository](https://gitlab.com/fedora/sigs/sway/sway-config-fedora) for the complete list of packages out of the box
+    - Notable packages are: `rofi-wayland brightnessctl grimshot waybar`
+- Other tools: `clipman gammashift`
 
 Install UbuntuMono Nerd Font:
 
@@ -67,6 +66,12 @@ location-provider=manual
 lat=<decimal degree of your loc>
 lon=<decimal degree of your loc>
 ```
+
+For Gammastep:
+
+- `[redshift]` -> `[general]`
+- `randr` -> `wayland`
+- create as `~/.config/gammastep/config.ini`
 
 Create `~/.Xresources` for the DPI and other X11 related control. E.g.:
 
