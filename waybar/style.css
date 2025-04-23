@@ -48,11 +48,6 @@ window#waybar {
   padding: 0px 5px 0px 5px;
 }
 
-#mode {
-  background-color: #FF5555;  /* Dracula Red */
-  padding: 0px 5px 0px 5px;
-}
-
 #window {
   background-color: #44475A;  /* Dracula Current Line */
   padding: 0px 10px 0px 10px;
@@ -61,6 +56,13 @@ window#waybar {
 window#waybar.empty #window {
   background-color: transparent;
   color: transparent;
+}
+
+/* Modules-Center */
+
+#mode {
+  background-color: #FF5555;  /* Dracula Red */
+  padding: 0px 5px 0px 5px;
 }
 
 /* Modules-Left */
