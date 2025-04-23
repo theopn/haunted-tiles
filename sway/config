@@ -25,7 +25,7 @@ set $menu "rofi -modi drun,run -show drun"
 # Scripts for keybindings
 set $clipboard_clear clipman clear --all
 set $clipboard_show clipman pick -t rofi
-set $lock $XDG_CONFIG_HOME/haunted-tiles/scripts/swaylock.sh
+set $lock swaylock -f
 #set $monitor "Use the mode"
 set $powermenu $XDG_CONFIG_HOME/haunted-tiles/scripts/rofi-powermenu.sh
 #set $screenshot grim -g "$(slurp)"
@@ -230,8 +230,9 @@ input "type:touchpad" {
 }
 # Idle actions
 exec swayidle -w \
-  timeout 180 '$lock' \
-  before-sleep '$lock'
+       timeout 180 '$lock' \
+       timeout 240 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+       before-sleep '$lock'
 # }}}
 
 # Startup App {{{

@@ -20,7 +20,7 @@ reboot_cmd='systemctl reboot'
 if [[ "$DESKTOP_SESSION" == "i3" ]]; then
   lock_cmd=~/.config/haunted-tiles/scripts/i3lock.sh
 elif [[ "$DESKTOP_SESSION" == "sway" ]]; then
-  lock_cmd=~/.config/haunted-tiles/scripts/swaylock.sh
+  lock_cmd="swaylock -f"
 fi
 
 function exit_wm() {
