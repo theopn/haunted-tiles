@@ -25,14 +25,14 @@ set $menu "rofi -modi drun,run -show drun"
 set $clipboard_clear clipman clear --all
 set $clipboard_show clipman pick -t rofi
 set $lock swaylock -f
-set $monitor HDMI-1
+set $monitor HDMI-2
 set $powermenu $XDG_CONFIG_HOME/haunted-tiles/scripts/rofi-powermenu.sh
 #set $screenshot grim -g "$(slurp)"
 set $screenshot grimshot --notify save
 
 # Startup app
 set $bar waybar
-set $clipboard exec wl-paste -t text --watch clipman store --no-persist
+set $clipboard wl-paste -t text --watch clipman store --no-persist
 set $input fcitx5 -d --replace
 set $network nm-applet --indicator
 set $nightlight gammastep -P
@@ -71,7 +71,7 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
-#bindsym $mod+space exec $menu
+bindsym $mod+space exec $menu
 
 # change focus
 bindsym $mod+$left focus left
@@ -180,7 +180,7 @@ mode "$screenshot_mode" {
   bindsym Return mode "default"
 }
 bindsym $mod+Shift+s mode "$screenshot_mode"
-set $monitor_mode Monitor MODE: (l) left to eDP-1 (t) toggle (esc, Return) Exit
+set $monitor_mode Monitor MODE ($monitor): (l) left to eDP-1 (t) toggle (esc, Return) Exit
 mode "$monitor_mode" {
   bindsym t output $monitor toggle; mode "default"
   bindsym l output $monitor pos 0 0; mode "default"
