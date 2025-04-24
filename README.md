@@ -19,6 +19,7 @@ Install utilities:
 - Tools: `fzf git kitty vim`
 - GUI polkit: `lxpolkit`
 - Korean input: `adobe-source-han-sans-kr-fonts fcitx5 fcitx5-hangul`
+- Power profile daemon replacement with Redhat's Tuned project: `tuned-ppd`
 
 Install packages for i3:
 
@@ -30,7 +31,7 @@ Install packages for i3:
 Install packages for Sway:
 
 - Check the `.rpkg` file of the [sway-config-fedora repository](https://gitlab.com/fedora/sigs/sway/sway-config-fedora) for the complete list of packages out of the box
-    - Notable packages are: `rofi-wayland brightnessctl grimshot waybar`
+    - Notable packages are: `rofi-wayland brightnessctl grimshot playerctl waybar`
 - Other tools: `clipman gammashift`
 
 Install UbuntuMono Nerd Font:
@@ -90,6 +91,14 @@ export QT_IM_MODULE=fcitx
 export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus
 export XMODIFIERS=@im=fcitx
+```
+
+Add Tuned and configure profile
+
+```
+systemctl enable tuned
+tuned-adm list              # list all available profiles
+tuned-adm profile balanced  # select a profile
 ```
 
 For other tips on using i3/Sway tiling WM, read my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips) for more information.
