@@ -8,7 +8,7 @@
 ######################################
 
 # Window classes {{{
-for_window [app_id="pavucontrol"] floating enable move position center
+for_window [app_id="pavucontrol"] floating enable, move position center
 for_window [shell="xwayland"] {
   title_format "[XWayland] %title"
 }
