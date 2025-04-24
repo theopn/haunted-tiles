@@ -8,7 +8,8 @@
 ######################################
 
 # Window classes {{{
-for_window [app_id="pavucontrol"] floating enable, move position center
+for_window [app_id="pavucontrol"] floating enable, move position center, sticky enable
+for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, move position 0 0, sticky enable
 for_window [shell="xwayland"] {
   title_format "[XWayland] %title"
 }
@@ -70,7 +71,7 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
-bindsym $mod+space exec $menu
+#bindsym $mod+space exec $menu
 
 # change focus
 bindsym $mod+$left focus left
