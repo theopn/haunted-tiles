@@ -8,12 +8,10 @@
 ######################################
 
 # Window classes {{{
-for_window [shell="xwayland"] title_format "[XWayland] %title"
-for_window [app_id="pavucontrol"] {
-    floating enable
-    move position center
+for_window [app_id="pavucontrol"] floating enable move position center
+for_window [shell="xwayland"] {
+  title_format "[XWayland] %title"
 }
-
 # }}}
 
 # Variables {{{
@@ -26,7 +24,7 @@ set $menu "rofi -modi drun,run -show drun"
 set $clipboard_clear clipman clear --all
 set $clipboard_show clipman pick -t rofi
 set $lock swaylock -f
-#set $monitor "Use the mode"
+set $monitor HDMI-1
 set $powermenu $XDG_CONFIG_HOME/haunted-tiles/scripts/rofi-powermenu.sh
 #set $screenshot grim -g "$(slurp)"
 set $screenshot grimshot --notify save
@@ -104,10 +102,10 @@ bindsym $mod+Shift+space floating toggle
 # Press the mod key to move the floating window w/ mouse
 floating_modifier $mod normal
 # change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 # focus the parent/child container
-# bindsym $mod+a focus parent
-# bindsym $mod+d focus child
+bindsym $mod+a focus parent
+#bindsym $mod+d focus child
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -171,7 +169,7 @@ bindsym $mod+Shift+e mode "$sway_mode"
 # Accessing clipboard manager and screenshot tool
 bindsym $mod+Shift+r exec $clipboard_clear
 bindsym $mod+Shift+v exec $clipboard_show
-# Sway related options mode
+# More modes
 set $screenshot_mode Screenshot MODE: (w) Window (s) Entire screen (a) Area (esc, Return) Exit
 mode "$screenshot_mode" {
   bindsym w exec $screenshot window; mode "default"
@@ -183,8 +181,8 @@ mode "$screenshot_mode" {
 bindsym $mod+Shift+s mode "$screenshot_mode"
 set $monitor_mode Monitor MODE: (l) left to eDP-1 (t) toggle (esc, Return) Exit
 mode "$monitor_mode" {
-  bindsym t output DP-1 toggle; mode "default"
-  bindsym l output DP-1 pos 0 0; mode "default"
+  bindsym t output $monitor toggle; mode "default"
+  bindsym l output $monitor pos 0 0; mode "default"
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
@@ -214,14 +212,11 @@ smart_borders on
 # }}}
 
 # Settings {{{
-# Wallpaper
-output * bg $wallpaper fill
-# Display scaling
-output eDP-1 scale 1.1
-# Keyboard and trackpad settings
+# Swap Caps Lock and Control. No more Emacs pinky
 input "type:keyboard" {
   xkb_options ctrl:swapcaps
 }
+# Enable tap to click, disable while typing, and natural scrolling
 input "type:touchpad" {
   dwt enabled
   tap enabled
@@ -233,13 +228,17 @@ exec swayidle -w \
        timeout 180 '$lock' \
        timeout 240 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
        before-sleep '$lock'
+# Display scaling
+output eDP-1 scale 1.1
+# Wallpaper
+output * bg $wallpaper fill
 # }}}
 
 # Startup App {{{
 exec $bar
 exec $clipboard
 # I personally like turning it on manually
-#exec --no-startup-id $input
+#exec $input
 exec $network
 exec $nightlight
 exec $notification

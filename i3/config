@@ -8,8 +8,8 @@
 ##################################
 
 # Window classes {{{
-for_window [instance="copyq"] floating enable, resize set 600 400, move position center, border pixel 5
 for_window [instance="pavucontrol"] floating enable move position center
+for_window [instance="copyq"] floating enable, resize set 600 400, move position center, border pixel 5
 # }}}
 
 # Variables {{{
@@ -107,7 +107,7 @@ floating_modifier $mod
 # change focus between tiling / floating windows
 #bindsym $mod+space focus mode_toggle
 # focus the parent/child container
-#bindsym $mod+a focus parent
+bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -179,6 +179,7 @@ bindsym $mod+Shift+p exec --no-startup-id $powermenu
 # }}}
 
 # Appearance {{{
+# Font and colors
 font pango:UbuntuMono Nerd Font 8
 # class                 border  bground text    indicator child_border
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
@@ -196,15 +197,18 @@ gaps outer 3
 smart_borders on
 # }}}
 
-# Startup App {{{
-# Using xss-lock to automatically lock computer before going to sleep
-exec --no-startup-id xss-lock --transfer-sleep-lock -- $lock --nofork
+# Settings {{{
 # Swap Caps Lock and Control. No more Emacs pinky
 exec --no-startup-id setxkbmap -option ctrl:swapcaps
 # Enable tap to click and natural scrolling
 exec --no-startup-id xinput --set-prop $trackpad_id "libinput Tapping Enabled" 1
 exec --no-startup-id xinput --set-prop $trackpad_id "libinput Natural Scrolling Enabled" 1
+# Using xss-lock to automatically lock computer before going to sleep
+exec --no-startup-id xss-lock --transfer-sleep-lock -- $lock --nofork
 
+# }}}
+
+# Startup App {{{
 exec --no-startup-id $bar
 exec --no-startup-id $clipboard
 exec --no-startup-id $compositor
