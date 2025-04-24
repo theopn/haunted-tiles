@@ -1,6 +1,7 @@
 daemonize
 ignore-empty-password
 show-failed-attempts
+show-keyboard-layout
 
-color=6272A4
+color=282A36
 image=$XDG_CONFIG_HOME/haunted-tiles/assets/naomi-solarsys-draculafied-lockscreen.png
