@@ -17,9 +17,6 @@ If you are using one of the artworks, please credit her by crediting this reposi
 Install utilities:
 
 - Tools: `fzf git kitty vim`
-- GUI polkit: `lxpolkit`
-- Korean input: `adobe-source-han-sans-kr-fonts fcitx5 fcitx5-hangul`
-- Power profile daemon replacement with Redhat's Tuned project: `tuned-ppd`
 
 Install packages for i3:
 
@@ -53,53 +50,13 @@ git clone https://github.com/theopn/haunted-tiles.git ~/.config/haunted-tiles
 ~/.config/haunted-tiles/install.sh
 ```
 
-Create `~/.config/redshift.conf` to control the behavior of the "nightlight" utility:
+Other chores:
 
-```
-[redshift]
-temp-day=5600
-temp-night=3500
-gamma=0.8
-adjustment-method=randr
-location-provider=manual
-
-[manual]
-lat=<decimal degree of your loc>
-lon=<decimal degree of your loc>
-```
-
-For Gammastep:
-
-- `[redshift]` -> `[general]`
-- `randr` -> `wayland`
-- create as `~/.config/gammastep/config.ini`
-
-Create `~/.Xresources` for the DPI and other X11 related control. E.g.:
-
-```
-$ cat .Xresources 
-Xft.dpi: 120
-```
-
-Set fcitx5 as the default input source in `~/.bash_profile` ([fcitx5 Wiki recommends `bash_profile`](https://fcitx-im.org/wiki/Setup_Fcitx_5#GLFW_IM_MODULE)) using environment variables:
-
-```
-$ cat ~/.bash_profile
-
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export SDL_IM_MODULE=fcitx
-export GLFW_IM_MODULE=ibus
-export XMODIFIERS=@im=fcitx
-```
-
-Add Tuned and configure profile
-
-```
-systemctl enable tuned
-tuned-adm list              # list all available profiles
-tuned-adm profile balanced  # select a profile
-```
+- Install `lxpolkit`
+- Create a config file for Gammastep/redshift
+- Create `~/.Xresources` with `Xft.dpi: 120` for fractional scaling in X11
+- Install `adobe-source-han-sans-kr-fonts fcitx5 fcitx5-hangul` and set up Korean input with fcitx5
+- Install power management tool (`tuned-ppd` or `tlp`) and configure
 
 For other tips on using i3/Sway tiling WM, read my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips) for more information.
 
