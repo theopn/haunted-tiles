@@ -29,7 +29,7 @@ Install packages for Sway:
 
 - Check the `.rpkg` file of the [sway-config-fedora repository](https://gitlab.com/fedora/sigs/sway/sway-config-fedora) for the complete list of packages out of the box
     - Notable packages are: `rofi-wayland brightnessctl grimshot playerctl waybar`
-- Other tools: `clipman gammashift`
+- Other tools: `clipman gammashift-indicator`
 
 Install UbuntuMono Nerd Font:
 

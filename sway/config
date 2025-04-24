@@ -35,7 +35,8 @@ set $bar waybar
 set $clipboard wl-paste -t text --watch clipman store --no-persist
 set $input fcitx5 -d --replace
 set $network nm-applet --indicator
-set $nightlight gammastep -P
+#set $nightlight gammastep -P
+set $nightlight gammastep-indicator
 set $notification dunst
 set $wallpaper $XDG_CONFIG_HOME/haunted-tiles/assets/naomi-solarsys-draculafied.png
 
