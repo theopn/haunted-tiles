@@ -17,7 +17,7 @@
     "spacing": 4,
 
     "modules-left": [
-      "custom/power",
+      "custom/misc_menu",
       "sway/workspaces",
       "sway/scratchpad",
       "sway/window"
@@ -43,17 +43,16 @@
 
     /* Modules-Left */
 
-    "custom/power": {
+    "custom/misc_menu": {
       "format" : " 󰄛 ",
       "tooltip": true,
-      "tooltip-format": "Power menu",
+      "tooltip-format": "Miscellaneous Features",
       "menu": "on-click",
-      "menu-file": "$XDG_CONFIG_HOME/haunted-tiles/scripts/power_menu.xml",
+      "menu-file": "$XDG_CONFIG_HOME/waybar/misc_menu.xml",
       "menu-actions": {
-        "logout": "swaymsg exit",
-        "suspend": "systemctl suspend",
-        "reboot": "reboot",
-        "shutdown": "shutdown",
+        "dunst_toggle": "notify-send 'Toggle Do Not Disturb' && dunstctl set-paused toggle",
+        "dunst_pop": "dunstctl history-pop",
+        "dunst_clear": "dunstctl history-clear",
       }
     },
 
