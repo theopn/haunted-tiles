@@ -79,6 +79,14 @@ window#waybar.empty #window {
   color: #6272A4; /* Dracula Comment */
 }
 
+#mpris{
+  color: #BD93F9; /* Dracula Purple */
+}
+
+#mpris.paused{
+  color: #FF79C6; /* Dracula Pink */
+}
+
 #pulseaudio {
   color: #F1FA8C; /* Dracula Yellow */
 }
