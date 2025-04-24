@@ -95,6 +95,18 @@ window#waybar.empty #window {
   color: #6272A4; /* Dracula Comment */
 }
 
+#power-profiles-daemon {
+  color: #8BE9FD; /* Dracula Cyan */
+}
+
+#power-profiles-daemon.performance {
+  color: #FFB86C; /* Dracula Orange */
+}
+
+#power-profiles-daemon.power-saver {
+  color: #50FA7B; /* Dracula Green */
+}
+
 #battery {
   color: #8BE9FD; /* Dracula Cyan */
 }

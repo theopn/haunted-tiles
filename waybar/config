@@ -34,6 +34,7 @@
       "mpris",
       "pulseaudio",
       "backlight",
+      "power-profiles-daemon",
       "battery",
       "battery#bat1",
       "clock",
@@ -177,6 +178,18 @@
 
     "battery#bat1": {
       "bat": "BAT1",
+    },
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": " ",
+        "performance": " ",
+        "balanced": " ",
+        "power-saver": " "
+      }
     },
 
     "network": {
