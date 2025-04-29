@@ -72,7 +72,6 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
-bindsym $mod+space exec $menu
 
 # change focus
 bindsym $mod+$left focus left
@@ -104,7 +103,7 @@ bindsym $mod+Shift+space floating toggle
 # Press the mod key to move the floating window w/ mouse
 floating_modifier $mod normal
 # change focus between tiling / floating windows
-#bindsym $mod+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 # focus the parent/child container
 bindsym $mod+a focus parent
 #bindsym $mod+d focus child
