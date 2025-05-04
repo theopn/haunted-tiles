@@ -20,6 +20,7 @@ for_window [shell="xwayland"] {
 set $mod Mod4
 set $term kitty
 set $menu "rofi -modi drun,run -show drun"
+set $window "rofi -modi window -show window"
 
 # Scripts for keybindings
 set $clipboard_clear clipman clear --all
@@ -72,6 +73,7 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
+bindsym $mod+w exec $window
 
 # change focus
 bindsym $mod+$left focus left
@@ -95,8 +97,9 @@ bindsym $mod+z split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 # change container layout
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+bindsym $mod+s layout tabbed
 bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle

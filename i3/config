@@ -17,6 +17,7 @@ for_window [instance="copyq"] floating enable, resize set 600 400, move position
 set $mod Mod4
 set $term kitty
 set $menu "rofi -modi drun,run -show drun"
+set $window "rofi -modi window -show window"
 
 # Scripts for keybindings
 set $clipboard_show copyq show
@@ -96,8 +97,9 @@ bindsym $mod+z split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 # change container layout
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+bindsym $mod+s layout tabbed
 bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
