@@ -66,6 +66,8 @@ List of keybindings differing from the default i3/Sway:
 
 - `jkl;` -> `hjkl`
 - `$mod + h` -> `$mod + z`: toggles hori[z]ontal split
+- `$mod + w`: tabbed view -> toggles Rofi window switcher
+- `$mod + s`: stacked view -> tabbed view, because they do the same thing but tabbed view saves more space than stacked view
 - `$mod + [/]`: moves the current workspace to the monitor to the left/right
 - `$mod + Shift + c/r/e`:  toggles the `i3_mode`/`sway_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
 - `$mod + Shift + m`: launches a Rofi script to control connected outputs
