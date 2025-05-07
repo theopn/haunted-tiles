@@ -34,7 +34,6 @@
       "mpris",
       "pulseaudio",
       "backlight",
-      "power-profiles-daemon",
       "battery",
       "battery#bat1",
       "clock",
