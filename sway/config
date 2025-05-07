@@ -28,8 +28,9 @@ set $clipboard_show clipman pick -t rofi
 set $lock swaylock -f
 set $monitor HDMI-2
 set $powermenu $XDG_CONFIG_HOME/haunted-tiles/scripts/rofi-powermenu.sh
-#set $screenshot grim -g "$(slurp)"
 set $screenshot grimshot --notify
+#set $screenrecord wf-recorder --audio -g "$(slurp)" -f ~/Pictures/record-$(date +"%Y-%m-%d--%H-%M-%S.mp4")
+#set $screenrecord_end killall -s SIGINT wf-recorder
 
 # Startup app
 set $bar waybar
@@ -174,12 +175,14 @@ bindsym $mod+Shift+e mode "$sway_mode"
 bindsym $mod+Shift+r exec $clipboard_clear
 bindsym $mod+Shift+v exec $clipboard_show
 # More modes
-set $screenshot_mode Screenshot MODE: (w) Window (s) Entire screen (a) Area (c) Area -> clipboard (esc, Return) Exit
+set $screenshot_mode Screenshot MODE: (w) Window (s) Entire screen (a) Area (c) Area -> clipboard (r) Screenrecord (e) End Screenrecord (esc, Return) Exit
 mode "$screenshot_mode" {
   bindsym w exec $screenshot save window; mode "default"
   bindsym s exec $screenshot save screen; mode "default"
   bindsym a exec $screenshot save area; mode "default"
   bindsym c exec $screenshot copy area; mode "default"
+  #bindsym r exec $screenrecord; mode "default"
+  #bindsym e exec $screenrecord_end; mode "default"
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
