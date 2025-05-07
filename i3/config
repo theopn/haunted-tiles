@@ -73,7 +73,8 @@ bindsym XF86Display exec --no-startup-id arandr
 
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec --no-startup-id $menu
+bindsym $mod+space exec --no-startup-id $menu
+bindsym $mod+d exec --no-startup-id $window
 
 # change focus
 bindsym $mod+$left focus left
@@ -97,16 +98,16 @@ bindsym $mod+z split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 # change container layout
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
-bindsym $mod+s layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 # Press the mod key to move the floating window w/ mouse
 floating_modifier $mod
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
+bindsym $mod+b focus mode_toggle
 # focus the parent/child container
 bindsym $mod+a focus parent
 #bindsym $mod+d focus child
