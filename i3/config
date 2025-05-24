@@ -29,7 +29,7 @@ set $screenshot flameshot launcher
 # Startup app
 set $bar $XDG_CONFIG_HOME/haunted-tiles/scripts/polybar-launch.sh
 set $clipboard copyq
-set $compositor picom
+set $compositor picom -b
 #set $input ibus-daemon --daemonize --xim --replace
 set $input fcitx5 -d --replace
 set $network nm-applet --indicator
