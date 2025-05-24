@@ -31,6 +31,7 @@
     ],
 
     "modules-right": [
+      "keyboard-state",
       "mpris",
       "pulseaudio",
       "backlight",
@@ -80,18 +81,6 @@
       "max-length": 150,
     },
 
-    /* Modules-Right */
-
-    "keyboard-state": {
-      "numlock": true,
-      "capslock": true,
-      "format": "{name} {icon}",
-      "format-icons": {
-        "locked": "",
-        "unlocked": ""
-      }
-    },
-
     "disk": {
       "format": "󰋊 {used}",
       "tooltip-format": "{used} used out of {total} in {path}",
@@ -116,6 +105,25 @@
       // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
       "format": "{icon} {temperatureC}°C",
       "format-icons": ""
+    },
+
+    /* Modules-Right */
+
+    "keyboard-state": {
+      "numlock": false,
+      "capslock": true,
+      "scrolllock": false,
+      "format": {
+        "numlock": "N {icon}",
+        "capslock": "{icon}"
+      },
+      "format-icons": {
+          "locked": "󰪛 ",
+          "unlocked": ""
+      },
+      // Default [58, 69, 70] for capslock, numlock, scrolllock (/usr/include/linux/input-event-codes.h)
+      // Changed since I swapped capslock and left control
+      "binding-keys": [29,69,70],
     },
 
     "mpris": {
