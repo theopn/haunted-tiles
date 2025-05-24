@@ -80,10 +80,6 @@ window#waybar.empty #window {
   color: #6272A4; /* Dracula Comment */
 }
 
-#keyboard-state{
-  color: #FFB86C; /* Dracula Orange */
-}
-
 #mpris{
   color: #BD93F9; /* Dracula Purple */
 }
@@ -118,6 +114,22 @@ window#waybar.empty #window {
 
 #battery.charging, #battery.plugged {
   color: #FFB86C; /* Dracula Orange */
+}
+
+#keyboard-state{
+  color: #FFB86C; /* Dracula Orange */
+}
+
+#idle_inhibitor{
+  padding: 0 5px 0 5px;
+}
+
+#idle_inhibitor.activated{
+  color: #FF5555; /* Dracula Red */
+}
+
+#idle_inhibitor.deactivated{
+  color: #6272A4; /* Dracula Comment */
 }
 
 #tray {
