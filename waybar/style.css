@@ -80,6 +80,10 @@ window#waybar.empty #window {
   color: #6272A4; /* Dracula Comment */
 }
 
+#keyboard-state{
+  color: #FFB86C; /* Dracula Orange */
+}
+
 #mpris{
   color: #BD93F9; /* Dracula Purple */
 }

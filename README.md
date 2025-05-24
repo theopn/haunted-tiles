@@ -55,6 +55,7 @@ git clone https://github.com/theopn/haunted-tiles.git ~/.config/haunted-tiles
 
 Other chores:
 
+- Run `usermod -a -G input [username]` and reboot the system to give Waybar access to keyboard state (for displaying capslock & numlock state)
 - Create a config file for Gammastep/redshift
 - Create `~/.Xresources` with `Xft.dpi: 120` for fractional scaling in X11
 - Install `adobe-source-han-sans-kr-fonts fcitx5 fcitx5-hangul` and set up Korean input with fcitx5
