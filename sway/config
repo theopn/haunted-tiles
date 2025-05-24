@@ -176,12 +176,13 @@ bindsym $mod+Shift+e mode "$sway_mode"
 bindsym $mod+Shift+r exec $clipboard_clear
 bindsym $mod+Shift+v exec $clipboard_show
 # More modes
-set $screenshot_mode Screenshot MODE: (w) Window (s) Entire screen (a) Area (c) Area -> clipboard (esc, Return) Exit
+set $screenshot_mode Screenshot MODE: (w) Window (s) entire Screen (a) Area (c) to Clipboard (p) color Picker (esc, Return) Exit
 mode "$screenshot_mode" {
   bindsym w exec $screenshot save window; mode "default"
   bindsym s exec $screenshot save screen; mode "default"
   bindsym a exec $screenshot save area; mode "default"
   bindsym c exec $screenshot copy area; mode "default"
+  bindsym p exec notify-send "$(grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-)"; mode "default"
   #bindsym r exec $screenrecord; mode "default"
   #bindsym e exec $screenrecord_end; mode "default"
   bindsym Escape mode "default"
