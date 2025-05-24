@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="~/.config"}
 HAUNTED_TILES_DIR=${XDG_CONFIG_HOME}/haunted-tiles
 
 read -p "Deploy dotfiles for common utilities? (y/n) > " -n1 -r REPLY
@@ -16,6 +17,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "Deploying i3, polybar, ..."
   ln -s ${HAUNTED_TILES_DIR}/i3 ${XDG_CONFIG_HOME}/i3
   ln -s ${HAUNTED_TILES_DIR}/polybar ${XDG_CONFIG_HOME}/polybar
+  ln -s ${HAUNTED_TILES_DIR}/picom ${XDG_CONFIG_HOME}/picom
 fi
 
 read -p "Deploy Sway related files? (y/n) > " -n1 -r REPLY
