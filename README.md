@@ -5,18 +5,21 @@
 | ![sway-sc](./assets/sway-sc.png)                                                 |
 | ![i3-sc](./assets/i3-sc.png)                                                     |
 
-Collection of utilities and scripts for my Fedora Sway and i3 spin setup.
+Collection of utilities and scripts for my Sway (Swayfx) and i3 environment in Fedora.
 
 I had an ambitious plan of making this repository the next best tiling window manager "distro", but now it is just my minimal, Dracula-themed tiling WM config for my ThinkPad X270 which I use as a focused development machine.
+
+I usually install Fedora i3-spin and Swayfx on the top of it, as Wayland screen sharing is not reliable yet.
+However, since Sway is my main WM, i3 might lack some features that Sway has (even though I try to keep them as similar as possible).
 
 The artwork for [the logo](./assets/haunted-tiles-logo.png), [solar system wallpaper](./assets/naomi-solarsys-draculafied.png), and [the lock screen](./assets/naomi-solarsys-draculafied-lockscreen.png) are done by my girlfriend Naomi.
 If you are using one of the artworks, please credit her by crediting this repository
 
-## How I Setup Fedora Sway/i3 spin
+## How I Setup Fedora i3 Spin
 
 Install utilities:
 
-- Tools: `fzf git kitty vim`
+- Tools: `fzf git kitty vim lxpolkit`
 
 Install packages for i3:
 
@@ -27,9 +30,9 @@ Install packages for i3:
 
 Install packages for Sway:
 
-- Check the `.rpkg` file of the [sway-config-fedora repository](https://gitlab.com/fedora/sigs/sway/sway-config-fedora) for the complete list of packages out of the box
-    - Notable packages are: `rofi-wayland brightnessctl grimshot playerctl waybar`
-- Other tools: `clipman gammashift-indicator`
+- Install Swayfx: `sudo dnf copr enable swayfx/swayfx && sudo dnf install swayfx`
+- ~Check the `.rpkg` file of the [sway-config-fedora repository](https://gitlab.com/fedora/sigs/sway/sway-config-fedora) for the complete list of packages out of the box. Notable packages are: `rofi-wayland brightnessctl grimshot playerctl waybar`~
+- Tools: `clipman gammashift-indicator grimshot playerctl waybar`
 
 Install UbuntuMono Nerd Font:
 
@@ -52,7 +55,6 @@ git clone https://github.com/theopn/haunted-tiles.git ~/.config/haunted-tiles
 
 Other chores:
 
-- Install `lxpolkit`
 - Create a config file for Gammastep/redshift
 - Create `~/.Xresources` with `Xft.dpi: 120` for fractional scaling in X11
 - Install `adobe-source-han-sans-kr-fonts fcitx5 fcitx5-hangul` and set up Korean input with fcitx5
