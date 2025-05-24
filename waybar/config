@@ -25,12 +25,12 @@
 
     "modules-center": [
       "sway/mode",
+      "cpu",
+      "memory",
+      "temperature"
     ],
 
     "modules-right": [
-      "cpu",
-      "memory",
-      "temperature",
       "mpris",
       "pulseaudio",
       "backlight",
@@ -130,7 +130,7 @@
       "status-icons": {
         "paused": "⏸"
       },
-      "max-length": 50,
+      "max-length": 20,
     },
 
     "pulseaudio": {

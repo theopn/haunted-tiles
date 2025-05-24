@@ -20,6 +20,7 @@ window#waybar {
 /* Modules-Right */
 
 #custom-misc_menu {
+  background-color: #44475A; /* Dracula Current Line */
   color:  #FF79C6;            /* Dracula Pink */
   padding: 0px 5px 0px 5px;
 }
