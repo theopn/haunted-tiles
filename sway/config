@@ -24,11 +24,8 @@ set $menu "rofi -modi drun,run -show drun"
 set $window "rofi -modi window -show window"
 
 # Scripts for keybindings
-set $clipboard_clear clipman clear --all
-set $clipboard_show clipman pick -t rofi
 set $lock swaylock -f
 set $monitor HDMI-2
-set $powermenu $XDG_CONFIG_HOME/haunted-tiles/scripts/rofi-powermenu.sh
 set $screenshot grimshot --notify
 #set $screenrecord wf-recorder --audio -g "$(slurp)" -f ~/Pictures/record-$(date +"%Y-%m-%d--%H-%M-%S.mp4")
 #set $screenrecord_end killall -s SIGINT wf-recorder
@@ -159,10 +156,10 @@ mode "$resize_mode" {
 }
 bindsym $mod+r mode "$resize_mode"
 # Sway related options mode
-set $sway_mode Sway MODE: (c) Config reload (e) Exit Sway (esc, Return, Mode+Shift+c/e) Exit
+set $sway_mode Sway MODE: (c) Config reload (e) Exit Sway (ESC, RET) Exit
 mode "$sway_mode" {
   bindsym c reload, mode "default"
-  bindsym e exec "swaynag -t warning -m 'Exit Sway?' -B 'Sure' 'swaymsg exit'"
+  bindsym e exit
   bindsym Escape mode "default"
   bindsym Return mode "default"
   bindsym $mod+Shift+c mode "default"
@@ -173,10 +170,15 @@ bindsym $mod+Shift+e mode "$sway_mode"
 # }}}
 
 # Utility keybindings {{{
-# Accessing clipboard manager and screenshot tool
-bindsym $mod+Shift+r exec $clipboard_clear
-bindsym $mod+Shift+v exec $clipboard_show
-# More modes
+set $clipboard_mode Clipboard MODE: (v) Show history (c) Clear history (esc, Return) Exit
+mode "$clipboard_mode" {
+  bindsym v exec clipman pick -t rofi; mode "default"
+  bindsym c exec clipman clear --all; mode "default"
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+bindsym $mod+Shift+v mode "$clipboard_mode"
+
 set $screenshot_mode Screenshot MODE: (w) Window (s) entire Screen (a) Area (c) to Clipboard (p) color Picker (esc, Return) Exit
 mode "$screenshot_mode" {
   bindsym w exec $screenshot save window; mode "default"
@@ -190,6 +192,7 @@ mode "$screenshot_mode" {
   bindsym Return mode "default"
 }
 bindsym $mod+Shift+s mode "$screenshot_mode"
+
 set $monitor_mode Monitor MODE ($monitor): (l) left to eDP-1 (t) toggle (esc, Return) Exit
 mode "$monitor_mode" {
   bindsym t output $monitor toggle; mode "default"
@@ -198,8 +201,16 @@ mode "$monitor_mode" {
   bindsym Return mode "default"
 }
 bindsym $mod+Shift+m mode "$monitor_mode"
-# Rofi powermenu scripts
-bindsym $mod+Shift+p exec $powermenu
+
+set $power_mode Poewr MODE: (p) Poweroff (r) Reboot (s) Suspend (ESC, RET) Exit
+mode "$power_mode" {
+  bindsym p exec "swaynag -t warning -m 'Seriously?' -B 'Sure' 'systemctl poweroff'"
+  bindsym r exec "swaynag -t warning -m 'Really?' -B 'Sure' 'systemctl reboot'"
+  bindsym s exec systemctl suspend; mode "default"
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+bindsym $mod+Shift+p mode "$power_mode"
 # }}}
 
 # Appearance {{{
