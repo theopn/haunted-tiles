@@ -140,7 +140,7 @@ bindsym $mod+Shift+bracketright move workspace to output right
 
 # Modes {{{
 # Window resize mode
-set $resize_mode RESIZE MODE: (hjkl, arrows) Resize (esc, return, super+r) Exit
+set $resize_mode [RESIZE] (hjkl, arrows) Resize (ESC/RET/$mod +r) Exit
 mode "$resize_mode" {
   bindsym h resize shrink width 10 px or 10 ppt
   bindsym j resize grow height 10 px or 10 ppt
@@ -156,21 +156,19 @@ mode "$resize_mode" {
 }
 bindsym $mod+r mode "$resize_mode"
 # Sway related options mode
-set $sway_mode Sway MODE: (c) Config reload (e) Exit Sway (ESC, RET) Exit
+set $sway_mode [Sway Mode] (c) Config reload (e) Exit Sway (ESC/RET) Exit
 mode "$sway_mode" {
   bindsym c reload, mode "default"
   bindsym e exit
   bindsym Escape mode "default"
   bindsym Return mode "default"
-  bindsym $mod+Shift+c mode "default"
-  bindsym $mod+Shift+e mode "default"
 }
 bindsym $mod+Shift+c mode "$sway_mode"
 bindsym $mod+Shift+e mode "$sway_mode"
 # }}}
 
 # Utility keybindings {{{
-set $clipboard_mode Clipboard MODE: (v) Show history (c) Clear history (esc, Return) Exit
+set $clipboard_mode [Clipboard] (v) Show history (c) Clear history (ESC/RET) Exit
 mode "$clipboard_mode" {
   bindsym v exec clipman pick -t rofi; mode "default"
   bindsym c exec clipman clear --all; mode "default"
@@ -179,7 +177,7 @@ mode "$clipboard_mode" {
 }
 bindsym $mod+Shift+v mode "$clipboard_mode"
 
-set $screenshot_mode Screenshot MODE: (w) Window (s) entire Screen (a) Area (c) to Clipboard (p) color Picker (esc, Return) Exit
+set $screenshot_mode [Screenshot] (w) Window (s) Screen (a) Area (c) to Clipboard (p) color Picker (ESC/RET) Exit
 mode "$screenshot_mode" {
   bindsym w exec $screenshot save window; mode "default"
   bindsym s exec $screenshot save screen; mode "default"
@@ -193,7 +191,7 @@ mode "$screenshot_mode" {
 }
 bindsym $mod+Shift+s mode "$screenshot_mode"
 
-set $monitor_mode Monitor MODE ($monitor): (l) left to eDP-1 (t) toggle (esc, Return) Exit
+set $monitor_mode [Monitor ($monitor)] (l) left to eDP-1 (t) toggle (ESC/RET) Exit
 mode "$monitor_mode" {
   bindsym t output $monitor toggle; mode "default"
   bindsym l output $monitor pos 0 0; mode "default"
@@ -202,9 +200,9 @@ mode "$monitor_mode" {
 }
 bindsym $mod+Shift+m mode "$monitor_mode"
 
-set $power_mode Poewr MODE: (p) Poweroff (r) Reboot (s) Suspend (ESC, RET) Exit
+set $power_mode [Power] (p) Poweroff (r) Reboot (s) Suspend (ESC/RET) Exit
 mode "$power_mode" {
-  bindsym p exec "swaynag -t warning -m 'Seriously?' -B 'Sure' 'systemctl poweroff'"
+  bindsym p exec "swaynag -t warning -m 'Seriously?' -B 'Yeah whatever' 'systemctl poweroff'"
   bindsym r exec "swaynag -t warning -m 'Really?' -B 'Sure' 'systemctl reboot'"
   bindsym s exec systemctl suspend; mode "default"
   bindsym Escape mode "default"
