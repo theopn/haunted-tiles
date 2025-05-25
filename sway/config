@@ -27,8 +27,8 @@ set $window "rofi -modi window -show window"
 set $lock swaylock -f
 set $monitor HDMI-2
 set $screenshot grimshot --notify
-#set $screenrecord wf-recorder --audio -g "$(slurp)" -f ~/Pictures/record-$(date +"%Y-%m-%d--%H-%M-%S.mp4")
-#set $screenrecord_end killall -s SIGINT wf-recorder
+set $screenrecord wf-recorder --audio -f ~/Pictures/record-$(date +"%Y-%m-%d--%H-%M-%S.mp4")
+set $swayfx $XDG_CONFIG_HOME/haunted-tiles/sway/swayfx.conf
 
 # Startup app
 set $bar waybar
@@ -190,6 +190,16 @@ mode "$screenshot_mode" {
   bindsym Return mode "default"
 }
 bindsym $mod+Shift+s mode "$screenshot_mode"
+
+set $screenrecord_mode [Screenrecord] (s) Start Selection (f) Start full screen (e) End (ESC/RET) Exit
+mode "$screenrecord_mode" {
+  bindsym s exec $screenrecord -g "$(slurp)"; mode "default"
+  bindsym f exec $screenrecord; mode "default"
+  bindsym e exec killall -s SIGINT wf-recorder; mode "default"
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+bindsym $mod+Shift+r mode "$screenrecord_mode"
 
 set $monitor_mode [Monitor ($monitor)] (l) left to eDP-1 (t) toggle (ESC/RET) Exit
 mode "$monitor_mode" {
