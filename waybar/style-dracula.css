@@ -12,16 +12,16 @@
 }
 
 window#waybar {
-  background-color: #39404F;  /* BG2 */
-  color: #C7Cdd9;             /* FG0 */
+  background-color: #282A36;  /* Dracula BG */
+  color: #F8F8F2;             /* Dracula FG */
 }
 
 
 /* Modules-Right */
 
 #custom-misc_menu {
-  background-color: #444C5E;  /* BG3 */
-  color:  #BF88Bc;            /* Pink */
+  background-color: #44475A; /* Dracula Current Line */
+  color:  #FF79C6;            /* Dracula Pink */
   padding: 0px 5px 0px 5px;
 }
 
@@ -31,27 +31,27 @@ window#waybar {
 #workspaces button {
   padding: 0px 9px 0px 9px;
   min-width: 1px;
-  color: #7E8188;             /* FG3 */
+  color: #6272A4;  /* Dracula Comment */
 }
 
 #workspaces button.focused {
-  background-color: #4F6074;  /* SEL1 */
-  color: #ABB1BB;             /* FG2 */
+  background-color: #44475A;  /* Dracula Current Line */
+  color: #F8F8F2;             /* Dracula FG */
 }
 
 #workspaces button.urgent {
-  background-color: #BF616A;  /* Red */
+  background-color: #FF5555; /* Dracula Red */
+  color: #F8F8F2;             /* Dracula FG */
 }
 
 #scratchpad {
-  color: #7E8188;             /* FG3 */
-  padding: 0px 3px 0px 3px;
+  color: #6272A4;  /* Dracula Comment */
+  padding: 0px 5px 0px 5px;
 }
 
 #window {
-  color: #ABB1BB;             /* FG2 */
-  background-color: #4F6074;  /* SEL1 */
-  padding: 0px 3px 0px 3px;
+  background-color: #44475A;  /* Dracula Current Line */
+  padding: 0px 10px 0px 10px;
 }
 
 window#waybar.empty #window {
@@ -62,8 +62,8 @@ window#waybar.empty #window {
 /* Modules-Center */
 
 #mode {
-  background-color: #BF616A;  /* Red */
-  padding: 0px 3px 0px 3px;
+  background-color: #FF5555;  /* Dracula Red */
+  padding: 0px 5px 0px 5px;
 }
 
 /* Modules-Left */
@@ -78,62 +78,62 @@ window#waybar.empty #window {
 }
 
 #disk, #temperature, #cpu, #memory {
-  color: #7E8188; /* FG3 */
+  color: #6272A4; /* Dracula Comment */
 }
 
 #mpris{
-  color: #81A1C1; /* Blue */
+  color: #BD93F9; /* Dracula Purple */
 }
 
 #mpris.paused{
-  color: #60728A; /* Comment */
+  color: #FF79C6; /* Dracula Pink */
 }
 
 #pulseaudio {
-  color: #EBCB8B; /* Yellow */
+  color: #F1FA8C; /* Dracula Yellow */
 }
 
 #pulseaudio.muted {
-  color: #60728A; /* Comment */
+  color: #6272A4; /* Dracula Comment */
 }
 
 #power-profiles-daemon {
-  color: #88C0D0; /* Cyan */
+  color: #8BE9FD; /* Dracula Cyan */
 }
 
 #power-profiles-daemon.performance {
-  color: #C9826B; /* Orange */
+  color: #FFB86C; /* Dracula Orange */
 }
 
 #power-profiles-daemon.power-saver {
-  color: #A3Be8C; /* Green */
+  color: #50FA7B; /* Dracula Green */
 }
 
 #battery {
-  color: #88C0D0; /* Cyan */
+  color: #8BE9FD; /* Dracula Cyan */
 }
 
 #battery.charging, #battery.plugged {
-  color: #C9826B; /* Orange */
+  color: #FFB86C; /* Dracula Orange */
 }
 
 #keyboard-state{
-  color: #B47EAD; /* Magenta */
+  color: #FFB86C; /* Dracula Orange */
 }
 
 #idle_inhibitor{
 }
 
 #idle_inhibitor.activated{
-  color: #BF616A; /* Red */
+  color: #FF5555; /* Dracula Red */
 }
 
 #idle_inhibitor.deactivated{
-  color: #60728A; /* Comment */
+  color: #6272A4; /* Dracula Comment */
 }
 
 #tray {
-  background-color: #444C5E;  /* BG3 */
+  background-color: #44475A; /* Dracula Current Line */
   padding: 0 9px 0 9px;
 }
 
@@ -143,5 +143,5 @@ window#waybar.empty #window {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #BF616A;  /* Red */
+  background-color: #FF5555; /* Dracula Red */
 }

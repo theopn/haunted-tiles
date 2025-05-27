@@ -33,12 +33,12 @@
     "modules-right": [
       "mpris",
       "pulseaudio",
+      "idle_inhibitor",
       "backlight",
       "battery",
       "battery#bat1",
-      "keyboard-state",
-      "idle_inhibitor",
       "clock",
+      "keyboard-state",
       "tray"
     ],
 
@@ -145,10 +145,32 @@
       "on-click": "pavucontrol"
     },
 
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+          "activated": "󰅶",
+          "deactivated": "󰾪"
+      },
+      "tooltip-format-activated": "CAFFEINATED",
+      "tooltip-format-deactivated": "a bit sleepy",
+    },
+
     "backlight": {
       // "device": "acpi_video1",
       "format": "{icon} {percent}%",
       "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+    },
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": " ",
+        "performance": " ",
+        "balanced": " ",
+        "power-saver": " "
+      }
     },
 
     "battery": {
@@ -168,18 +190,6 @@
 
     "battery#bat1": {
       "bat": "BAT1",
-    },
-
-    "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": " ",
-        "performance": " ",
-        "balanced": " ",
-        "power-saver": " "
-      }
     },
 
     "network": {
@@ -213,16 +223,6 @@
       // Default [58, 69, 70] for capslock, numlock, scrolllock (/usr/include/linux/input-event-codes.h)
       // Changed since I swapped capslock and left control
       "binding-keys": [29,69,70],
-    },
-
-    "idle_inhibitor": {
-      "format": "{icon}",
-      "format-icons": {
-          "activated": "󰅶 ",
-          "deactivated": "󰾪 "
-      },
-      "tooltip-format-activated": "CAFFEINATED",
-      "tooltip-format-deactivated": "a bit sleepy",
     },
 
     "tray": {
