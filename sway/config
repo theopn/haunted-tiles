@@ -240,6 +240,8 @@ gaps inner 3
 gaps outer 3
 # Remove border when there is only one window
 smart_borders on
+####### SWAYFX ONLY SETTINGS #######
+include $swayfx
 # }}}
 
 # Settings {{{
