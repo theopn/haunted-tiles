@@ -210,11 +210,12 @@ mode "$monitor_mode" {
 }
 bindsym $mod+Shift+m mode "$monitor_mode"
 
-set $power_mode [Power] (p) Poweroff (r) Reboot (s) Suspend (ESC/RET) Exit
+set $power_mode [Power] (p) Poweroff (r) Reboot (s) Suspend (l) Lock (ESC/RET) Exit
 mode "$power_mode" {
   bindsym p exec "swaynag -t warning -m 'Seriously?' -B 'Yeah whatever' 'systemctl poweroff'"
   bindsym r exec "swaynag -t warning -m 'Really?' -B 'Sure' 'systemctl reboot'"
   bindsym s exec systemctl suspend; mode "default"
+  bindsym l exec $lock; mode "default"
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
