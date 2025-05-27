@@ -54,6 +54,11 @@ git clone https://github.com/theopn/haunted-tiles.git ~/.config/haunted-tiles
 ~/.config/haunted-tiles/install.sh
 ```
 
+Configuration:
+
+- Change wallpaper by modifying `~/.fehbg` (i3) or `~/.config/swaybg`
+- Generate a new lock screen image using the included `lock-24269-320.png` and `lock-24269-640.png` (from [Pixabay](https://pixabay.com/vectors/lock-locked-metal-protection-tool-24269/)) and Imagemagic command (`magick wallpaper.png lock-24269-640.png -gravity center -composite lockscreen.png`)
+
 Other chores:
 
 - Run `usermod -a -G input [username]` and reboot the system to give Waybar access to keyboard state (for displaying capslock & numlock state)
@@ -82,8 +87,6 @@ List of keybindings differing from the default i3/Sway:
 - `$mod + Shift + s`: launches the screenshot tool (Flamshot)
     - (Sway) toggles `screenshot_mode` which you can choose area, screen, or window capture from Grimshot
 - `$mod + Shift + v`: launches the clipboard manager (Copy Qin i3, Clipman in Sway)
-
-Generate `$XDG_CONFIG_HOME/swaybg` file with `install.sh` to quickly change wallpapers.
 
 `[3]=` indicator in Waybar means that there are 3 windows in the scratchpad.
 You can add a window to a scratchpad with `$mod + Shift + -` and cycle through the scratchpad with `$mod + -`.
