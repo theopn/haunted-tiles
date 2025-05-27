@@ -38,7 +38,7 @@ set $network nm-applet --indicator
 #set $nightlight gammastep -P
 set $nightlight gammastep-indicator
 set $notification dunst
-set $wallpaper $XDG_CONFIG_HOME/haunted-tiles/assets/naomi-solarsys-draculafied.png
+set $wallpaper $XDG_CONFIG_HOME/swaybg
 
 # Key var
 set $left h
@@ -261,7 +261,7 @@ exec swayidle -w \
 # Display scaling -- fractional scaling is not recommendeded, use zoom option in each app
 #output eDP-1 scale 1.15
 # Wallpaper
-output * bg $wallpaper fill
+include $wallpaper
 # }}}
 
 # Startup App {{{

@@ -32,7 +32,8 @@ Install packages for Sway:
 
 - Install Swayfx: `sudo dnf copr enable swayfx/swayfx && sudo dnf install swayfx`
 - ~Check the `.rpkg` file of the [sway-config-fedora repository](https://gitlab.com/fedora/sigs/sway/sway-config-fedora) for the complete list of packages out of the box. Notable packages are: `rofi-wayland brightnessctl grimshot playerctl waybar`~
-- Tools: `clipman gammashift-indicator grimshot playerctl waybar`
+- Tools: `clipman gammashift-indicator grimshot playerctl waybar wf-recorder`
+- Replace (`dnf install --allowerasing`) `rofi` with `rofi-wayland`
 
 Install UbuntuMono Nerd Font:
 
@@ -81,6 +82,8 @@ List of keybindings differing from the default i3/Sway:
 - `$mod + Shift + s`: launches the screenshot tool (Flamshot)
     - (Sway) toggles `screenshot_mode` which you can choose area, screen, or window capture from Grimshot
 - `$mod + Shift + v`: launches the clipboard manager (Copy Qin i3, Clipman in Sway)
+
+Generate `$XDG_CONFIG_HOME/swaybg` file with `install.sh` to quickly change wallpapers.
 
 `[3]=` indicator in Waybar means that there are 3 windows in the scratchpad.
 You can add a window to a scratchpad with `$mod + Shift + -` and cycle through the scratchpad with `$mod + -`.

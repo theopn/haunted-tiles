@@ -27,5 +27,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   ln -s ${HAUNTED_TILES_DIR}/sway ${XDG_CONFIG_HOME}/sway
   ln -s ${HAUNTED_TILES_DIR}/swaylock ${XDG_CONFIG_HOME}/swaylock
   ln -s ${HAUNTED_TILES_DIR}/waybar ${XDG_CONFIG_HOME}/waybar
+  cat <<EOF >> ~/.config/swaybg
+# Path must be absolute (no tilde)
+output * bg $XDG_CONFIG_HOME/haunted-tiles/assets/naomi-solarsys-draculafied.png fill
+EOF
 fi
 
