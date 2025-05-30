@@ -7,71 +7,62 @@
 
 Collection of utilities and scripts for my Sway (Swayfx) and i3 environment in Fedora.
 
-I had an ambitious plan of making this repository the next best tiling window manager "distro", but now it is just my minimal, Dracula-themed tiling WM config for my ThinkPad X270 which I use as a focused development machine.
+I had an ambitious plan of making this the next best Dracula-themed tiling window manager "distro" (hence the name of the repository), now it is just a minimal Sway/i3 config for my laptop running Fedora.
 
-I usually install Fedora i3-spin and Swayfx on the top of it, as Wayland screen sharing is not reliable yet.
-However, since Sway is my main WM, i3 might lack some features that Sway has (even though I try to keep them as similar as possible).
+I usually install Fedora i3-spin and Swayfx on top of it, as Wayland screen sharing is not reliable yet.
+Nonetheless, since Sway is my main WM, i3 might lack some features that Sway has.
 
-The artwork for [the logo](./assets/haunted-tiles-logo.png), [solar system wallpaper](./assets/naomi-solarsys-draculafied.png), and [the lock screen](./assets/naomi-solarsys-draculafied-lockscreen.png) are done by my girlfriend Naomi.
-If you are using one of the artworks, please credit her by crediting this repository
+Credits:
 
-## How I Setup Fedora i3 Spin
+- [Logo](./assets/haunted-tiles-logo.png), Dracula-themed solar system wallpaper: my girlfriend Naomi
+- Nord wallpaper:
+- Lock icon: [Pixabay](https://pixabay.com/vectors/lock-locked-metal-protection-tool-24269/)
 
-Install utilities:
+## How I Setup Fedora
 
-- Tools: `fzf git kitty vim lxpolkit`
+- Install i3 spin (check [here](https://docs.fedoraproject.org/en-US/i3/package-groups/) for the complete list of pre-installed packages)
+- ~Install Sway spin (check [here](https://gitlab.com/fedora/sigs/sway/sway-config-fedora/-/blob/fedora/sway-config-fedora.spec.rpkg?ref_type=heads) for the complete list of pre-installed packages)~
+- Install: `blueman brightnessctl dunst fzf git imagemagick kitty lxpolkit network-manager-applet playerctl vim`
+- Install `rofi-wayland` with `--allowerasing` flag if regular `rofi` is already installed
+- Install tools for i3: `copyq feh flameshot picom polybar setxkbmap redshift rofi xinput xss-lock`
+- Install `swayfx` from Copr (`dnf copr enable swayfx/swayfx`) and install Sway related tools: `clipman gammashift-indicator grimshot waybar wf-recorder`
+- Install UbuntuMono Nerd Font:
+    ```sh
+    mkdir -p ~/.local/share/fonts
+    cd ~/.local/share/fonts
+    wget -O tmp.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/UbuntuMono.zip
+    unzip tmp.zip
+    fc-cache -vf
+    rm tmp.zip
+    cd -
+    ```
+- Locate the wallpaper as a PNG file at `$XDG_CONFIG_HOME/wallpaper.png`
+- Generate a new lock screen image using the included lock icon:
+    ```sh
+    # use `lock-24269-640.png` for higher resolution image
+    magick $XDG_CONFIG_HOME/wallpaper.png $XDG_CONFIG_HOME/haunted-tiles/assets/lock-24269-360.png -gravity center -composite $XDG_CONFIG_HOME/lockscreen.png
+    ```
+- Finally, clone the repository and run the installation script:
+    ```sh
+    git clone https://github.com/theopn/haunted-tiles.git ~/.config/haunted-tiles
+    ~/.config/haunted-tiles/install.sh
+    ```
 
-Install packages for i3:
+Post installation
 
-- Check the `i3.spec` file of the [i3-config-fedora repository](https://src.fedoraproject.org/rpms/i3/tree/rawhide) for the complete list of packages out of the box
-    - Notable packages are: `xss-lock network-manager-applet brightnessctl dunst feh setxkbmap`
-- Other tools: `copyq flameshot picom polybar redshift rofi xinput`
-- Not necessary but recommended: `arandr blueman`
-
-Install packages for Sway:
-
-- Install Swayfx: `sudo dnf copr enable swayfx/swayfx && sudo dnf install swayfx`
-- ~Check the `.rpkg` file of the [sway-config-fedora repository](https://gitlab.com/fedora/sigs/sway/sway-config-fedora) for the complete list of packages out of the box. Notable packages are: `rofi-wayland brightnessctl grimshot playerctl waybar`~
-- Tools: `clipman gammashift-indicator grimshot playerctl waybar wf-recorder`
-- Replace (`dnf install --allowerasing`) `rofi` with `rofi-wayland`
-
-Install UbuntuMono Nerd Font:
-
-```sh
-mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts
-wget -O tmp.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/UbuntuMono.zip
-unzip tmp.zip
-fc-cache -vf
-rm tmp.zip
-cd -
-```
-
-Finally, clone the repository and run the installation script:
-
-```sh
-git clone https://github.com/theopn/haunted-tiles.git ~/.config/haunted-tiles
-~/.config/haunted-tiles/install.sh
-```
-
-Configuration:
-
-- Change wallpaper by modifying `~/.fehbg` (i3) or `~/.config/swaybg`
-- Generate a new lock screen image using the included `lock-24269-320.png` and `lock-24269-640.png` (from [Pixabay](https://pixabay.com/vectors/lock-locked-metal-protection-tool-24269/)) and Imagemagic command (`magick wallpaper.png lock-24269-640.png -gravity center -composite lockscreen.png`)
-
-Other chores:
-
-- Run `usermod -a -G input [username]` and reboot the system to give Waybar access to keyboard state (for displaying capslock & numlock state)
-- Create a config file for Gammastep/redshift
-- Create `~/.Xresources` with `Xft.dpi: 120` for fractional scaling in X11
+- Add yourself to the `input` user group for Waybar keyboard state module:
+    ```sh
+    usermod -a -G input [username]
+    ```
+- Modify the coordinates in the Redshift/Gammastep config
 - Install `adobe-source-han-sans-kr-fonts fcitx5 fcitx5-hangul` and set up Korean input with fcitx5
 - Install power management tool (`tuned-ppd` or `tlp`) and configure
 
-For other tips on using i3/Sway tiling WM, read my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips) for more information.
+For other tips on configuring i3/Sway tiling WM, read my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips) for more information.
 
 ## Usage
 
-List of keybindings differing from the default i3/Sway:
+List of keybindings different from the default i3/Sway:
 
 - `jkl;` -> `hjkl`
 - `$mod + h` -> `$mod + z`: toggles hori[z]ontal split
@@ -91,4 +82,19 @@ List of keybindings differing from the default i3/Sway:
 `[3]=` indicator in Waybar means that there are 3 windows in the scratchpad.
 You can add a window to a scratchpad with `$mod + Shift + -` and cycle through the scratchpad with `$mod + -`.
 `[]=` is inspired by the tiling window indicator in the dwm statusbar, which does not make sense in this context, but I thought it looked cute.
+
+## i3 TODO
+
+Features in Sway that are not implemented in i3 ~yet~ (maybe never):
+
+- Color picker
+- Screen recording
+- Idle action
+- Mpris (currently playing) information
+
+Things that are better in i3:
+
+- Clipboard tool with image support
+- Compositor: fade animation, opacity for inactive (including the lock screen)
+- Screen sharing in Flatpak application
 
