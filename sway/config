@@ -38,7 +38,7 @@ set $network nm-applet --indicator
 #set $nightlight gammastep -P
 set $nightlight gammastep-indicator
 set $notification dunst
-set $wallpaper $XDG_CONFIG_HOME/swaybg
+set $wallpaper $XDG_CONFIG_HOME/wallpaper.png
 
 # Key var
 set $left h
@@ -264,7 +264,7 @@ exec swayidle -w \
 # Display scaling -- fractional scaling is not recommendeded, use zoom option in each app
 #output eDP-1 scale 1.15
 # Wallpaper
-include $wallpaper
+output * bg $XDG_CONFIG_HOME/wallpaper.png fill
 # }}}
 
 # Startup App {{{

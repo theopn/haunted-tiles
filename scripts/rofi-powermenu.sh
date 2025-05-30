@@ -17,11 +17,8 @@ no=' 󰜺  no'
 shutdown_cmd='systemctl poweroff'
 suspend_cmd='systemctl suspend'
 reboot_cmd='systemctl reboot'
-if [[ "$DESKTOP_SESSION" == "i3" ]]; then
-  lock_cmd=~/.config/haunted-tiles/scripts/i3lock.sh
-elif [[ "$DESKTOP_SESSION" == "sway" ]]; then
-  lock_cmd="swaylock -f"
-fi
+lock_cmd="i3lock --ignore-empty-password --show-failed-attempts
+        \ -c #282A36 -i $XDG_CONFIG_HOME/lockscreen.png"
 
 function exit_wm() {
   if [[ "$DESKTOP_SESSION" == "i3" ]]; then

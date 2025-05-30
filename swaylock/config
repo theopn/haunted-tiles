@@ -3,5 +3,7 @@ ignore-empty-password
 show-failed-attempts
 show-keyboard-layout
 
-color=282A36
-image=$XDG_CONFIG_HOME/haunted-tiles/assets/naomi-solarsys-draculafied-lockscreen.png
+scaling=fill
+color=39404F
+image=$XDG_CONFIG_HOME/lockscreen.png
+
