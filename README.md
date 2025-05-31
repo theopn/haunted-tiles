@@ -3,7 +3,9 @@
 | <img src="./assets/haunted-tiles-logo.png" width="250" alt="Haunted Tiles logo"> |
 | :--:                                                                             |
 | ![sway-sc](./assets/sway-sc.png)                                                 |
+| SwayFX with LDR Wallpaper                                                        |
 | ![i3-sc](./assets/i3-sc.png)                                                     |
+| i3                                                                               |
 
 Collection of utilities and scripts for my Sway (Swayfx) and i3 environment in Fedora.
 
