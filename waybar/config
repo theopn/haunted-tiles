@@ -71,8 +71,14 @@
     },
 
     "sway/window": {
-      "format": "[{shell}] {app_id}: {title}",
-      "max-length": 150
+      "format": "{shell}: {title}",
+      "max-length": 100,
+      "icon": true,
+      "icon-size": 20,
+      "rewrite": {
+        "xdg_shell: (.*)": "  $1",
+        "xwayland: (.*)": "  $1",  // rise monads
+      },
     },
 
     /* Modules-Center */

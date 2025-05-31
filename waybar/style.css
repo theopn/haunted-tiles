@@ -64,6 +64,7 @@ window#waybar.empty #window {
 #mode {
   background-color: #BF616A;  /* Red */
   padding: 0px 3px 0px 3px;
+  font-size: 12px;
 }
 
 /* Modules-Left */
