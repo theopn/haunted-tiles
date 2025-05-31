@@ -4,8 +4,6 @@
 | :--:                                                                             |
 | ![sway-sc](./assets/sway-sc.png)                                                 |
 | SwayFX with LDR Wallpaper                                                        |
-| ![i3-sc](./assets/i3-sc.png)                                                     |
-| i3                                                                               |
 
 Collection of utilities and scripts for my Sway (Swayfx) and i3 environment in Fedora.
 
@@ -16,8 +14,7 @@ Nonetheless, since Sway is my main WM, i3 might lack some features that Sway has
 
 Credits:
 
-- [Logo](./assets/haunted-tiles-logo.png), Dracula-themed solar system wallpaper: my girlfriend Naomi
-- Nord wallpaper:
+- [Logo](./assets/haunted-tiles-logo.png): my girlfriend Naomi (who is also a massive LDR fan so she would approve this behavior)
 - Lock icon: [Pixabay](https://pixabay.com/vectors/lock-locked-metal-protection-tool-24269/)
 
 ## How I Setup Fedora
