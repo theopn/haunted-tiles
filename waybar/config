@@ -20,7 +20,8 @@
       "custom/misc_menu",
       "sway/workspaces",
       "sway/scratchpad",
-      "sway/window"
+      "sway/window",
+      "mpris",
     ],
 
     "modules-center": [
@@ -31,12 +32,11 @@
     ],
 
     "modules-right": [
-      "mpris",
       "pulseaudio",
       "idle_inhibitor",
       "backlight",
       "battery",
-      "battery#bat1",
+      "power-profiles-daemon",
       "clock",
       "keyboard-state",
       "tray"
@@ -180,7 +180,7 @@
     },
 
     "battery": {
-      "bat": "BAT0",
+      "bat": "BAT1",
       "states": {
         "good": 95,
         "warning": 30,
@@ -192,10 +192,6 @@
       "format-icons": [" ", " ", " ", " ", " "],
       "tooltip-format": "{timeTo}",
       "interval": 30
-    },
-
-    "battery#bat1": {
-      "bat": "BAT1",
     },
 
     "network": {
