@@ -28,7 +28,7 @@ set $lock swaylock -f
 set $monitor HDMI-2
 set $screenshot grimshot --notify
 set $screenrecord wf-recorder --audio -f ~/Pictures/record-$(date +"%Y-%m-%d--%H-%M-%S.mp4")
-set $swayfx $XDG_CONFIG_HOME/haunted-tiles/sway/swayfx.conf
+set $swayfx ~/.config/sway/swayfx.conf
 
 # Startup app
 set $bar waybar
@@ -38,7 +38,7 @@ set $network nm-applet --indicator
 #set $nightlight gammastep -P
 set $nightlight gammastep-indicator
 set $notification dunst
-set $wallpaper $XDG_CONFIG_HOME/wallpaper.png
+set $wallpaper ~/.config/wallpaper.png
 
 # Key var
 set $left h
@@ -264,7 +264,7 @@ exec swayidle -w \
 # Display scaling -- fractional scaling is not recommendeded, use zoom option in each app
 #output eDP-1 scale 1.15
 # Wallpaper
-output * bg $XDG_CONFIG_HOME/wallpaper.png fill
+output * bg $wallpaper fill
 # }}}
 
 # Startup App {{{

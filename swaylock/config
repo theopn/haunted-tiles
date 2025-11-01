@@ -5,5 +5,5 @@ show-keyboard-layout
 
 scaling=fill
 color=39404F
-image=$XDG_CONFIG_HOME/lockscreen.png
+image=~/.config/lockscreen.png
 
