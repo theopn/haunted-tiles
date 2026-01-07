@@ -206,8 +206,8 @@
     "clock": {
       "timezone": "America/New_York",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format": "  {:%b%e %H:%M}",
       "format-alt": "  {:%Y-%m-%d %R}",
-      "format": "  {:%a %b %e %H:%M}",
     },
 
     "keyboard-state": {
