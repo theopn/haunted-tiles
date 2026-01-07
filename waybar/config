@@ -21,7 +21,6 @@
       "sway/workspaces",
       "sway/scratchpad",
       "sway/window",
-      "mpris",
     ],
 
     "modules-center": [
@@ -33,6 +32,7 @@
       "cpu",
       "memory",
       "temperature",
+      "mpris",
       "pulseaudio",
       "backlight",
       "battery",
@@ -117,18 +117,23 @@
     /* Modules-Right */
 
     "mpris": {
-      "format": "{player_icon} {dynamic}",
-      "format-paused": "{status_icon} <s>{dynamic}</s>",
+      "format": "{status_icon} {player_icon}",
+      "format-paused": "<s>{status_icon} {player_icon}</s>",
       "on-click-middle": "",
       "on-click-right": "",
       "player-icons": {
-        "default": "▶",
-        "mpv": "🎵"
+        "default": " ",
+        "firefox": " ",
+        "spotify": " ",
+        "chromium": " ",
+        "plasma-browser-integration": "󰾔 ",
+        "mpv": " "
       },
       "status-icons": {
-        "paused": "⏸"
+        "playing": "",
+        "paused": ""
       },
-      "max-length": 20,
+      "max-length": 10,
     },
 
     "pulseaudio": {
@@ -146,7 +151,7 @@
         "phone": " ",
         "portable": " ",
         "car": " ",
-        "default": [" ", " ", " "],
+        "default": ["", "", ""],
       },
       "on-click": "pavucontrol"
     },
@@ -205,7 +210,7 @@
 
     "clock": {
       "timezone": "America/New_York",
-      "tooltip-format": "<big>{:%H:%M:%S}</big>\n<tt><small>{calendar}</small></tt>",
+      "tooltip-format": "<big>{:%Y-%m-%d %H:%M:%S}</big>\n<tt><small>{calendar}</small></tt>",
       "format": "  {:%b%e %H:%M}",
       "format-alt": "  {:%Y-%m-%d %R}",
     },
@@ -219,7 +224,7 @@
         "capslock": "{icon}"
       },
       "format-icons": {
-          "locked": "󰪛 ",
+          "locked": "󰪛  ",
           "unlocked": ""
       },
       // Default [58, 69, 70] for capslock, numlock, scrolllock (/usr/include/linux/input-event-codes.h)
