@@ -17,8 +17,7 @@ no=' 󰜺  no'
 shutdown_cmd='systemctl poweroff'
 suspend_cmd='systemctl suspend'
 reboot_cmd='systemctl reboot'
-lock_cmd="i3lock --ignore-empty-password --show-failed-attempts
-        \ -c #282A36 -i $XDG_CONFIG_HOME/lockscreen.png"
+lock_cmd="swaylock -f"
 
 function exit_wm() {
   if [[ "$DESKTOP_SESSION" == "i3" ]]; then
