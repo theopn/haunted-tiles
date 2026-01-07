@@ -28,7 +28,6 @@ set $lock swaylock -f
 set $monitor HDMI-2
 set $screenshot grimshot --notify
 set $screenrecord wf-recorder --audio -f ~/Pictures/record-$(date +"%Y-%m-%d--%H-%M-%S.mp4")
-set $swayfx ~/.config/sway/swayfx.conf
 set $powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
 
 # Startup app
@@ -239,7 +238,7 @@ gaps outer 3
 # Remove border when there is only one window
 smart_borders on
 ####### SWAYFX ONLY SETTINGS #######
-include $swayfx
+#include ~/.config/sway/swayfx.conf
 # }}}
 
 # Settings {{{
