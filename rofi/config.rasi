@@ -12,8 +12,7 @@
     drac-red: #ff5555;
     drac-yel: #f1fa8c;
 
-    font: "FantasqueSansM Nerd Font 15";
-    /*font: "FantasqueSansMono Nerd Font 15";*/
+    font: "ProggyClean Nerd Font 15";
 
     foreground: @drac-fgd;
     background-color: @drac-bgd;
