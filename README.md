@@ -5,60 +5,68 @@
 | ![sway-sc](./assets/sway-sc.png)                                                 |
 | SwayFX with LDR Wallpaper                                                        |
 
-Configuration & scripts for my Sway ~and i3~ environment.
+Configuration & scripts for my [Dracula](https://draculatheme.com/)-themed (hence the name of the repository) Sway ~and i3~ environment.
 
-
-I had an ambitious plan of making this the next best Dracula-themed tiling window manager "distro" (hence the name of the repository), now it is just a minimal Sway/i3 config for my laptop running Fedora.
-
-I usually install Fedora i3-spin and Swayfx on top of it, as Wayland screen sharing is not reliable yet.
-Nonetheless, since Sway is my main WM, i3 might lack some features that Sway has.
+I am past my tiling WM "ricing" phase and mainly use KDE + [Krohnkite](https://codeberg.org/anametologin/Krohnkite).
+But I still keep a simple Sway configuration for a focused work session + occasional fun.
 
 Credits:
 
-- [Logo](./assets/haunted-tiles-logo.png): my girlfriend Naomi (who is also a massive LDR fan so she would approve this behavior)
+- [Logo](./assets/haunted-tiles-logo.png): my girlfriend Naomi
+- Wallpaper: []()
 - Lock icon: [Pixabay](https://pixabay.com/vectors/lock-locked-metal-protection-tool-24269/)
 
-## How I Setup Fedora
+## Installation
 
-- Install i3 spin (check [here](https://docs.fedoraproject.org/en-US/i3/package-groups/) for the complete list of pre-installed packages)
-- ~Install Sway spin (check [here](https://gitlab.com/fedora/sigs/sway/sway-config-fedora/-/blob/fedora/sway-config-fedora.spec.rpkg?ref_type=heads) for the complete list of pre-installed packages)~
-- Install: `blueman brightnessctl dunst fzf git imagemagick kitty lxpolkit network-manager-applet playerctl vim`
-- Install `rofi-wayland` with `--allowerasing` flag if regular `rofi` is already installed
-- Install tools for i3: `copyq feh flameshot picom polybar setxkbmap redshift rofi xinput xss-lock`
-- Install `swayfx` from Copr (`dnf copr enable swayfx/swayfx`) and install Sway related tools: `clipman gammashift-indicator grimshot waybar wf-recorder`
-- Install UbuntuMono Nerd Font:
+1. I typically install Fedora KDE and install Sway on top of it
     ```sh
-    mkdir -p ~/.local/share/fonts
-    cd ~/.local/share/fonts
-    wget -O tmp.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/UbuntuMono.zip
+    sudo dnf install sway rofi-wayland waybar dunst
+    # These are necessary for controlling system
+    sudo dnf install brightnessctl clipman grimshot playerctl wf-recorder
+    # If you do not have Polkit installed (I do from KDE installation), install one
+    sudo dnf install lxpolkit
+
+    # These are great tools to have for tiling WM
+    sudo dnf install blueman network-manager-applet
+
+    # For generating lockscreen iage
+    sudo dnf install ImageMagick
+
+    # I use Kitty
+    sudo dnf install kitty
+    ```
+    - If you installed Sway spin, (check [here](https://gitlab.com/fedora/sigs/sway/sway-config-fedora/-/blob/fedora/sway-config-fedora.spec.rpkg?ref_type=heads) for the complete list of pre-installed packages)
+2. Install ProggyClean Nerd Font:
+    ```sh
+    mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
+    # TODO: Check that this link is up-to-date before you proceed
+    wget -O tmp.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/ProggyClean.zip
     unzip tmp.zip
     fc-cache -vf
     rm tmp.zip
     cd -
     ```
-- Locate the wallpaper as a PNG file at `$XDG_CONFIG_HOME/wallpaper.png`
-- Generate a new lock screen image using the included lock icon:
+3. Locate the wallpaper as a PNG file at `$XDG_CONFIG_HOME/wallpaper.png`
+4. Generate a new lock screen image using the included lock icon:
     ```sh
     # use `lock-24269-640.png` for higher resolution image
     magick $XDG_CONFIG_HOME/wallpaper.png $XDG_CONFIG_HOME/haunted-tiles/assets/lock-24269-360.png -gravity center -composite $XDG_CONFIG_HOME/lockscreen.png
     ```
-- Finally, clone the repository and run the installation script:
+5. Finally, clone the repository and run the installation script:
     ```sh
     git clone https://github.com/theopn/haunted-tiles.git ~/.config/haunted-tiles
     ~/.config/haunted-tiles/install.sh
     ```
-
-Post installation
-
-- Add yourself to the `input` user group for Waybar keyboard state module:
+6. Add yourself to the `input` user group for Waybar keyboard state module:
     ```sh
     usermod -a -G input [username]
     ```
-- Modify the coordinates in the Redshift/Gammastep config
-- Install `adobe-source-han-sans-kr-fonts fcitx5 fcitx5-hangul` and set up Korean input with fcitx5
-- Install power management tool (`tuned-ppd` or `tlp`) and configure
+7. Modify the coordinates in `$XDG_CONFIG_HOME/gammastep/config.ini` using:
+    ```sh
+    curl http://ip-api.com/json?fields=lat,lon
+    ```
 
-For other tips on configuring i3/Sway tiling WM, read my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips) for more information.
+For other tips on configuring i3/Sway tiling WM, read my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips).
 
 ## Usage
 
@@ -66,17 +74,15 @@ List of keybindings different from the default i3/Sway:
 
 - `jkl;` -> `hjkl`
 - `$mod + h` -> `$mod + z`: toggles hori[z]ontal split
-- `$mod + d`: app launcher -> launches Rofi window switcher
-- `$mod + Space`: toggles between floating/tiled windows -> launches Rofi drun
+- `$mod + d`: ~app launcher~ -> launches Rofi window switcher
+- `$mod + Space`: ~toggles between floating/tiled windows~ -> launches Rofi drun
 - `$mod + b`: toggles between floating/tiled windows
 - `$mod + [/]`: moves the current workspace to the monitor to the left/right
-- `$mod + Shift + c/r/e`:  toggles the `i3_mode`/`sway_mode`, from which you can choose to reload the config, restart, or exit i3/Sway
+- `$mod + Shift + c/e`:  toggles the `sway_mode`, from which you can choose to reload the config, restart, or exit Sway
     - `$mod + shift + r`: (Sway) toggles `screenrecord mode` to control `wf-recorder`
-- `$mod + Shift + m`: launches a Rofi script to control connected outputs
-    - (Sway) toggles `monitor_mode`, which you can control outputs
+- `$mod + Shift + m`: toggles `monitor_mode`, which you can control outputs
 - `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
-- `$mod + Shift + s`: launches the screenshot tool (Flamshot)
-    - (Sway) toggles `screenshot_mode` which you can choose area, screen, or window capture from Grimshot
+- `$mod + Shift + s`: toggles `screenshot_mode` which you can choose area, screen, or window capture from Grimshot
 - `$mod + Shift + v`: launches the clipboard manager (Copy Qin i3, Clipman in Sway)
 
 `[3]=` indicator in Waybar means that there are 3 windows in the scratchpad.
