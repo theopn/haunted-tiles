@@ -29,6 +29,7 @@ set $monitor HDMI-2
 set $screenshot grimshot --notify
 set $screenrecord wf-recorder --audio -f ~/Pictures/record-$(date +"%Y-%m-%d--%H-%M-%S.mp4")
 set $swayfx ~/.config/sway/swayfx.conf
+set $powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
 
 # Startup app
 set $bar waybar
@@ -216,16 +217,7 @@ mode "$monitor_mode" {
 }
 bindsym $mod+Shift+m mode "$monitor_mode"
 
-set $power_mode [Power] (p) Poweroff (r) Reboot (s) Suspend (l) Lock (ESC/RET) Exit
-mode "$power_mode" {
-  bindsym p exec "swaynag -t warning -m 'Seriously?' -B 'Yeah whatever' 'systemctl poweroff'"
-  bindsym r exec "swaynag -t warning -m 'Really?' -B 'Sure' 'systemctl reboot'"
-  bindsym s exec systemctl suspend; mode "default"
-  bindsym l exec $lock; mode "default"
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
-}
-bindsym $mod+Shift+p mode "$power_mode"
+bindsym $mod+Shift+p exec $powermenu
 # }}}
 
 # Appearance {{{
