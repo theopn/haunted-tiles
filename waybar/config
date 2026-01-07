@@ -14,7 +14,7 @@
     "layer": "top", // Waybar at top layer
     "position": "top",
     "height": 30,
-    "spacing": 4,
+    "spacing": 1,
 
     "modules-left": [
       "custom/misc_menu",
@@ -26,18 +26,18 @@
 
     "modules-center": [
       "sway/mode",
-      "cpu",
-      "memory",
-      "temperature"
+      "clock"
     ],
 
     "modules-right": [
+      "cpu",
+      "memory",
+      "temperature",
       "pulseaudio",
-      "idle_inhibitor",
       "backlight",
       "battery",
       "power-profiles-daemon",
-      "clock",
+      "idle_inhibitor",
       "keyboard-state",
       "tray"
     ],
@@ -72,9 +72,9 @@
 
     "sway/window": {
       "format": "{shell}: {title}",
-      "max-length": 100,
+      "max-length": 50,
       "icon": true,
-      "icon-size": 20,
+      "icon-size": 15,
       "rewrite": {
         "xdg_shell: (.*)": "  $1",
         "xwayland: (.*)": "  $1",  // rise monads
@@ -154,11 +154,11 @@
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
-          "activated": "󰅶",
-          "deactivated": "󰾪"
+          "activated": "󰅶 ",
+          "deactivated": "󰾪 "
       },
       "tooltip-format-activated": "CAFFEINATED",
-      "tooltip-format-deactivated": "a bit sleepy",
+      "tooltip-format-deactivated": "might fall asleep",
     },
 
     "backlight": {
@@ -205,7 +205,7 @@
 
     "clock": {
       "timezone": "America/New_York",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "tooltip-format": "<big>{:%H:%M:%S}</big>\n<tt><small>{calendar}</small></tt>",
       "format": "  {:%b%e %H:%M}",
       "format-alt": "  {:%Y-%m-%d %R}",
     },
