@@ -5,7 +5,8 @@
 | ![sway-sc](./assets/sway-sc.png)                                                 |
 | SwayFX with LDR Wallpaper                                                        |
 
-Collection of utilities and scripts for my Sway (Swayfx) and i3 environment in Fedora.
+Configuration & scripts for my Sway ~and i3~ environment.
+
 
 I had an ambitious plan of making this the next best Dracula-themed tiling window manager "distro" (hence the name of the repository), now it is just a minimal Sway/i3 config for my laptop running Fedora.
 
@@ -81,19 +82,4 @@ List of keybindings different from the default i3/Sway:
 `[3]=` indicator in Waybar means that there are 3 windows in the scratchpad.
 You can add a window to a scratchpad with `$mod + Shift + -` and cycle through the scratchpad with `$mod + -`.
 `[]=` is inspired by the tiling window indicator in the dwm statusbar, which does not make sense in this context, but I thought it looked cute.
-
-## i3 TODO
-
-Features in Sway that are not implemented in i3 ~yet~ (maybe never):
-
-- Color picker
-- Screen recording
-- Idle action
-- Mpris (currently playing) information
-
-Things that are better in i3:
-
-- Clipboard tool with image support
-- Compositor: fade animation, opacity for inactive (including the lock screen)
-- Screen sharing in Flatpak application
 
