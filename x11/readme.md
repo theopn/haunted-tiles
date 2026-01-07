@@ -1,18 +1,22 @@
 # README.md
 
-- `calendar.sh`
-- `waybar-old`: more colorful, "island" style Waybar, honestly does not look that good.
+These are scripts and config related to i3 environment.
+Move the content to places in `$XDG_CONFIG_HOME/`, and they should be usable.
+
+- `calendar.sh`: Send `cal` output to dunst
 - `fzf-powermenu.sh`: Like Rofi powermenu, but uses fzf
 - `spotify.py`: https://github.com/Jvanrhijn/polybar-spotify
 - `super-cat-menu.sh`: top left menu in Waybar but in fzf
-- `sway-launcher-desktop`: https://github.com/Biont/sway-launcher-desktop
+- `sway-launcher-desktop`: https://github.com/Biont/sway-launcher-desktop (don't let the name deceive you, it is a bash script perfectly usable in X11 environment)
 - `volume-ctrl.sh`: Assign `./volume-ctrl.sh up/down` to volume up key, it will show a nice progress bar when changing volume
+- `xrandr.sh`: Rofi script to control Xrandr output, orientation, etc.
+- `polybar-launch.sh`: wrapper around launching Polybar
+- `display-tools-toggle.sh`: toggle Picom and Redshift
+- `weather.sh`: curl `wttr.in`
 
-- `dunst/`: fully functioning Dunst config, I just do not feel a need to have it around
+- `dunst/`: fully functioning Dracula themed Dunst config
 
-X11:
-
-My now unmaintained i3 configuration, it is essentially the mirror of Sway config (or vice versa).
+My i3 configuration is essentially the mirror of Sway config (or vice versa).
 
 Soft-dependencies:
 
