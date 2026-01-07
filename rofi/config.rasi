@@ -12,7 +12,7 @@
     drac-red: #ff5555;
     drac-yel: #f1fa8c;
 
-    font: "CaskaydiaCove Nerd Font 15";
+    font: "FantasqueSansM Nerd Font 15";
     /*font: "FantasqueSansMono Nerd Font 15";*/
 
     foreground: @drac-fgd;
