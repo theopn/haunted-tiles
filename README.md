@@ -21,6 +21,13 @@ Credits:
 1. I typically install Fedora KDE and install Sway on top of it
     ```sh
     sudo dnf install sway rofi-wayland waybar dunst
+    # Or install swayfx
+    # Make sure to uncomment
+    # `include ~/.config/sway/swayfx.conf`
+    # in sway config
+    sudo dnf copr enable swayfx/swayfx
+    sudo dnf install sway
+
     # These are necessary for controlling system
     sudo dnf install brightnessctl clipman grimshot playerctl wf-recorder
     # If you do not have Polkit installed (I do from KDE installation), install one
@@ -59,7 +66,7 @@ Credits:
     ```
 6. Add yourself to the `input` user group for Waybar keyboard state module:
     ```sh
-    usermod -a -G input [username]
+    sudo usermod -a -G input [username]
     ```
 7. Modify the coordinates in `$XDG_CONFIG_HOME/gammastep/config.ini` using:
     ```sh
