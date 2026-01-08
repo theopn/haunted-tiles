@@ -22,12 +22,13 @@ set $window "rofi -modi window -show window"
 # Scripts for keybindings
 set $clipboard_show copyq show
 set $lock i3lock --ignore-empty-password --show-failed-attempts -c #282A36 -i $XDG_CONFIG_HOME/lockscreen.png
-set $monitor $XDG_CONFIG_HOME/haunted-tiles/scripts/xrandr.sh
-set $powermenu $XDG_CONFIG_HOME/haunted-tiles/scripts/rofi-powermenu.sh
+set $monitor xrandr.sh
+set $powermenu rofi-powermenu.sh
 set $screenshot flameshot launcher
+set $volume_ctrl volume-ctrl.sh
 
 # Startup app
-set $bar $XDG_CONFIG_HOME/haunted-tiles/scripts/polybar-launch.sh
+set $bar polybar-launch.sh
 set $clipboard copyq
 set $compositor picom -b
 #set $input ibus-daemon --daemonize --xim --replace
@@ -61,10 +62,14 @@ set $ws10 "10"
 
 # Keybindings {{{
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id $volume_ctrl up
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioLowerVolume exec --no-startup-id $volume_ctrl down
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMute exec --no-startup-id $volume_ctrl mute
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
 # Use brightnessctl to adjust brightness with function row keys
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
@@ -214,8 +219,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- $lock --nofork
 exec --no-startup-id $bar
 exec --no-startup-id $clipboard
 exec --no-startup-id $compositor
-# I personally like turning it on manually
-#exec --no-startup-id $input
+exec --no-startup-id $input
 exec --no-startup-id $network
 exec --no-startup-id $nightlight
 exec --no-startup-id $notification
