@@ -1,19 +1,15 @@
 #!/usr/bin/env bash
 
-XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="~/.config"}
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 HAUNTED_TILES_DIR=${XDG_CONFIG_HOME}/haunted-tiles
 
-echo "Deploying dunst and Rofi"
-ln -s "${HAUNTED_TILES_DIR}/dunst" "${XDG_CONFIG_HOME}/dunst"
-ln -s ${HAUNTED_TILES_DIR}/rofi ${XDG_CONFIG_HOME}/rofi
+ln -s "${HAUNTED_TILES_DIR}/rofi"       "${XDG_CONFIG_HOME}/rofi"
+ln -s "${HAUNTED_TILES_DIR}/sway"       "${XDG_CONFIG_HOME}/sway"
+ln -s "${HAUNTED_TILES_DIR}/swaylock"   "${XDG_CONFIG_HOME}/swaylock"
+ln -s "${HAUNTED_TILES_DIR}/waybar"     "${XDG_CONFIG_HOME}/waybar"
 
-echo "Deploying Sway, Swaylock, and Waybar..."
-ln -s ${HAUNTED_TILES_DIR}/sway ${XDG_CONFIG_HOME}/sway
-ln -s ${HAUNTED_TILES_DIR}/swaylock ${XDG_CONFIG_HOME}/swaylock
-ln -s ${HAUNTED_TILES_DIR}/waybar ${XDG_CONFIG_HOME}/waybar
-
-mkdir -p ${XDG_CONFIG_HOME}/gammastep
-cat <<EOF >> ${XDG_CONFIG_HOME}/gammastep/config.ini
+mkdir -p "${XDG_CONFIG_HOME}/gammastep"
+cat <<EOF >> "${XDG_CONFIG_HOME}/gammastep/config.ini"
 [general]
 temp-day=5600
 temp-night=3500
@@ -26,4 +22,8 @@ lat=0.0
 lon=0.0
 EOF
 
-echo "Replace location latitude and longitude in ${XDG_CONFIG_HOME}/gammastep/config.inl"
+for f in "${HAUNTED_TILES_DIR}/scripts/*"; do
+  ln -s $f ~/.local/bin/
+done
+
+echo "Done!"
