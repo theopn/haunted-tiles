@@ -22,7 +22,7 @@ set $window "rofi -modi window -show window"
 # Scripts for keybindings
 set $clipboard_show copyq show
 set $lock i3lock --ignore-empty-password --show-failed-attempts -c #282A36 -i $XDG_CONFIG_HOME/lockscreen.png
-set $monitor xrandr.sh
+set $monitor xrandr-ctrl.sh
 set $powermenu rofi-powermenu.sh
 set $screenshot flameshot launcher
 set $volume_ctrl volume-ctrl.sh
