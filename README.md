@@ -59,7 +59,7 @@ Credits:
     # use `lock-24269-640.png` for higher resolution image
     magick $XDG_CONFIG_HOME/wallpaper.png $XDG_CONFIG_HOME/haunted-tiles/assets/lock-24269-360.png -gravity center -composite $XDG_CONFIG_HOME/lockscreen.png
     ```
-5. Finally, clone the repository and run the installation script:
+5. Clone the repository and run the installation script (creates symlink for configuration files and scripts):
     ```sh
     git clone https://github.com/theopn/haunted-tiles.git ~/.config/haunted-tiles
     ~/.config/haunted-tiles/install.sh
