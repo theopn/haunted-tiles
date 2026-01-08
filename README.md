@@ -5,7 +5,7 @@
 | ![sway-sc](./assets/sway-sc.png)                                                 |
 | SwayFX with LDR Wallpaper                                                        |
 
-Configuration & scripts for my [Dracula](https://draculatheme.com/)-themed (hence the name of the repository) Sway ~and i3~ environment.
+Configuration & scripts for my [Dracula](https://draculatheme.com/)-themed (hence the name of the repository) Sway and i3 environment.
 
 I am past my tiling WM "ricing" phase and mainly use KDE + [Krohnkite](https://codeberg.org/anametologin/Krohnkite).
 But I still keep a simple Sway configuration for a focused work session + occasional fun.
@@ -16,7 +16,7 @@ Credits:
 - Wallpaper: []()
 - Lock icon: [Pixabay](https://pixabay.com/vectors/lock-locked-metal-protection-tool-24269/)
 
-## Installation
+## Sway Installation
 
 1. I typically install Fedora KDE and install Sway on top of it
     ```sh
@@ -74,6 +74,10 @@ Credits:
     ```
 
 For other tips on configuring i3/Sway tiling WM, read my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips).
+
+## i3 Installation
+
+Read [this](./x11/readme.md)
 
 ## Usage
 
