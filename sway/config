@@ -28,7 +28,7 @@ set $lock swaylock -f
 set $monitor HDMI-2
 set $screenshot grimshot --notify
 set $screenrecord wf-recorder --audio -f ~/Pictures/record-$(date +"%Y-%m-%d--%H-%M-%S.mp4")
-set $powermenu ~/.config/haunted-tiles/scripts/rofi-powermenu.sh
+set $powermenu rofi-powermenu.sh
 
 # Startup app
 set $bar waybar
@@ -269,8 +269,7 @@ output * bg $wallpaper fill
 # Startup App {{{
 exec $bar
 exec $clipboard
-# I personally like turning it on manually
-#exec $input
+exec $input
 exec $network
 exec $nightlight
 exec $notification
