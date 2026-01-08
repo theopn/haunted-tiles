@@ -182,7 +182,7 @@ bindsym $mod+Shift+p exec --no-startup-id $powermenu
 
 # Appearance {{{
 # Font and colors
-font pango:UbuntuMono Nerd Font 8
+font pango:ProggyClean Nerd Font 8
 # class                 border  bground text    indicator child_border
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
