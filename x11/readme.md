@@ -1,8 +1,8 @@
 # README.md
 
-These are scripts and config files related to my i3 environment.
-It is essentially the mirror of my Sway config (or vice versa).
-Though largely unmaintained, it should work other than device-specific settings.
+These are scripts and config files to my i3 environment.
+It is essentially a mirror of my Sway config (or vice versa).
+I stopped adding new features to it, but it should work without a problem (other than device specific settings to my Framework 13).
 
 ## Installation
 
@@ -12,28 +12,28 @@ Install packages:
 sudo dnf install copyq feh flameshot i3 picom polybar setxkbmap redshift rofi xinput xss-lock
 ```
 
-Move the config files to places in `$XDG_CONFIG_HOME/`.
+Move the config files to `$XDG_CONFIG_HOME/`.
 
-Create `$XDG_CONFIG_HOME/wallpaper.png` and `$XDG_CONFIG_HOME/lockscreen.png` (reference README for Sway).
+Create `$XDG_CONFIG_HOME/wallpaper.png` and `$XDG_CONFIG_HOME/lockscreen.png` (reference the Sway config installation guide).
 
-Following command will create `~/.fehbg`, which is essentially a shell script where you can control the wallpaper.
+Create `~/.fehbg`, which is essentially a shell script where you can control the wallpaper.
 
 ```sh
 feh --bg-fill $XDG_CONFIG_HOME/wallpaper.png
 ```
 
-Move content of `./scripts/` to `~/.local/bin/`.
+Move scripts in `./scripts/` to `~/.local/bin/`.
 
-- `calendar.sh`: Send `cal` output to dunst
-- `display-tools-toggle.sh`: toggle Picom and Redshift
+- `calendar-dunst.sh`: Send `cal` output to dunst
+- `redshift-toggle.sh`: toggle Redshift
 - `polybar-launch.sh`: wrapper around launching Polybar
-- `volume-ctrl.sh`: Assign `./volume-ctrl.sh up/down` to volume up key, it will show a nice progress bar when changing volume
-- `weather.sh`: curl `wttr.in`
-- `xrandr.sh`: Rofi script to control Xrandr output, orientation, etc.
+- `volume-ctrl.sh`: nice progress bar when changing volumes
+- `weather-dunst.sh`: Send `curl wttr.in` to dunst
+- `xrandr-ctrl.sh`: control Xrandr output, orientation, etc.
 
 Deprecated:
 
-- `fzf-powermenu.sh`: Like Rofi powermenu, but uses fzf
+- `fzf-powermenu.sh`: Like Rofi powermenu, but uses fzf. Not sure why I thought it was a good idea
 - `spotify.py`: https://github.com/Jvanrhijn/polybar-spotify
 - `sway-launcher-desktop`: https://github.com/Biont/sway-launcher-desktop
 
