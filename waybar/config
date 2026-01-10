@@ -211,7 +211,7 @@
     "clock": {
       "timezone": "America/New_York",
       "tooltip-format": "<big>{:%Y-%m-%d %H:%M:%S}</big>\n<tt><small>{calendar}</small></tt>",
-      "format": "  {:%b%e %H:%M}",
+      "format": "  {:%b %e %H:%M}",
       "format-alt": "  {:%Y-%m-%d %R}",
     },
 
