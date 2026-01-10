@@ -29,6 +29,7 @@ set $monitor HDMI-2
 set $screenshot grimshot --notify
 set $screenrecord wf-recorder --audio -f ~/Pictures/record-$(date +"%Y-%m-%d--%H-%M-%S.mp4")
 set $powermenu rofi-powermenu.sh
+set $volume_ctrl volume-ctrl.sh
 
 # Startup app
 set $bar waybar
@@ -61,9 +62,12 @@ set $ws10 "10"
 
 # Keybindings {{{
 # Use pactl to adjust volume in PulseAudio.
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
-bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+#bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioRaiseVolume exec $volume_ctrl up
+#bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioLowerVolume exec $volume_ctrl down
+#bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMute exec $volume_ctrl mute
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 # Use brightnessctl to adjust brightness with function row keys
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
@@ -135,6 +139,7 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+# Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 # Multiple monitor
