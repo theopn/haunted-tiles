@@ -3,18 +3,19 @@
 | <img src="./assets/haunted-tiles-logo.png" width="250" alt="Haunted Tiles logo"> |
 | :--:                                                                             |
 | ![sway-sc](./assets/sway-sc.png)                                                 |
-| SwayFX with LDR Wallpaper                                                        |
+| With SwayFX                                                                      |
 
 Configuration & scripts for my [Dracula](https://draculatheme.com/)-themed (hence the name of the repository) Sway and i3 environment.
 
 I am past my tiling WM "ricing" phase and mainly use KDE + [Krohnkite](https://codeberg.org/anametologin/Krohnkite).
-But I still keep a simple Sway configuration for a focused work session + occasional fun.
+But I still keep a simple Sway configuration for focused work sessions and occasional fun tinkering with it.
 
 Credits:
 
 - [Logo](./assets/haunted-tiles-logo.png): my girlfriend Naomi
-- Wallpaper: []()
+- Wallpaper: [TODO](https://draculatheme.com/wallpaper)
 - Lock icon: [Pixabay](https://pixabay.com/vectors/lock-locked-metal-protection-tool-24269/)
+- Font: [TODO]()
 
 ## Sway Installation
 
@@ -22,27 +23,25 @@ Credits:
     ```sh
     sudo dnf install sway rofi-wayland waybar dunst
     # Or install swayfx
-    # Make sure to uncomment
-    # `include ~/.config/sway/swayfx.conf`
-    # in sway config
+    # Make sure to uncomment `include ~/.config/sway/swayfx.conf` in the sway config
     sudo dnf copr enable swayfx/swayfx
-    sudo dnf install sway
+    sudo dnf install --allowerasing swayfx
 
-    # These are necessary for controlling system
+    # Necessary packages for system control
     sudo dnf install brightnessctl clipman grimshot playerctl wf-recorder
-    # If you do not have Polkit installed (I do from KDE installation), install one
+    # If you don't have Polkit installed, install one
     sudo dnf install lxpolkit
 
-    # These are great tools to have for tiling WM
+    # Great tools to have for any tiling WM environment
     sudo dnf install blueman network-manager-applet
 
-    # For generating lockscreen iage
+    # For generating lockscreen image
     sudo dnf install ImageMagick
 
-    # I use Kitty
+    # Or your preferred terminal emulator; change $mod+ret in Sway config
     sudo dnf install kitty
     ```
-    - If you installed Sway spin, (check [here](https://gitlab.com/fedora/sigs/sway/sway-config-fedora/-/blob/fedora/sway-config-fedora.spec.rpkg?ref_type=heads) for the complete list of pre-installed packages)
+    - If you installed Fedora Sway spin or did `dnf groupinstall`, reference [this](https://gitlab.com/fedora/sigs/sway/sway-config-fedora/-/blob/fedora/sway-config-fedora.spec.rpkg?ref_type=heads) for the complete list of pre-installed packages
 2. Install ProggyClean Nerd Font:
     ```sh
     mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
@@ -53,10 +52,10 @@ Credits:
     rm tmp.zip
     cd -
     ```
-3. Locate the wallpaper as a PNG file at `$XDG_CONFIG_HOME/wallpaper.png`
+3. Locate your choice of wallpaper (PNG) as `$XDG_CONFIG_HOME/wallpaper.png`
 4. Generate a new lock screen image using the included lock icon:
     ```sh
-    # use `lock-24269-640.png` for higher resolution image
+    # use `lock-24269-640.png` a higher resolution image
     magick $XDG_CONFIG_HOME/wallpaper.png $XDG_CONFIG_HOME/haunted-tiles/assets/lock-24269-360.png -gravity center -composite $XDG_CONFIG_HOME/lockscreen.png
     ```
 5. Clone the repository and run the installation script (creates symlink for configuration files and scripts):
@@ -64,16 +63,16 @@ Credits:
     git clone https://github.com/theopn/haunted-tiles.git ~/.config/haunted-tiles
     ~/.config/haunted-tiles/install.sh
     ```
-6. Add yourself to the `input` user group for Waybar keyboard state module:
-    ```sh
-    sudo usermod -a -G input [username]
-    ```
-7. Modify the coordinates in `$XDG_CONFIG_HOME/gammastep/config.ini` using:
+6. Modify the coordinates in `$XDG_CONFIG_HOME/gammastep/config.ini` using:
     ```sh
     curl http://ip-api.com/json?fields=lat,lon
     ```
+7. Add yourself to the `input` user group for Waybar keyboard state module:
+    ```sh
+    sudo usermod -a -G input [username]
+    ```
 
-For other tips on configuring i3/Sway tiling WM, read my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips).
+For more tips on configuring i3/Sway, read my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips).
 
 ## i3 Installation
 
