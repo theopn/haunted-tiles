@@ -27,7 +27,6 @@ Move scripts in `./scripts/` to `~/.local/bin/`.
 - `calendar-dunst.sh`: Send `cal` output to dunst
 - `redshift-toggle.sh`: toggle Redshift
 - `polybar-launch.sh`: wrapper around launching Polybar
-- `volume-ctrl.sh`: nice progress bar when changing volumes
 - `weather-dunst.sh`: Send `curl wttr.in` to dunst
 - `xrandr-ctrl.sh`: control Xrandr output, orientation, etc.
 

@@ -10,22 +10,19 @@ function get_mute() {
   pactl get-sink-mute @DEFAULT_SINK@ | grep -Po '(?<=Mute: )(yes|no)'
 }
 
-function get_volume_icon() {
+
+function show_volume_notif() {
   volume=$(get_volume)
   mute=$(get_mute)
-  if [ $volume -eq 0 ] || [ $mute == "yes" ] ; then
-    volume_icon="󰖁"
-  elif [ $volume -lt 50 ]; then
+  if [[ $volume -eq 0 ]] || [[ $mute == "yes" ]] ; then
+    volume_icon="󰖁  MUTED"
+  elif [[ $volume -lt 50 ]]; then
     volume_icon="󰖀"
   else
     volume_icon="󰕾"
   fi
-}
 
-function show_volume_notif() {
-  volume=$(get_volume)
-  get_volume_icon
-  dunstify -i audio-volume-muted-blocking -t 1000 -r 2593 -u normal "${volume_icon} ${volume}%" -h int:value:${volume} -h string:hlcolor:${bar_color}
+  dunstify -i audio-volume-muted-blocking -t 1000 -r 6969 -u low "${volume_icon} ${volume}%" -h int:value:${volume} -h string:hlcolor:${bar_color}
 }
 
 case $1 in
