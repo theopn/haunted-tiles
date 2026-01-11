@@ -22,6 +22,7 @@ lat=0.0
 lon=0.0
 EOF
 
+mkdir -p ~/.local/bin
 for f in "${HAUNTED_TILES_DIR}/scripts/*"; do
   ln -s $f ~/.local/bin/
 done
