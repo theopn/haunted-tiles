@@ -47,29 +47,29 @@ Credits:
     mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
     # TODO: Check that this link is up-to-date before you proceed
     wget -O tmp.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/ProggyClean.zip
-    unzip tmp.zip
+    unzip tmp.zip && rm tmp.zip
     fc-cache -vf
-    rm tmp.zip
     cd -
     ```
-3. Locate your choice of wallpaper (PNG) as `$XDG_CONFIG_HOME/wallpaper.png`
-4. Generate a new lock screen image using the included lock icon:
-    ```sh
-    # use `lock-24269-640.png` a higher resolution image
-    magick $XDG_CONFIG_HOME/wallpaper.png $XDG_CONFIG_HOME/haunted-tiles/assets/lock-24269-360.png -gravity center -composite $XDG_CONFIG_HOME/lockscreen.png
-    ```
-5. Clone the repository and run the installation script (creates symlink for configuration files and scripts):
+3. Clone the repository and run the installation script (creates symlink for configuration files and scripts):
     ```sh
     git clone https://github.com/theopn/haunted-tiles.git ~/.config/haunted-tiles
     ~/.config/haunted-tiles/install.sh
     ```
+4. Locate your choice of wallpaper (PNG) as `$XDG_CONFIG_HOME/wallpaper.png`
+5. Generate a new lock screen image using the included lock icon:
+    ```sh
+    # use `lock-24269-640.png` a higher resolution image
+    magick $XDG_CONFIG_HOME/wallpaper.png $XDG_CONFIG_HOME/haunted-tiles/assets/lock-24269-360.png -gravity center -composite $XDG_CONFIG_HOME/lockscreen.png
+    ```
 6. Modify the coordinates in `$XDG_CONFIG_HOME/gammastep/config.ini` using:
     ```sh
     curl http://ip-api.com/json?fields=lat,lon
+    $EDITOR "$XDG_CONFIG_HOME/gammastep/config.ini"
     ```
 7. Add yourself to the `input` user group for Waybar keyboard state module:
     ```sh
-    sudo usermod -a -G input [username]
+    sudo usermod -a -G input $(whoami)
     ```
 
 For more tips on configuring i3/Sway, read my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips).
