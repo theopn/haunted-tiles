@@ -17,7 +17,6 @@
     "spacing": 1,
 
     "modules-left": [
-      "custom/misc_menu",
       "sway/workspaces",
       "sway/scratchpad",
       "sway/window",
@@ -25,6 +24,7 @@
 
     "modules-center": [
       "sway/mode",
+      "custom/misc_menu",
       "clock"
     ],
 
@@ -42,10 +42,15 @@
       "tray"
     ],
 
-    /* Modules-Left */
+    /* Modules - Center */
+
+    "sway/mode": {
+      "format": "<span style=\"italic\">{}</span>",
+      "max-length": 150,
+    },
 
     "custom/misc_menu": {
-      "format" : " 󰄛 ",
+      "format" : "󰄛 ",
       "tooltip": true,
       "tooltip-format": "Miscellaneous Features",
       "menu": "on-click",
@@ -56,6 +61,15 @@
         "dunst_clear": "dunstctl history-clear",
       }
     },
+
+    "clock": {
+      "timezone": "America/New_York",
+      "tooltip-format": "<big>{:%Y-%m-%d %H:%M:%S}</big>\n<tt><small>{calendar}</small></tt>",
+      "format": "  {:%b %e %H:%M}",
+      "format-alt": "  {:%Y-%m-%d %R}",
+    },
+
+    /* Modules-Left */
 
     "sway/workspaces": {
       "disable-scroll": true,
@@ -81,16 +95,20 @@
       },
     },
 
-    /* Modules-Center */
-
-    "sway/mode": {
-      "format": "<span style=\"italic\">{}</span>",
-      "max-length": 150,
-    },
+    /* Modules - Right */
 
     "disk": {
       "format": "󰋊 {used}",
       "tooltip-format": "{used} used out of {total} in {path}",
+    },
+
+    "network": {
+      "interval": 30,
+      "format-wifi": "{essid} ({bandwidthUpBytes} {bandwidthDownBytes})  ",
+      "format-ethernet": "{ipaddr}/{cidr} 󰈁 ",
+      "format-linked": "{ifname} (No IP) 󰈁 ",
+      "format-disconnected": "Disconnected ⚠ ",
+      "tooltip-format": "{ifname}, {ipaddr}, {frequency}Mhz"
     },
 
     "cpu": {
@@ -113,8 +131,6 @@
       "format": "{icon} {temperatureC}°C",
       "format-icons": ""
     },
-
-    /* Modules-Right */
 
     "mpris": {
       "format": "{status_icon} {player_icon}",
@@ -156,32 +172,10 @@
       "on-click": "pavucontrol"
     },
 
-    "idle_inhibitor": {
-      "format": "{icon}",
-      "format-icons": {
-          "activated": "󰅶 ",
-          "deactivated": "󰾪 "
-      },
-      "tooltip-format-activated": "CAFFEINATED",
-      "tooltip-format-deactivated": "might fall asleep",
-    },
-
     "backlight": {
       // "device": "acpi_video1",
       "format": "{icon} {percent}%",
       "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "],
-    },
-
-    "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": " ",
-        "performance": " ",
-        "balanced": " ",
-        "power-saver": " "
-      }
     },
 
     "battery": {
@@ -199,20 +193,26 @@
       "interval": 30
     },
 
-    "network": {
-      "interval": 30,
-      "format-wifi": "{essid} ({bandwidthUpBytes} {bandwidthDownBytes})  ",
-      "format-ethernet": "{ipaddr}/{cidr} 󰈁 ",
-      "format-linked": "{ifname} (No IP) 󰈁 ",
-      "format-disconnected": "Disconnected ⚠ ",
-      "tooltip-format": "{ifname}, {ipaddr}, {frequency}Mhz"
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": " ",
+        "performance": " ",
+        "balanced": " ",
+        "power-saver": " "
+      }
     },
 
-    "clock": {
-      "timezone": "America/New_York",
-      "tooltip-format": "<big>{:%Y-%m-%d %H:%M:%S}</big>\n<tt><small>{calendar}</small></tt>",
-      "format": "  {:%b %e %H:%M}",
-      "format-alt": "  {:%Y-%m-%d %R}",
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+          "activated": "󰅶 ",
+          "deactivated": "󰾪 "
+      },
+      "tooltip-format-activated": "CAFFEINATED",
+      "tooltip-format-deactivated": "might fall asleep",
     },
 
     "keyboard-state": {
@@ -224,7 +224,7 @@
         "capslock": "{icon}"
       },
       "format-icons": {
-          "locked": "󰪛  ",
+          "locked": "󰪛 ",
           "unlocked": ""
       },
       // Default [58, 69, 70] for capslock, numlock, scrolllock (/usr/include/linux/input-event-codes.h)
