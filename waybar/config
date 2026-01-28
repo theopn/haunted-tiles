@@ -9,11 +9,11 @@
 {
   /* Bar Settings */
 
-    "id" : "bar",
+    "id" : "theo-waybar-sway",
 
-    "layer": "top", // Waybar at top layer
+    "layer": "top",
     "position": "top",
-    "height": 30,
+    "height": 34,
     "spacing": 1,
 
     "modules-left": [
@@ -42,6 +42,33 @@
       "tray"
     ],
 
+    /* Modules-Left */
+
+    "sway/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": false,
+      "format": "{index}",
+    },
+
+    "sway/scratchpad": {
+      "format": "[{count}]=",
+      "show-empty": true,
+      "tooltip": true,
+      "tooltip-format": "{app}: {title}"
+    },
+
+    "sway/window": {
+      "format": "{shell}: {title}",
+      "max-length": 50,
+      "icon": true,
+      "icon-size": 15,
+      "rewrite": {
+        "xdg_shell: (.*)": "  $1",
+        "xwayland: (.*)": "  $1",  // rise monads
+      },
+    },
+
+
     /* Modules - Center */
 
     "sway/mode": {
@@ -69,47 +96,7 @@
       "format-alt": "  {:%Y-%m-%d %R}",
     },
 
-    /* Modules-Left */
-
-    "sway/workspaces": {
-      "disable-scroll": true,
-      "all-outputs": false,
-      "format": "{index}",
-    },
-
-    "sway/scratchpad": {
-      "format": "[{count}]=",
-      "show-empty": true,
-      "tooltip": true,
-      "tooltip-format": "{app}: {title}"
-    },
-
-    "sway/window": {
-      "format": "{shell}: {title}",
-      "max-length": 50,
-      "icon": true,
-      "icon-size": 15,
-      "rewrite": {
-        "xdg_shell: (.*)": "  $1",
-        "xwayland: (.*)": "  $1",  // rise monads
-      },
-    },
-
     /* Modules - Right */
-
-    "disk": {
-      "format": "󰋊 {used}",
-      "tooltip-format": "{used} used out of {total} in {path}",
-    },
-
-    "network": {
-      "interval": 30,
-      "format-wifi": "{essid} ({bandwidthUpBytes} {bandwidthDownBytes})  ",
-      "format-ethernet": "{ipaddr}/{cidr} 󰈁 ",
-      "format-linked": "{ifname} (No IP) 󰈁 ",
-      "format-disconnected": "Disconnected ⚠ ",
-      "tooltip-format": "{ifname}, {ipaddr}, {frequency}Mhz"
-    },
 
     "cpu": {
       "interval": 15,
@@ -235,6 +222,22 @@
     "tray": {
       "icon-size": 20,
       "spacing": 10,
+    },
+
+    /* Modules - Unused */
+
+    "disk": {
+      "format": "󰋊 {used}",
+      "tooltip-format": "{used} used out of {total} in {path}",
+    },
+
+    "network": {
+      "interval": 30,
+      "format-wifi": "{essid} ({bandwidthUpBytes} {bandwidthDownBytes})  ",
+      "format-ethernet": "{ipaddr}/{cidr} 󰈁 ",
+      "format-linked": "{ifname} (No IP) 󰈁 ",
+      "format-disconnected": "Disconnected ⚠ ",
+      "tooltip-format": "{ifname}, {ipaddr}, {frequency}Mhz"
     },
 }
 
