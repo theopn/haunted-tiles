@@ -24,10 +24,11 @@ set $menu "rofi -modi drun,run -show drun"
 set $window "rofi -modi window -show window"
 
 # Scripts for keybindings
+set $clipboard_menu rofi-clipboard.sh
 set $lock swaylock -f
 set $monitor HDMI-2
-set $screenshot grimshot --notify
-set $screenrecord wf-recorder --audio -f ~/Pictures/record-$(date +"%Y-%m-%d--%H-%M-%S.mp4")
+set $screenshot rofi-screenshot.sh
+set $screenrecord rofi-screenrecord.sh
 set $powermenu rofi-powermenu.sh
 set $volume_ctrl volume-ctrl.sh
 
@@ -188,16 +189,7 @@ mode "$clipboard_mode" {
 bindsym $mod+Shift+v mode "$clipboard_mode"
 
 bindsym Print exec $screenshot
-
-set $screenrecord_mode [Screenrecord] (s) Start Selection (f) Start full screen (e) End (ESC/RET) Exit
-mode "$screenrecord_mode" {
-  bindsym s exec $screenrecord -g "$(slurp)"; mode "default"
-  bindsym f exec $screenrecord; mode "default"
-  bindsym e exec killall -s SIGINT wf-recorder; mode "default"
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
-}
-bindsym $mod+Shift+r mode "$screenrecord_mode"
+bindsym $mod+Shift+r exec $screenrecord
 
 set $monitor_mode [Monitor ($monitor)] (l) left to eDP-1 (t) toggle (ESC/RET) Exit
 mode "$monitor_mode" {

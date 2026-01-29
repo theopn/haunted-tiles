@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Options
-area_cp=' area (to clipboard)'
-area='󰩭 area (save to file)'
-window=' window (save to file)'
-screen='󰹑 screen (save to file)'
+area_cp=' area (clipboard)'
+area='󰩭 area'
+window=' window'
+screen='󰹑 screen'
 color='󰴱 color picker'
 
 function run_rofi_selection() {
-  echo -e "$area_cp\n$area\n$window\n$screen\n$color" | rofi -dmenu -p "Screenshot mode: "
+  echo -e "$area_cp\n$area\n$window\n$screen\n$color" | rofi -dmenu -p "Screenshot mode: " -mesg "Save path: ~/Pictures"
 }
 
 function main() {
