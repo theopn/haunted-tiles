@@ -21,9 +21,9 @@ Credits:
 
 1. I typically install Fedora KDE and install Sway on top of it
     ```sh
-    sudo dnf install sway rofi-wayland waybar dunst
-    # Or install swayfx
-    # Make sure to uncomment `include ~/.config/sway/swayfx.conf` in the sway config
+    sudo dnf install rofi-wayland waybar dunst
+    # If you install regular Sway instead of Swayfx,
+    # make sure to comment out `include ~/.config/sway/swayfx.conf` in the sway config
     sudo dnf copr enable swayfx/swayfx
     sudo dnf install --allowerasing swayfx
 

@@ -215,7 +215,7 @@ gaps outer 3
 # Remove border when there is only one window
 smart_borders on
 ####### SWAYFX ONLY SETTINGS #######
-#include ~/.config/sway/swayfx.conf
+include ~/.config/sway/swayfx.conf
 # }}}
 
 # Settings {{{
@@ -238,9 +238,8 @@ exec swayidle -w \
        timeout 420 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
        timeout 540 'systemctl suspend' \
        before-sleep '$lock'
-# Display scaling -- fractional scaling is not recommendeded, use zoom option in each app
-# it seems like 2x scaling is the default with Framework 13 2.8k display
-#output eDP-1 scale 1.5
+# Display scaling
+output eDP-1 scale 1.67
 # Wallpaper
 output * bg $wallpaper fill
 # }}}
