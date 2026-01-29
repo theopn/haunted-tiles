@@ -22,7 +22,7 @@ function show_volume_notif() {
     volume_icon="󰕾"
   fi
 
-  dunstify -i audio-volume-muted-blocking -t 1000 -r 6969 -u low "${volume_icon} ${volume}%" -h int:value:${volume} -h string:hlcolor:${bar_color}
+  dunstify -i audio-volume-muted-blocking -t 1000 -r 6969 -u low "${volume_icon} Volume: ${volume}%" -h int:value:${volume} -h string:hlcolor:${bar_color}
 }
 
 case $1 in
