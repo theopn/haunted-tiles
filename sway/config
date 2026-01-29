@@ -10,6 +10,7 @@
 # Window classes {{{
 for_window [shell=".*"] inhibit_idle fullscreen
 for_window [app_id="pavucontrol"] floating enable, move position center, sticky enable
+for_window [app_id="copyq"] floating enable, resize set 600 400, move position center, border pixel 5, sticky enable
 for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, move position 0 0, sticky enable
 for_window [shell="xwayland"] {
   title_format "[XWayland] %title"
@@ -24,7 +25,7 @@ set $menu "rofi -modi drun,run -show drun"
 set $window "rofi -modi window -show window"
 
 # Scripts for keybindings
-set $clipboard_history rofi-clipman-hist.sh
+set $clipboard_history copyq show
 set $lock swaylock -f
 set $monitor HDMI-2
 set $screenshot rofi-screenshot.sh
@@ -34,7 +35,7 @@ set $volume_ctrl volume-ctrl.sh
 
 # Startup app
 set $bar waybar
-set $clipboard wl-paste -t text --watch clipman store --no-persist
+set $clipboard copyq --start-server
 set $input fcitx5 -d --replace
 set $network nm-applet --indicator
 #set $nightlight gammastep -P
