@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Start the clipman server with:
+# exec wl-paste -t text --watch clipman store --no-persist
+
 # Options
 show=' show history'
 clear=' clear history'
