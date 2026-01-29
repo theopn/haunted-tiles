@@ -30,8 +30,8 @@
 
     "modules-right": [
       "cpu",
-      "memory",
       "temperature",
+      "memory",
       "mpris",
       "pulseaudio",
       "backlight",
@@ -51,7 +51,7 @@
     },
 
     "sway/scratchpad": {
-      "format": "[{count}]=",
+      "format": "󰨡 [{count}]",
       "show-empty": true,
       "tooltip": true,
       "tooltip-format": "{app}: {title}"
@@ -101,14 +101,14 @@
     "cpu": {
       "interval": 15,
       "format": "{icon} {usage}%",
-      "format-icons": "󰍛",
+      "format-icons": "",
       "tooltip": false,
     },
 
     "memory": {
       "interval": 15,
       "format": "{icon} {percentage}%",
-      "format-icons": "",
+      "format-icons": "",
       "tooltip-format": "{used} used out of {total}",
     },
 
