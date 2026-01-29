@@ -28,7 +28,7 @@ Credits:
     sudo dnf install --allowerasing swayfx
 
     # Necessary packages for system control
-    sudo dnf install brightnessctl clipman grimshot playerctl wf-recorder
+    sudo dnf install brightnessctl copyq grimshot playerctl wf-recorder
     # If you don't have Polkit installed, install one
     sudo dnf install lxpolkit
 
@@ -90,12 +90,11 @@ List of keybindings different from the default i3/Sway:
 - `$mod + [/]`: moves the current workspace to the monitor to the left/right
 - `$mod + Shift + c/e`:  toggles the `sway_mode`, from which you can choose to reload the config, restart, or exit Sway
 - `$mod + Shift + m`: toggles `monitor_mode`, which you can control outputs
+- `$mod + Shift + v`: launches `copoyq show`
 - `Print`: launches a Rofi menu with screenshot options using Grimshot (area, screen, window, color picker, etc.)
 - `$mod + Shift + p`: launches a Rofi script with power options (lock, suspend, shutdown, etc.)
 - `$mod + shift + r`: launches a Rofi script with screen recording menu using `wf-recorder`
-- `$mod + Shift + v`: launches a Rofi script for clipboard history using Clipman
 
-`[3]=` indicator in Waybar means that there are 3 windows in the scratchpad.
+`Window logo [3]` indicator in Waybar means that there are 3 windows in the scratchpad.
 You can add a window to a scratchpad with `$mod + Shift + -` and cycle through the scratchpad with `$mod + -`.
-`[]=` is inspired by the tiling window indicator in the dwm statusbar, which does not make sense in this context, but I thought it looked cute.
 
