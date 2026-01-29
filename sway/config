@@ -187,20 +187,7 @@ mode "$clipboard_mode" {
 }
 bindsym $mod+Shift+v mode "$clipboard_mode"
 
-set $screenshot_mode [Screenshot] (w) Window (s) Screen (a) Area (c) to Clipboard (p) color Picker (ESC/RET) Exit
-mode "$screenshot_mode" {
-  bindsym w exec $screenshot save window; mode "default"
-  bindsym s exec $screenshot save screen; mode "default"
-  bindsym a exec $screenshot save area; mode "default"
-  bindsym c exec $screenshot copy area; mode "default"
-  bindsym p exec notify-send "$(grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-)"; mode "default"
-  #bindsym r exec $screenrecord; mode "default"
-  #bindsym e exec $screenrecord_end; mode "default"
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
-}
-bindsym $mod+Shift+s mode "$screenshot_mode"
-bindsym print mode "$screenshot_mod"
+bindsym Print exec $screenshot
 
 set $screenrecord_mode [Screenrecord] (s) Start Selection (f) Start full screen (e) End (ESC/RET) Exit
 mode "$screenrecord_mode" {

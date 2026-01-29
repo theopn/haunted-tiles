@@ -89,11 +89,11 @@ List of keybindings different from the default i3/Sway:
 - `$mod + b`: toggles between floating/tiled windows
 - `$mod + [/]`: moves the current workspace to the monitor to the left/right
 - `$mod + Shift + c/e`:  toggles the `sway_mode`, from which you can choose to reload the config, restart, or exit Sway
-    - `$mod + shift + r`: (Sway) toggles `screenrecord mode` to control `wf-recorder`
 - `$mod + Shift + m`: toggles `monitor_mode`, which you can control outputs
-- `$mod + Shift + p`: launches a Rofi menu with power options (lock, suspend, shutdown, etc.)
-- `$mod + Shift + s`: toggles `screenshot_mode` which you can choose area, screen, or window capture from Grimshot
-- `$mod + Shift + v`: launches the clipboard manager (Copy Qin i3, Clipman in Sway)
+- `Print`: launches a Rofi menu with screenshot options using Grimshot (area, screen, window, color picker, etc.)
+- `$mod + Shift + p`: launches a Rofi script with power options (lock, suspend, shutdown, etc.)
+- `$mod + shift + r`: launches a Rofi script with screen recording menu using `wf-recorder`
+- `$mod + Shift + v`: launches a Rofi script for clipboard history using Clipman
 
 `[3]=` indicator in Waybar means that there are 3 windows in the scratchpad.
 You can add a window to a scratchpad with `$mod + Shift + -` and cycle through the scratchpad with `$mod + -`.
