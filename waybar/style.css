@@ -108,7 +108,7 @@ window#waybar.empty #window {
 }
 
 #battery.warning, #battery.critical {
-  background-color: @color_red;
+  color: @color_red;
 }
 
 #battery.charging, #battery.plugged {
