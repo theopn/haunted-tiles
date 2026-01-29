@@ -3,6 +3,7 @@
 XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 HAUNTED_TILES_DIR=${XDG_CONFIG_HOME}/haunted-tiles
 
+ln -s "${HAUNTED_TILES_DIR}/dunst"      "${XDG_CONFIG_HOME}/dunst"
 ln -s "${HAUNTED_TILES_DIR}/rofi"       "${XDG_CONFIG_HOME}/rofi"
 ln -s "${HAUNTED_TILES_DIR}/sway"       "${XDG_CONFIG_HOME}/sway"
 ln -s "${HAUNTED_TILES_DIR}/swaylock"   "${XDG_CONFIG_HOME}/swaylock"
