@@ -24,7 +24,7 @@ set $menu "rofi -modi drun,run -show drun"
 set $window "rofi -modi window -show window"
 
 # Scripts for keybindings
-set $clipboard_menu rofi-clipboard.sh
+set $clipboard_history rofi-clipman-hist.sh
 set $lock swaylock -f
 set $monitor HDMI-2
 set $screenshot rofi-screenshot.sh
@@ -179,17 +179,12 @@ bindsym XF86AudioMedia mode "$sway_mode"
 # }}}
 
 # Utility keybindings {{{
-set $clipboard_mode [Clipboard] (v) Show history (c) Clear history (ESC/RET) Exit
-mode "$clipboard_mode" {
-  bindsym v exec clipman pick -t rofi; mode "default"
-  bindsym c exec clipman clear --all; mode "default"
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
-}
-bindsym $mod+Shift+v mode "$clipboard_mode"
+bindsym $mod+Shift+v exec $clipboard_history
 
 bindsym Print exec $screenshot
 bindsym $mod+Shift+r exec $screenrecord
+
+bindsym $mod+Shift+p exec $powermenu
 
 set $monitor_mode [Monitor ($monitor)] (l) left to eDP-1 (t) toggle (ESC/RET) Exit
 mode "$monitor_mode" {
@@ -199,8 +194,6 @@ mode "$monitor_mode" {
   bindsym Return mode "default"
 }
 bindsym $mod+Shift+m mode "$monitor_mode"
-
-bindsym $mod+Shift+p exec $powermenu
 # }}}
 
 # Appearance {{{
