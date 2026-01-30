@@ -1,7 +1,7 @@
 [global]
     frame_width = 3
     frame_color = "#282A36"
-    font = ProggyClean Nerd Font 12
+    font = ProggyClean Nerd Font 16
     corner_radius = 20
 
 [urgency_low]
@@ -22,6 +22,10 @@
 
 [volume-ignore]
     summary = "*Volume:*"
+    history_ignore = yes
+
+[brightness-ignore]
+    summary = "*Brightness:*"
     history_ignore = yes
 
 # vim: ft=cfg

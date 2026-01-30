@@ -24,7 +24,8 @@ set $term kitty
 set $menu "rofi -modi drun,run -show drun"
 set $window "rofi -modi window -show window"
 
-# Scripts for keybindings
+# Scripts and programs used for keybindings
+set $brightness_ctrl brightness-ctrl.sh
 set $clipboard_history copyq show
 set $lock swaylock -f
 set $monitor HDMI-2
@@ -72,8 +73,10 @@ bindsym --locked XF86AudioLowerVolume exec $volume_ctrl down
 bindsym --locked XF86AudioMute exec $volume_ctrl mute
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 # Use brightnessctl to adjust brightness with function row keys
-bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec $brightness_ctrl up
+#bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym --locked XF86MonBrightnessDown exec $brightness_ctrl down
+#bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 # Use playerctl to control media playback
 bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym --locked XF86AudioPrev exec playerctl previous
