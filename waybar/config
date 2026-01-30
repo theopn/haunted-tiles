@@ -73,7 +73,7 @@
     /* Modules - Center */
 
     "sway/mode": {
-      "format": "<span style=\"italic\">{}</span>",
+      "format": " {}",
       "max-length": 150,
     },
 
