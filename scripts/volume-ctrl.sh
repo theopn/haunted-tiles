@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bar_color="#F1FA8C"
+bar_color="#FFFFFF"
 
 function get_volume() {
   pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]{1,3}(?=%)' | head -1
@@ -22,7 +22,7 @@ function show_volume_notif() {
     volume_icon="󰕾"
   fi
 
-  dunstify -i audio-volume-muted-blocking -t 1000 -r 6969 -u low "${volume_icon} Volume: ${volume}%" -h int:value:${volume} -h string:hlcolor:${bar_color}
+  dunstify -i audio-volume-muted-blocking --timeout=1000 --replace=6969 -u low "${volume_icon} Volume: ${volume}%" -h int:value:${volume} -h string:hlcolor:${bar_color}
 }
 
 case $1 in
