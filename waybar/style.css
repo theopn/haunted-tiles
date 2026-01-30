@@ -71,7 +71,7 @@ window#waybar.empty #window {
 /* Modules - Center */
 
 #mode {
-  background-color: @color_red;
+  background-color: @color_orange;
   padding: 0px 5px 0px 5px;
 }
 
