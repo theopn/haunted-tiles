@@ -39,6 +39,7 @@
       "power-profiles-daemon",
       "idle_inhibitor",
       "keyboard-state",
+      "custom/separator",
       "tray"
     ],
 
@@ -217,6 +218,14 @@
       // Default [58, 69, 70] for capslock, numlock, scrolllock (/usr/include/linux/input-event-codes.h)
       // Changed since I swapped capslock and left control
       "binding-keys": [29,69,70],
+    },
+
+    /* Tray */
+
+    "custom/separator": {
+      "format" : "",
+      "tooltip": false,
+      "interval": "once",
     },
 
     "tray": {

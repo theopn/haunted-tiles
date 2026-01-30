@@ -34,7 +34,6 @@ window#waybar {
 
 /* Modules - Left */
 
-
 #workspaces {
   padding: 3px 3px;
 }
@@ -135,12 +134,18 @@ window#waybar.empty #window {
   background-color: @color_red;
 }
 
-#keyboard-state {
-  background-color: @color_orange;
+#keyboard-state label.locked {
+  padding: 0 5px;
+  color: @color_orange;
 }
 
 
 /* Tray */
+
+#custom-seperator {
+  color: @color_fg;
+  padding: 1px 1px;
+}
 
 #tray > .passive {
   -gtk-icon-effect: dim;
