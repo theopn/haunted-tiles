@@ -28,7 +28,7 @@ Credits:
     sudo dnf install --allowerasing swayfx
 
     # Necessary packages for system control
-    sudo dnf install brightnessctl copyq grimshot playerctl wf-recorder
+    sudo dnf install brightnessctl copyq grimshot pavucontrol playerctl wf-recorder
     # If you don't have Polkit installed, install one
     sudo dnf install lxpolkit
 
