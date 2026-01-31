@@ -3,6 +3,8 @@
     frame_color = "#282A36"
     font = ProggyClean Nerd Font 16
     corner_radius = 20
+    origin = top-center
+    offset = (0, 10)
 
 [urgency_low]
     background = "#282a36CC"
