@@ -26,12 +26,12 @@ set $window "rofi -modi window -show window"
 
 # Scripts and programs used for keybindings
 set $brightness_ctrl brightness-ctrl.sh
-set $clipboard_history copyq show
+set $clipboard_show copyq show
 set $lock swaylock -f
 set $monitor HDMI-2
+set $powermenu rofi-powermenu.sh
 set $screenshot rofi-screenshot.sh
 set $screenrecord rofi-screenrecord.sh
-set $powermenu rofi-powermenu.sh
 set $volume_ctrl volume-ctrl.sh
 
 # Startup app
@@ -73,10 +73,10 @@ bindsym --locked XF86AudioLowerVolume exec $volume_ctrl down
 bindsym --locked XF86AudioMute exec $volume_ctrl mute
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 # Use brightnessctl to adjust brightness with function row keys
-bindsym --locked XF86MonBrightnessUp exec $brightness_ctrl up
 #bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym --locked XF86MonBrightnessDown exec $brightness_ctrl down
+bindsym --locked XF86MonBrightnessUp exec $brightness_ctrl up
 #bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessDown exec $brightness_ctrl down
 # Use playerctl to control media playback
 bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym --locked XF86AudioPrev exec playerctl previous
@@ -154,7 +154,7 @@ bindsym $mod+Shift+bracketright move workspace to output right
 
 # Modes {{{
 # Window resize mode
-set $resize_mode [RESIZE] (hjkl, arrows) Resize (ESC/RET/$mod +r) Exit
+set $resize_mode [RESIZE] (hjkl, arrows) Resize (ESC/RET/$mod+r) Exit
 mode "$resize_mode" {
   bindsym h resize shrink width 10 px or 10 ppt
   bindsym j resize grow height 10 px or 10 ppt
@@ -182,14 +182,15 @@ bindsym $mod+Shift+e mode "$sway_mode"
 bindsym XF86AudioMedia mode "$sway_mode"
 # }}}
 
-# Utility keybindings {{{
-bindsym $mod+Shift+v exec $clipboard_history
+# Utility Keybindings {{{
+bindsym $mod+Shift+v exec $clipboard_show
 
+# Rofi scripts
 bindsym Print exec $screenshot
 bindsym $mod+Shift+r exec $screenrecord
-
 bindsym $mod+Shift+p exec $powermenu
 
+# Custom monitor mode
 set $monitor_mode [Monitor ($monitor)] (l) left to eDP-1 (t) toggle (ESC/RET) Exit
 mode "$monitor_mode" {
   bindsym t output $monitor toggle; mode "default"
