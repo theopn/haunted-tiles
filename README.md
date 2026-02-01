@@ -15,7 +15,7 @@ Credits:
 - [Logo](./assets/haunted-tiles-logo.png): my girlfriend Naomi
 - Wallpaper: [TODO](https://draculatheme.com/wallpaper)
 - Lock icon: [Pixabay](https://pixabay.com/vectors/lock-locked-metal-protection-tool-24269/)
-- Font: [TODO]()
+- Font: [ProggyClean Nerd Font](https://github.com/bluescan/proggyfonts)
 
 ## Sway Installation
 
@@ -92,9 +92,12 @@ List of keybindings different from the default i3/Sway:
 - `$mod + Shift + m`: toggles `monitor_mode`, which you can control outputs
 - `$mod + Shift + v`: launches `copoyq show`
 - `Print`: launches a Rofi menu with screenshot options using Grimshot (area, screen, window, color picker, etc.)
+- `Shift+Print`: launches a Rofi script with screen recording menu using `wf-recorder`
 - `$mod + Shift + p`: launches a Rofi script with power options (lock, suspend, shutdown, etc.)
-- `$mod + shift + r`: launches a Rofi script with screen recording menu using `wf-recorder`
 
-`Window logo [3]` indicator in Waybar means that there are 3 windows in the scratchpad.
-You can add a window to a scratchpad with `$mod + Shift + -` and cycle through the scratchpad with `$mod + -`.
+Notes:
+
+1. `Window logo [3]` indicator in Waybar means that there are 3 windows in the scratchpad.
+2. You can add a window to a scratchpad with `$mod + Shift + -` and cycle through the scratchpad with `$mod + -`.
+3. The keybindings for i3 is nearly identical, but please read the config
 
