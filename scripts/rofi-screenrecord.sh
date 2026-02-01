@@ -6,7 +6,7 @@ area='󰩭 area'
 screen='󰹑 screen'
 
 function run_rofi_selection() {
-  echo -e "$stop\n$area\n$screen" | rofi -dmenu -p "Screenrecording mode: " -mesg "Save path: in ~/Pictures"
+  echo -e "$stop\n$area\n$screen" | rofi -dmenu -p "Screenrecording mode: " -mesg "Save path: ~/Pictures"
 }
 
 function main() {
