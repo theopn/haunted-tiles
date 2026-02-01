@@ -20,6 +20,7 @@ set $menu "rofi -modi drun,run -show drun"
 set $window "rofi -modi window -show window"
 
 # Scripts for keybindings
+set $brightness_ctrl brightness-ctrl.sh
 set $clipboard_show copyq show
 set $lock i3lock --ignore-empty-password --show-failed-attempts -c #282A36 -i $XDG_CONFIG_HOME/lockscreen.png
 set $monitor xrandr-ctrl.sh
@@ -29,7 +30,7 @@ set $volume_ctrl volume-ctrl.sh
 
 # Startup app
 set $bar polybar-launch.sh
-set $clipboard copyq
+set $clipboard copyq --start-server
 set $compositor picom -b
 #set $input ibus-daemon --daemonize --xim --replace
 set $input fcitx5 -d --replace
@@ -71,8 +72,10 @@ bindsym XF86AudioMute exec --no-startup-id $volume_ctrl mute
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Use brightnessctl to adjust brightness with function row keys
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+#bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessUp exec --no-startup-id $brightness_ctrl up
+#bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id $brightness_ctrl down
 # Call arandr to adjust monitor settings
 bindsym XF86Display exec --no-startup-id arandr
 
@@ -144,7 +147,7 @@ bindsym $mod+Shift+braceright move workspace to output right
 
 # Modes {{{
 # Window resize mode
-set $resize_mode RESIZE MODE: (hjkl, arrows) Resize (esc, return, super+r) Exit
+set $resize_mode [RESIZE] (hjkl, arrows) Resize (ESC/RET/$mod+r) Exit
 mode "$resize_mode" {
   bindsym h resize shrink width 10 px or 10 ppt
   bindsym j resize grow height 10 px or 10 ppt
@@ -160,7 +163,7 @@ mode "$resize_mode" {
 }
 bindsym $mod+r mode "$resize_mode"
 # i3 related options mode
-set $i3_mode i3 MODE: (c) Config reload (e) Exit i3 (r) Restart i3 (esc, Return, Mod+Shift+c/r/e) Exit
+set $i3_mode [i3 MODE] (c) Config reload (e) Exit i3 (r) Restart i3 (ESC/RET/$mod+Shift+c/r/e) Exit
 mode "$i3_mode" {
   bindsym c reload
   bindsym r restart
@@ -179,7 +182,7 @@ bindsym $mod+Shift+e mode "$i3_mode"
 # Utility Keybindings {{{
 # Accessing clipboard manager and screenshot tool
 bindsym $mod+Shift+v exec --no-startup-id $clipboard_show
-bindsym $mod+Shift+s exec --no-startup-id $screenshot
+bindsym Print exec --no-startup-id $screenshot
 # Rofi monitor control and powermenu scripts
 bindsym $mod+Shift+m exec --no-startup-id $monitor
 bindsym $mod+Shift+p exec --no-startup-id $powermenu
