@@ -17,13 +17,25 @@ no=' 󰜺  no'
 shutdown_cmd='systemctl poweroff'
 suspend_cmd='systemctl suspend'
 reboot_cmd='systemctl reboot'
-lock_cmd="swaylock -f"
+lock_cmd="loginctl lock-session"
+
+function lock_wm() {
+  if [[ "$DESKTOP_SESSION" == "sway" ]]; then
+    swaylock -f
+  elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
+    i3lock --ignore-empty-password --show-failed-attempts -c \#282A36 -i $XDG_CONFIG_HOME/lockscreen.png
+  else
+    loginctl lock-session
+  fi
+}
 
 function exit_wm() {
-  if [[ "$DESKTOP_SESSION" == "i3" ]]; then
-    i3-msg exit
-  elif [[ "$DESKTOP_SESSION" == "sway" ]]; then
+  if [[ "$DESKTOP_SESSION" == "sway" ]]; then
     swaymsg exit
+  elif [[ "$DESKTOP_SESSION" == "hyprland" ]]; then
+    hyprctl dispatch exit
+  elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
+    i3-msg exit
   fi
 }
 
@@ -77,7 +89,7 @@ function main() {
   chosen="$(run_rofi_selection)"
   case $chosen in
     $lock)
-      $lock_cmd # No confirmation
+      lock_wm
     ;;
     $shutdown)
       confirm_then_run --shutdown
