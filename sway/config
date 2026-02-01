@@ -187,7 +187,7 @@ bindsym $mod+Shift+v exec $clipboard_show
 
 # Rofi scripts
 bindsym Print exec $screenshot
-bindsym $mod+Shift+r exec $screenrecord
+bindsym Shift+Print exec $screenrecord
 bindsym $mod+Shift+p exec $powermenu
 
 # Custom monitor mode
