@@ -20,7 +20,7 @@ reboot_cmd='systemctl reboot'
 lock_cmd="loginctl lock-session"
 
 function lock_wm() {
-  if [[ "$DESKTOP_SESSION" == "sway" ]]; then
+  if [[ "$DESKTOP_SESSION" == "sway" ]] || [[ "$DESKTOP_SESSION" == "niri" ]]; then
     swaylock -f
   elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
     i3lock --ignore-empty-password --show-failed-attempts -c \#282A36 -i $XDG_CONFIG_HOME/lockscreen.png
@@ -32,6 +32,8 @@ function lock_wm() {
 function exit_wm() {
   if [[ "$DESKTOP_SESSION" == "sway" ]]; then
     swaymsg exit
+  elif [[ "$DESKTOP_SESSION" == "niri" ]]; then
+    niri msg action quit
   elif [[ "$DESKTOP_SESSION" == "hyprland" ]]; then
     hyprctl dispatch exit
   elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
