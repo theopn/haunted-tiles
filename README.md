@@ -62,12 +62,7 @@ Credits:
     # use `lock-24269-640.png` a higher resolution image
     magick $XDG_CONFIG_HOME/wallpaper.png $XDG_CONFIG_HOME/haunted-tiles/assets/lock-24269-360.png -gravity center -composite $XDG_CONFIG_HOME/lockscreen.png
     ```
-6. Modify the coordinates in `$XDG_CONFIG_HOME/gammastep/config.ini` using:
-    ```sh
-    curl http://ip-api.com/json?fields=lat,lon
-    $EDITOR "$XDG_CONFIG_HOME/gammastep/config.ini"
-    ```
-7. Add yourself to the `input` user group for Waybar keyboard state module:
+6. Add yourself to the `input` user group for Waybar keyboard state module:
     ```sh
     sudo usermod -a -G input $(whoami)
     ```
