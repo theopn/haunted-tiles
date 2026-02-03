@@ -41,33 +41,23 @@ function exit_wm() {
   fi
 }
 
-# Power menu window for rofi
-function rofi_selection_window() {
-  rofi -dmenu \
-    -p "Action for $(hostname)" \
-    -mesg "Uptime: $(uptime -p | sed -e 's/up //g')"
-}
 
-# Pass variables to rofi dmenu
+# Main menu
 function run_rofi_selection() {
-  echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_selection_window
+  echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi -dmenu -p "Action for $(hostname)" -mesg "Uptime: $(uptime -p | sed -e 's/up //g')"
 }
 
-# Confirmation CMD
-function rofi_confirmation_window() {
-  rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
-    -theme-str 'mainbox {children: [ "message", "listview" ];}' \
-    -theme-str 'listview {columns: 2; lines: 1;}' \
-    -theme-str 'element-text {horizontal-align: 0.5;}' \
-    -theme-str 'textbox {horizontal-align: 0.5;}' \
-    -dmenu \
-    -p 'Confirmation' \
-    -mesg 'Are you Sure?'
-}
-
-# Ask for confirmation
+# Confirmation menu
 function run_rofi_confirmation() {
-  echo -e "$yes\n$no" | rofi_confirmation_window
+  echo -e "$yes\n$no" | rofi  -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
+                              -theme-str 'mainbox {children: [ "message", "listview" ];}' \
+                              -theme-str 'listview {columns: 2; lines: 1;}' \
+                              -theme-str 'element-text {horizontal-align: 0.5;}' \
+                              -theme-str 'textbox {horizontal-align: 0.5;}' \
+                              -dmenu \
+                              -p 'Confirmation' \
+                              -mesg 'Are you Sure?'
+
 }
 
 # Execute Command
