@@ -237,12 +237,7 @@ input "type:touchpad" {
 }
 focus_follows_mouse no
 # Idle actions
-exec swayidle -w \
-       timeout 180 'brightnessctl -s set 10%' resume 'brightnessctl -r' \
-       timeout 300 '$lock' \
-       timeout 420 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-       timeout 540 'systemctl suspend' \
-       before-sleep '$lock'
+exec swayidle -w
 # Display scaling
 output eDP-1 scale 1.67
 # Wallpaper
