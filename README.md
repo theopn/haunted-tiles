@@ -3,7 +3,7 @@
 | <img src="./assets/haunted-tiles-logo.png" width="250" alt="Haunted Tiles logo"> |
 | :--:                                                                             |
 | ![sway-sc](./assets/sway-sc.png)                                                 |
-| With SwayFX                                                                      |
+| SwayFX                                                                           |
 
 Configuration & scripts for my [Dracula](https://draculatheme.com/)-themed (hence the name of the repository) Sway and i3 environment.
 
@@ -13,7 +13,7 @@ But I still keep a simple Sway configuration for focused work sessions and occas
 Credits:
 
 - [Logo](./assets/haunted-tiles-logo.png): my girlfriend Naomi
-- Wallpaper: [TODO](https://draculatheme.com/wallpaper)
+- Wallpaper: [Color shifted version](https://www.reddit.com/r/wallpaper/comments/odrqc9/night_city_art_5120x2880/) of ["The Neon Shallows" by kawitt](https://www.reddit.com/r/wallpapers/comments/ib6diq/the_neon_shallows/)
 - Lock icon: [Pixabay](https://pixabay.com/vectors/lock-locked-metal-protection-tool-24269/)
 - Font: [ProggyClean Nerd Font](https://github.com/bluescan/proggyfonts)
 
@@ -69,7 +69,7 @@ Credits:
 
 For more tips on configuring i3/Sway, read my [i3-sway-tips repository](https://github.com/theopn/i3-sway-tips).
 
-## i3 Installation
+## i3
 
 Read [this](./x11/readme.md)
 
