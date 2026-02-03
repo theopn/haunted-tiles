@@ -8,7 +8,7 @@ screen='󰹑 screen'
 color='󰴱 color picker'
 
 function run_rofi_selection() {
-  echo -e "$area_cp\n$area\n$window\n$screen\n$color" | rofi -dmenu -p "Screenshot mode: " -mesg "Save path: ~/Pictures"
+  echo -e "$area_cp\n$area\n$window\n$screen\n$color" | rofi -dmenu -p "Screenshot Type>" -mesg "Path: ~/Pictures"
 }
 
 function main() {
