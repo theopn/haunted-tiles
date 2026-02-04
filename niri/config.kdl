@@ -102,7 +102,7 @@ spawn-at-startup "copyq" "--start-server"
 spawn-at-startup "fcitx5" "-d" "--replace"
 spawn-at-startup "gammastep-indicator"
 spawn-sh-at-startup "swaybg --mode fill --image ~/.config/wallpaper.png"
-spawn-at-startup "swayidle" "-w"
+spawn-sh-at-startup "swayidle -w -C ~/.config/swayidle/niri-swayidle-config"
 
 prefer-no-csd
 
