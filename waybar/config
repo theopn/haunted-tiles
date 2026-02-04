@@ -8,8 +8,7 @@
 
 {
   /* Bar Settings */
-
-    "id" : "theo-waybar-sway",
+    "id" : "theo-waybar-niri",
 
     "layer": "top",
     "position": "top",
@@ -17,13 +16,12 @@
     "spacing": 1,
 
     "modules-left": [
-      "sway/workspaces",
-      "sway/scratchpad",
-      "sway/window",
+      "niri/workspaces",
+      "custom/niri-workspace-rename",
+      "niri/window",
     ],
 
     "modules-center": [
-      "sway/mode",
       "custom/misc_menu",
       "clock"
     ],
@@ -43,39 +41,35 @@
       "tray"
     ],
 
-    /* Modules-Left */
 
-    "sway/workspaces": {
-      "disable-scroll": true,
-      "all-outputs": false,
-      "format": "{index}",
+    /* Modules - Left */
+
+    "niri/workspaces": {
+      "format": "{index}:{name}",
+      "format-icons": {
+        "default": "",
+        "productivity": " ",
+        "dev": " ",
+        "browser": " ",
+        "social": " ",
+      }
     },
 
-    "sway/scratchpad": {
-      "format": "󰨡 [{count}]",
-      "show-empty": true,
+    "custom/niri-workspace-rename": {
+      "format": "󰑕 ",
       "tooltip": true,
-      "tooltip-format": "{app}: {title}"
+      "tooltip-format": "Rename Current Workspace",
+      "on-click": "rofi-niri-workspace-rename.sh",
     },
 
-    "sway/window": {
-      "format": "{shell}: {title}",
+    "niri/window": {
+      "format": "{title}",
       "max-length": 50,
       "icon": true,
-      "icon-size": 15,
-      "rewrite": {
-        "xdg_shell: (.*)": "  $1",
-        "xwayland: (.*)": "  $1",  // rise monads
-      },
     },
 
 
     /* Modules - Center */
-
-    "sway/mode": {
-      "format": " {}",
-      "max-length": 150,
-    },
 
     "custom/misc_menu": {
       "format" : "󰄛 ",
