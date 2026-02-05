@@ -132,6 +132,11 @@ workspace " "        // index 4, Thunderbird & social apps
 
 // Window rules
 
+// Focus the window when xdg-portal opens a link
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
 // better than setting colume width since I can use Mod+F
 window-rule {
     open-maximized true
