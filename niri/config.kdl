@@ -113,7 +113,10 @@ spawn-sh-at-startup "swayidle -w -C ~/.config/swayidle/niri-swayidle-config"
 
 prefer-no-csd
 
-hotkey-overlay { skip-at-startup; }
+hotkey-overlay {
+  hide-not-bound
+  skip-at-startup
+}
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
