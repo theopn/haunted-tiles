@@ -118,7 +118,7 @@ hotkey-overlay {
   skip-at-startup
 }
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/niri-screenshot-%Y-%m-%d-%H-%M-%S.png"
 
 // Animations
 animations {
@@ -184,52 +184,35 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open Kitty" {
-        spawn "kitty"
-    }
-    Mod+Space hotkey-overlay-title="Open Rofi: Drun" {
-        spawn "rofi" "-show" "drun"
-    }
-    Mod+Shift+P hotkey-overlay-title="Open Rofi: Powermenu" {
-        spawn "rofi-powermenu.sh"
-    }
+    // Opening programs
+    Mod+Return          { spawn "kitty"; }
+    Mod+Space           { spawn "rofi" "-show" "drun"; }
+    Mod+Shift+P         { spawn "rofi-powermenu.sh"; }
+    Mod+Shift+V         { spawn "copyq" "show"; }
+    Print               { spawn "rofi-screenshot.sh"; }
+    Ctrl+Print          { spawn "rofi-screenrecord.sh"; }
+    Shift+Print hotkey-overlay-title="Open Niri native screenshot" { screenshot; }
 
-    XF86AudioRaiseVolume allow-when-locked=true {
-        //spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0";
-        spawn "volume-ctrl.sh" "up"
-    }
-    XF86AudioLowerVolume allow-when-locked=true {
-        //spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
-        spawn "volume-ctrl.sh" "down"
-    }
-    XF86AudioMute        allow-when-locked=true {
-      //spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-        spawn "volume-ctrl.sh" "mute"
-    }
+    // Function keys
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "volume-ctrl.sh" "up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "volume-ctrl.sh" "down"; }
+    XF86AudioMute        allow-when-locked=true { spawn "volume-ctrl.sh" "mute"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86MonBrightnessUp  allow-when-locked=true { spawn "brightness-ctrl.sh" "up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightness-ctrl.sh" "down"; }
 
-    XF86MonBrightnessUp allow-when-locked=true {
-        //spawn "brightnessctl" "--class=backlight" "set" "+10%";
-        spawn "brightness-ctrl.sh" "up"
-    }
-    XF86MonBrightnessDown allow-when-locked=true {
-        //spawn "brightnessctl" "--class=backlight" "set" "10%-";
-        spawn "brightness-ctrl.sh" "down"
-    }
-
+    // Window manager
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Shift+Q repeat=false { close-window; }
 
     // Theo's keymap principle
-    // HJKL are for navigation within a monitor
-    // Arrows are for navigation across monitors
+    // HJKL: navigation within a monitor
+    // Arrows: navigation across monitors
     Mod+H     { focus-column-left; }
     Mod+J     { focus-window-down; }
     Mod+K     { focus-window-up; }
@@ -245,17 +228,17 @@ binds {
     // Mod+Ctrl+Home { move-column-to-first; }
     // Mod+Ctrl+End  { move-column-to-last; }
 
-    Mod+Left  hotkey-overlay-title="Focus monitor left (+other arrows)"         { focus-monitor-left; }
-    Mod+Down                                                                    { focus-monitor-down; }
-    Mod+Up                                                                      { focus-monitor-up; }
-    Mod+Right                                                                   { focus-monitor-right; }
+    Mod+Left        hotkey-overlay-title="Focus Monitor Left (+ other arrows)"                  { focus-monitor-left; }
+    Mod+Down                                                                                    { focus-monitor-down; }
+    Mod+Up                                                                                      { focus-monitor-up; }
+    Mod+Right                                                                                   { focus-monitor-right; }
 
-    Mod+Shift+Left  hotkey-overlay-title="Move column to monitor left (+other arrows)"  { move-column-to-monitor-left; }
-    Mod+Shift+Down                                                                      { move-column-to-monitor-down; }
-    Mod+Shift+Up                                                                        { move-column-to-monitor-up; }
-    Mod+Shift+Right                                                                     { move-column-to-monitor-right; }
+    Mod+Shift+Left  hotkey-overlay-title="Move Column to Monitor Left (+ other arrows)"         { move-column-to-monitor-left; }
+    Mod+Shift+Down                                                                              { move-column-to-monitor-down; }
+    Mod+Shift+Up                                                                                { move-column-to-monitor-up; }
+    Mod+Shift+Right                                                                             { move-column-to-monitor-right; }
 
-    Mod+Ctrl+Left  hotkey-overlay-title="Move workspace to monitor left (+ other arrows)"       { move-workspace-to-monitor-left; }
+    Mod+Ctrl+Left   hotkey-overlay-title="Move Workspace to Monitor Left (+ other arrows)"      { move-workspace-to-monitor-left; }
     Mod+Ctrl+Down                                                                               { move-workspace-to-monitor-down; }
     Mod+Ctrl+Up                                                                                 { move-workspace-to-monitor-up; }
     Mod+Ctrl+Right                                                                              { move-workspace-to-monitor-right; }
@@ -295,43 +278,35 @@ binds {
 
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
-
     // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
+    //Mod+Comma  { consume-window-into-column; }
     // Expel the bottom window from the focused column to the right.
-    Mod+Period { expel-window-from-column; }
+    //Mod+Period { expel-window-from-column; }
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
-
-    // Expand the focused column to space not taken up by other fully visible columns.
+    // Expand the focused column to space not taken up by other fully visible columns
     // Makes the column "fill the rest of the space".
-    Mod+Ctrl+F { expand-column-to-available-width; }
-
-    Mod+C { center-column; }
-
+    //Mod+Ctrl+F { expand-column-to-available-width; }
+    //Mod+C { center-column; }
     // Center all fully visible columns on screen.
-    Mod+Ctrl+C { center-visible-columns; }
+    //Mod+Ctrl+C { center-visible-columns; }
 
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Equal { set-column-width "+10%"; }
+    Mod+Minus hotkey-overlay-title="Decrease Column Width" { set-column-width "-10%"; }
+    Mod+Equal hotkey-overlay-title="Increase Column Width" { set-column-width "+10%"; }
 
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
+    Mod+Shift+Minus hotkey-overlay-title="Decrease Window Height" { set-window-height "-10%"; }
+    Mod+Shift+Equal hotkey-overlay-title="Increase Window Height" { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+Shift+Space      { toggle-window-floating; }
+    Mod+Ctrl+Space       { switch-focus-between-floating-and-tiling; }
 
-    Mod+W { toggle-column-tabbed-display; }
+    Mod+W hotkey-overlay-title="Toggle Tabbed Display" { toggle-column-tabbed-display; }
 
-    Print { screenshot; }
-    //Ctrl+Print { screenshot-screen; }
-    Ctrl+Print { spawn "rofi-screenrecord.sh"; }
-    Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
@@ -341,9 +316,9 @@ binds {
     //
     // The allow-inhibiting=false property can be applied to other binds as well,
     // which ensures niri always processes them, even when an inhibitor is active.
-    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    Mod+Escape allow-inhibiting=false hotkey-overlay-title="Toggle Keyboard Shortcut Inhibitor" { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
+    //Mod+Shift+E { quit; }
+    //Ctrl+Alt+Delete { quit; }
 }
