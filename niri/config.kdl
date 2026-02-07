@@ -27,16 +27,6 @@ input {
         scroll-method "two-finger"
     }
 
-    mouse {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "no-scroll"
-    }
-
-    // warp-mouse-to-focus
-
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     focus-follows-mouse max-scroll-amount="0%"
 }
@@ -47,17 +37,13 @@ output "eDP-1" {
     mode "1920x1080@120.030"
     variable-refresh-rate
     scale 1.67
-
     transform "normal"
-
     position x=1280 y=0
 }
 
 // Gestures
 gestures {
-    hot-corners {
-        off
-    }
+    hot-corners { off; }
 }
 
 // Layout
@@ -73,31 +59,34 @@ layout {
     }
     // Maximization is handled in window rule so that I can use Mod+F
     default-column-width { proportion 0.5; }
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
 
     focus-ring {
         width 3
-        active-color "#7fc8ff"
-        inactive-color "#505050"
+        active-color "#88c0d0"   // nord8
+        inactive-color "#4c566a" // nord3
     }
 
     border { off; }
-
     shadow { off; }
     struts { }
 
     tab-indicator {
         on
-        hide-when-single-tab
         place-within-column
         gap 5
         width 10
         length total-proportion=1.0
-        position "top"
-        gaps-between-tabs 2
-        corner-radius 8
-        active-color "red"
-        inactive-color "gray"
-        urgent-color "blue"
+        position "right"
+        gaps-between-tabs 5
+        corner-radius 12
+        active-color "#eceff4"   // nord6
+        inactive-color "#2e3440" // nord0
+        urgent-color "#bf616a"   // nord11
     }
 }
 
