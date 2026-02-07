@@ -163,6 +163,7 @@ window-rule {
 window-rule {
     match app-id=r#"^org\.pulseaudio\.pavucontrol$"#
     match app-id=r#"^com\.github\.hluk\.copyq$"#
+    match app-id="blueman-manager"
     open-floating true
     opacity 0.8
     default-column-width { fixed 700; }
