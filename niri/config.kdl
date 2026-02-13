@@ -111,7 +111,6 @@ screenshot-path "~/Pictures/Screenshots/niri-screenshot-%Y-%m-%d-%H-%M-%S.png"
 
 // Animations
 animations {
-  off
 }
 
 
@@ -307,6 +306,9 @@ binds {
     // The allow-inhibiting=false property can be applied to other binds as well,
     // which ensures niri always processes them, even when an inhibitor is active.
     Mod+Escape allow-inhibiting=false hotkey-overlay-title="Toggle Keyboard Shortcut Inhibitor" { toggle-keyboard-shortcuts-inhibit; }
+
+    // If Swaylock ever dies (Niri spawns "red screen"), use this keymap to respwan swaylock
+    Super+Alt+L allow-when-locked=true hotkey-overlay-title="Respwan Swaylock in case it ever dies" { spawn "swaylock"; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     //Mod+Shift+E { quit; }
