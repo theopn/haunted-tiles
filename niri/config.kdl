@@ -84,7 +84,7 @@ layout {
         position "right"
         gaps-between-tabs 5
         corner-radius 12
-        active-color "#eceff4"   // nord6
+        active-color "#ebcb8b"   // nord13
         inactive-color "#2e3440" // nord0
         urgent-color "#bf616a"   // nord11
     }
