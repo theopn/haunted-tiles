@@ -30,6 +30,14 @@ function set_shell_var() {
   '
 }
 
+function warn_dunst_duplicate_id() {
+  echo -e "yes\nno" | rofi -dmenu  --markup-rows                \
+    -theme-str 'listview {columns: 2; lines: 1;}'               \
+    -theme-str 'textbox {horizontal-align: 0.5;}'               \
+    -p "[WARNING]"                                              \
+    -mesg 'Dunst will pick the <i>oldest</i> notification with the same ID, which might not be this one. Proceed?'
+}
+
 while true; do
   HIST_JSON=$(dunstctl history)
 
@@ -47,19 +55,16 @@ while true; do
 <b>Summary:</b> $(replace_special_char "$SUMMARY")
 $(replace_special_char "$BODY")
   "
-  action=$(echo -e "back\ndelete" | rofi -dmenu -p ">" -mesg "$msg" -markup-rows -theme-str 'listview {columns: 2; lines: 1;}')
+  action=$(echo -e "back\ndelete\ndisplay" | rofi -dmenu -p ">" -mesg "$msg" -markup-rows -theme-str 'listview {columns: 3; lines: 1;}')
 
   if [[ -z "$action" ]]; then
     exit 0
   elif [[ "$action" == "delete" ]]; then
-    warn_confirm=$(echo -e "yes\nno" | rofi -dmenu  --markup-rows       \
-      -theme-str 'listview {columns: 2; lines: 1;}'                     \
-      -theme-str 'textbox {horizontal-align: 0.5;}'                     \
-      -p "[WARNING]"                                                    \
-      -mesg 'Dunst will delete the <i>oldest</i> notification with the same ID, which it might not be this one. Proceed?')
-    if [[ "$warn_confirm" == "yes" ]]; then
-      dunstctl history-rm "$ID"
-    fi
+    warn_confirm=$(warn_dunst_duplicate_id)
+    [[ "$warn_confirm" == "yes" ]] && dunstctl history-rm "$ID"
+  elif [[ "$action" == "display" ]]; then
+    warn_confirm=$(warn_dunst_duplicate_id)
+    [[ "$warn_confirm" == "yes" ]] && dunstctl history-pop "$ID"
   fi
 
 done
