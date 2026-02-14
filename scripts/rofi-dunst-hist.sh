@@ -33,6 +33,7 @@ function set_shell_var() {
 while true; do
   HIST_JSON=$(dunstctl history)
 
+  # -format i to return index as an output instead of str
   # -i for case insensitivity
   idx=$(get_notif_list | rofi -dmenu -p "History" -mesg "ESC to quit" -markup-rows -format i -i -theme-str 'listview {columns: 1;}')
   # Exit if no selection
@@ -42,8 +43,8 @@ while true; do
   eval $(set_shell_var "$idx")
 
   msg="<b>App:</b> $(replace_special_char "$APP")
+<b>ID:</b> "$ID" | <b>Urgency:</b> "$URGENCY"
 <b>Summary:</b> $(replace_special_char "$SUMMARY")
-<b>Urgency:</b> $(replace_special_char "$URGENCY")
 $(replace_special_char "$BODY")
   "
   action=$(echo -e "back\ndelete" | rofi -dmenu -p ">" -mesg "$msg" -markup-rows -theme-str 'listview {columns: 2; lines: 1;}')
@@ -51,7 +52,14 @@ $(replace_special_char "$BODY")
   if [[ -z "$action" ]]; then
     exit 0
   elif [[ "$action" == "delete" ]]; then
-    dunstctl history-rm "$ID"
+    warn_confirm=$(echo -e "yes\nno" | rofi -dmenu  --markup-rows       \
+      -theme-str 'listview {columns: 2; lines: 1;}'                     \
+      -theme-str 'textbox {horizontal-align: 0.5;}'                     \
+      -p "[WARNING]"                                                    \
+      -mesg 'Dunst will delete the <i>oldest</i> notification with the same ID, which it might not be this one. Proceed?')
+    if [[ "$warn_confirm" == "yes" ]]; then
+      dunstctl history-rm "$ID"
+    fi
   fi
 
 done
