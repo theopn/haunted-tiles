@@ -1,7 +1,5 @@
 #!/bin/bash
 
-HIST_JSON=$(dunstctl history)
-
 function replace_special_char() {
   # replace & < > since Rofi throws Pango error with them
   echo "$1" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g'
@@ -32,26 +30,28 @@ function set_shell_var() {
   '
 }
 
-function main() {
+while true; do
+  HIST_JSON=$(dunstctl history)
 
   # -i for case insensitivity
-  local idx=$(get_notif_list | rofi -dmenu -p "History" -markup-rows -format i -i)
+  idx=$(get_notif_list | rofi -dmenu -p "History" -mesg "ESC to quit" -markup-rows -format i -i -theme-str 'listview {columns: 1;}')
   # Exit if no selection
   [[ -z "$idx" ]] && exit 0
 
   # set variables with jq
   eval $(set_shell_var "$idx")
 
-  local msg="<b>App:</b> $(replace_special_char "$APP")
+  msg="<b>App:</b> $(replace_special_char "$APP")
 <b>Summary:</b> $(replace_special_char "$SUMMARY")
 <b>Urgency:</b> $(replace_special_char "$URGENCY")
 $(replace_special_char "$BODY")
   "
-  local action=$(echo -e "close\ndelete" | rofi -dmenu -p "Action" -mesg "$msg" -markup-rows -theme-str 'listview {columns: 2; lines: 1;}')
+  action=$(echo -e "back\ndelete" | rofi -dmenu -p ">" -mesg "$msg" -markup-rows -theme-str 'listview {columns: 2; lines: 1;}')
 
-  if [ "$action" == "Delete" ]; then
+  if [[ -z "$action" ]]; then
+    exit 0
+  elif [[ "$action" == "delete" ]]; then
     dunstctl history-rm "$ID"
   fi
-}
 
-main
+done
