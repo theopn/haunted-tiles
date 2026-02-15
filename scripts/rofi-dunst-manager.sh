@@ -19,7 +19,7 @@ function get_notif_list() {
       end
     )
     as $time |
-      "<span size=\"small\">[\($time)]</span> <b>\(.appname.data | @html)</b>: \(.summary.data | @html)"
+      "<span size=\"small\">[\($time)]</span> <b>\(.appname.data | @html)</b>: \(.summary.data | gsub("\n"; " ") | @html)"
   '
 }
 
@@ -44,8 +44,9 @@ while true; do
 
   # -format i to return index as an output instead of str
   # -i for case insensitivity
-  idx=$(get_notif_list | rofi -dmenu -p "History" -markup-rows -format i -i  \
+  idx=$(get_notif_list | rofi -dmenu -p "History>" -markup-rows -format i -i  \
     -mesg "<span size=\"small\">ESC to quit</span>"     \
+    -theme-str 'window {height: 800px; width: 800px;}'  \
     -theme-str 'listview {columns: 1;}'                 \
     -theme-str 'textbox {horizontal-align: 0.5;}'       \
   )
