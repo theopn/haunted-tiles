@@ -1,4 +1,5 @@
 // Theo's Niri config
+//
 //               ███             ███
 //             ▒▒▒             ▒▒▒
 //  ████████   ████  ████████  ████
@@ -7,8 +8,9 @@
 //  ▒███ ▒███  ▒███  ▒███      ▒███
 //  ████ █████ █████ █████     █████
 // ▒▒▒▒ ▒▒▒▒▒ ▒▒▒▒▒ ▒▒▒▒▒     ▒▒▒▒▒
-// Largely the same as the default,
-// a couple keymap changes to make it a little more consistent with Sway
+//
+// Pretty different from the default,
+//      use Super+Shift+/ for important keymap cheatsheet.
 
 
 // Input
@@ -33,12 +35,14 @@ input {
 
 // Output
 output "eDP-1" {
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
+    // (unless w/ `mode custom=true "6969x6969@420.420") Mode must match exactly the output in `niri msg outputs``.
+    // Otherwise, Niri automatically picks the output.
+    //mode "1920x1080@120.030"
     variable-refresh-rate
     scale 1.67
     transform "normal"
-    position x=1280 y=0
+    // All subsequent monitors are placed to the right
+    position x=0 y=0
 }
 
 // Gestures
@@ -234,12 +238,12 @@ binds {
 
     // Mod+Page_Down      { focus-workspace-down; }
     // Mod+Page_Up        { focus-workspace-up; }
-    // Mod+U              { focus-workspace-down; }
-    // Mod+I              { focus-workspace-up; }
+    Mod+U              { focus-workspace-down; }
+    Mod+I              { focus-workspace-up; }
     // Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     // Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-    // Mod+Ctrl+U         { move-column-to-workspace-down; }
-    // Mod+Ctrl+I         { move-column-to-workspace-up; }
+    Mod+Ctrl+U         { move-column-to-workspace-down; }
+    Mod+Ctrl+I         { move-column-to-workspace-up; }
 
     // Mod+Shift+Page_Down { move-workspace-down; }
     // Mod+Shift+Page_Up   { move-workspace-up; }
