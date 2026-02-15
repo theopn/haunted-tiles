@@ -6,15 +6,11 @@ off_action=' Resume Notification'
 current=' You are being disturbed'
 toggle="$on_action"
 if [[ $(dunstctl is-paused) == 'true' ]]; then
-  echo "hi"
-  current=' You are missing out'
+  current=" You are missing out on $(dunstctl count waiting) notifications"
   toggle="$off_action"
 fi
 
-# Options
-cancel='󰜺 Cancel'
-
-action=$(echo -e "$toggle\n$cancel" | rofi -dmenu \
+action=$(echo -e "$toggle" | rofi -dmenu \
   -theme-str 'window {height: 150px; width: 400px;}' \
   -theme-str 'mainbox {children: [ "message", "listview" ];}' \
   -theme-str 'listview {columns: 1;}' \
