@@ -24,7 +24,7 @@
 
     "modules-center": [
       "sway/mode",
-      "custom/misc_menu",
+      "custom/dunst",
       "clock"
     ],
 
@@ -77,17 +77,12 @@
       "max-length": 150,
     },
 
-    "custom/misc_menu": {
-      "format" : "󰄛 ",
+    "custom/dunst": {
+      "format" : "󰵛",
       "tooltip": true,
-      "tooltip-format": "Miscellaneous Features",
-      "menu": "on-click",
-      "menu-file": "$XDG_CONFIG_HOME/waybar/misc_menu.xml",
-      "menu-actions": {
-        "dunst_toggle": "notify-send 'Toggle Do Not Disturb' && dunstctl set-paused toggle",
-        "dunst_pop": "dunstctl history-pop",
-        "dunst_clear": "dunstctl history-clear",
-      }
+      "tooltip-format": "L: DND Manager / R: History Manager",
+      "on-click": "rofi-dnd.sh",
+      "on-click-right": "rofi-dunst-manager.sh",
     },
 
     "clock": {
