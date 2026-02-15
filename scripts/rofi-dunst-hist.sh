@@ -31,11 +31,12 @@ function set_shell_var() {
 }
 
 function warn_dunst_duplicate_id() {
-  echo -e "gotcha\ncancel" | rofi -dmenu  --markup-rows         \
+  echo -e "gotcha\nback" | rofi -dmenu  --markup-rows           \
+    -theme-str 'mainbox {children: [ "message", "listview" ];}' \
     -theme-str 'listview {columns: 2; lines: 1;}'               \
     -theme-str 'textbox {horizontal-align: 0.5;}'               \
-    -p "[FYI]"                                                  \
-    -mesg 'Dunst will pick the <i>oldest</i> notification with the same ID, which might not be this one. Proceed?'
+    -theme-str 'element-text {horizontal-align: 0.5;}'          \
+    -mesg '[FYI] Dunst will pick the <i>oldest</i> notification with the same ID, which might not be this one.'
 }
 
 while true; do
@@ -43,7 +44,11 @@ while true; do
 
   # -format i to return index as an output instead of str
   # -i for case insensitivity
-  idx=$(get_notif_list | rofi -dmenu -p "History" -mesg "ESC to quit" -markup-rows -format i -i -theme-str 'listview {columns: 1;}')
+  idx=$(get_notif_list | rofi -dmenu -p "History" -markup-rows -format i -i  \
+    -mesg "<span size=\"small\">ESC to quit</span>"     \
+    -theme-str 'listview {columns: 1;}'                 \
+    -theme-str 'textbox {horizontal-align: 0.5;}'       \
+  )
   # Exit if no selection
   [[ -z "$idx" ]] && exit 0
 
@@ -55,7 +60,12 @@ while true; do
 <b>Summary:</b> $(replace_special_char "$SUMMARY")
 $(replace_special_char "$BODY")
   "
-  action=$(echo -e "back\ndelete\ndisplay" | rofi -dmenu -p ">" -mesg "$msg" -markup-rows -theme-str 'listview {columns: 3; lines: 1;}')
+  action=$(echo -e "back\ndelete\ndisplay" | rofi -dmenu -p ">" \
+    -mesg "$msg" \
+    -markup-rows \
+    -theme-str 'mainbox {children: [ "message", "listview" ];}' \
+    -theme-str 'listview {columns: 3; lines: 1;}'               \
+)
 
   if [[ -z "$action" ]]; then
     exit 0
