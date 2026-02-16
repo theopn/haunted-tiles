@@ -62,6 +62,7 @@
       "format": "{shell}: {title}",
       "max-length": 50,
       "icon": true,
+      "swap-icon-label": false,
       "icon-size": 15,
       "rewrite": {
         "xdg_shell: (.*)": "  $1",
