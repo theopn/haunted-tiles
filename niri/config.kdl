@@ -50,6 +50,11 @@ gestures {
     hot-corners { off; }
 }
 
+overview {
+    backdrop-color "#2e3440"  // nord0
+    workspace-shadow { off; }
+}
+
 // Layout
 layout {
     gaps 7
