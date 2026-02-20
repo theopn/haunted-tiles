@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 on_action=' Pause Notification'
 off_action=' Resume Notification'

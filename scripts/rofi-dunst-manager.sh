@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function replace_special_char() {
   # replace & < > since Rofi throws Pango error with them

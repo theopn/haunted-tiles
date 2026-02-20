@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #
 # Revised from https://github.com/adi1090x/rofi/tree/master/files/powermenu
