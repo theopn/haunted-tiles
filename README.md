@@ -1,14 +1,15 @@
 # Haunted Tiles
 
+> [!NOTE]
+> Also check out the [Niri branch](https://github.com/theopn/haunted-tiles/tree/niri) for my Nordic Niri setup!
+
 | <img src="./assets/haunted-tiles-logo.png" width="250" alt="Haunted Tiles logo"> |
 | :--:                                                                             |
 | ![sway-sc](./assets/sway-sc.png)                                                 |
 | SwayFX                                                                           |
 
-Configuration & scripts for my [Dracula](https://draculatheme.com/)-themed (hence the name of the repository) Sway and i3 environment.
 
-I am past my tiling WM "ricing" phase and mainly use KDE + [Krohnkite](https://codeberg.org/anametologin/Krohnkite).
-But I still keep a simple Sway configuration for focused work sessions and occasional fun tinkering with it.
+Configuration & scripts for my [Dracula](https://draculatheme.com/)-themed (hence the name of the repository) Sway (and i3) environment.
 
 Credits:
 
