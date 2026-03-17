@@ -119,8 +119,7 @@ hotkey-overlay {
 screenshot-path "~/Pictures/Screenshots/niri-screenshot-%Y-%m-%d-%H-%M-%S.png"
 
 // Animations
-animations {
-}
+animations { off; }
 
 
 // Named Workspaces
