@@ -1,12 +1,18 @@
 # Haunted Tiles
 
-> [!NOTE]
-> Also check out the [Niri branch](https://github.com/theopn/haunted-tiles/tree/niri) for my Nordic Niri setup!
-
 | <img src="./assets/haunted-tiles-logo.png" width="250" alt="Haunted Tiles logo"> |
 | :--:                                                                             |
+| ![niri-sc](./assets/niri-sc.png)                                                 |
+| Niri (NixOS)                                                                     |
 | ![sway-sc](./assets/sway-sc.png)                                                 |
-| SwayFX                                                                           |
+| SwayFX (Fedora)                                                                  |
+
+> [!IMPORTANT]
+>
+> - Check out the `niri` branch for a Nordic-themed Niri configuration.
+> - I've recently moved to NixOS and ported all the scripts and configuration in Nix, including [waybar](https://github.com/theopn/nix-conf/blob/main/home-manager/config/waybar.nix) and [swaylock](https://github.com/theopn/nix-conf/blob/main/home-manager/config/swaylock.nix).
+>       You can find everything in my [Nix conf repository](https://github.com/theopn/nix-conf).
+>       I will sync any major Nix updates to this repository.
 
 
 Configuration & scripts for my [Dracula](https://draculatheme.com/)-themed (hence the name of the repository) Sway (and i3) environment.
@@ -14,7 +20,8 @@ Configuration & scripts for my [Dracula](https://draculatheme.com/)-themed (henc
 Credits:
 
 - [Logo](./assets/haunted-tiles-logo.png): my girlfriend Naomi
-- Wallpaper: [Color shifted version](https://www.reddit.com/r/wallpaper/comments/odrqc9/night_city_art_5120x2880/) of ["The Neon Shallows" by kawitt](https://www.reddit.com/r/wallpapers/comments/ib6diq/the_neon_shallows/)
+- Wallpaper (Niri): [Nordic wallpapers](https://github.com/linuxdotexe/nordic-wallpapers)
+- Wallpaper (Sway): [Color shifted version](https://www.reddit.com/r/wallpaper/comments/odrqc9/night_city_art_5120x2880/) of ["The Neon Shallows" by kawitt](https://www.reddit.com/r/wallpapers/comments/ib6diq/the_neon_shallows/)
 - Font: [ProggyClean Nerd Font](https://github.com/bluescan/proggyfonts)
 
 ## Sway Installation
