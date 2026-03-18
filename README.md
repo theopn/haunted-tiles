@@ -15,7 +15,6 @@ Credits:
 
 - [Logo](./assets/haunted-tiles-logo.png): my girlfriend Naomi
 - Wallpaper: [Color shifted version](https://www.reddit.com/r/wallpaper/comments/odrqc9/night_city_art_5120x2880/) of ["The Neon Shallows" by kawitt](https://www.reddit.com/r/wallpapers/comments/ib6diq/the_neon_shallows/)
-- Lock icon: [Pixabay](https://pixabay.com/vectors/lock-locked-metal-protection-tool-24269/)
 - Font: [ProggyClean Nerd Font](https://github.com/bluescan/proggyfonts)
 
 ## Sway Installation
@@ -58,10 +57,9 @@ Credits:
     ~/.config/haunted-tiles/install.sh
     ```
 4. Locate your choice of wallpaper (PNG) as `$XDG_CONFIG_HOME/wallpaper.png`
-5. Generate a new lock screen image using the included lock icon:
+5. Set wallpaper and generate a blurred lock screen image using the included set-wallpaper command (requires ImageMagick and Nerd Font):
     ```sh
-    # use `lock-24269-640.png` a higher resolution image
-    magick $XDG_CONFIG_HOME/wallpaper.png $XDG_CONFIG_HOME/haunted-tiles/assets/lock-24269-360.png -gravity center -composite $XDG_CONFIG_HOME/lockscreen.png
+    set-wallpaper.sh /path/to/wallpaper
     ```
 6. Add yourself to the `input` user group for Waybar keyboard state module:
     ```sh
