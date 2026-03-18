@@ -111,6 +111,12 @@ spawn-sh-at-startup "swayidle -w -C ~/.config/swayidle/niri-swayidle-config"
 
 prefer-no-csd
 
+cursor {
+  xcursor-theme "Adwaita"
+  xcursor-size 24
+  hide-when-typing
+}
+
 hotkey-overlay {
   hide-not-bound
   skip-at-startup
