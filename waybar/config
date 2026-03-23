@@ -81,10 +81,26 @@
     },
 
     "clock": {
-      "timezone": "America/New_York",
-      "tooltip-format": "<big>{:%Y-%m-%d %H:%M:%S}</big>\n<tt><small>{calendar}</small></tt>",
       "format": "  {:%b %e %H:%M}",
-      "format-alt": "  {:%Y-%m-%d %R}",
+      "tooltip-format": "\t<big>{:%H:%M:%S}</big>\n\n<tt><small>{calendar}</small></tt>"
+      "calendar": {
+        "mode": "month",
+        "mode-mon-col": 3,
+
+        "weeks-pos": "left"
+        "iso-8601": true,
+
+        "on-click-right": "mode",
+
+        "format": {
+          "today": "<span color='#b48ead'><b><u>{}</u></b></span>",
+          "weeks": "<span color='#d8dee9'><i>{}</i></span>"
+        },
+      },
+
+      "actions": {
+        "on-click-right": "mode"
+      },
     },
 
     /* Modules - Right */
@@ -133,15 +149,15 @@
     "pulseaudio": {
       // "scroll-step": 1, // %, can be a float
       "format": "{icon} {volume}% {format_source}",
-      "format-bluetooth": "{volume}% {icon} {format_source}",
-      "format-bluetooth-muted": "󰂲 {icon} {format_source}",
+      "format-bluetooth": "󰗾 ({icon}) {volume}% {format_source}",
+      "format-bluetooth-muted": "󰗿 ({icon}) {format_source}",
       "format-muted": "󰝟 {format_source}",
       "format-source": " {volume}%",
       "format-source-muted": "",
       "format-icons": {
         "headphone": " ",
-        "hands-free": "󰂑 ",
-        "headset": "󰂑 ",
+        "hands-free": "󱡒 ",
+        "headset": " ",
         "phone": " ",
         "portable": " ",
         "car": " ",

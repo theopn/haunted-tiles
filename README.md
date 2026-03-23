@@ -1,14 +1,22 @@
 # Haunted Tiles
 
-> [!IMPORTANT]
-> This is the branch for Nordic Niri config!
-> The set of tools are almost identical to my Sway setup.
-> Check out the `main` branch for the installation guide and initial setup.
+> [!NOTE]
+> You are on the Nordic Niri branch.
+> - For installation and setup, see the main branch.
+> - This configuration largely mirrors my Sway setup.
+
+> [!NOTE]
+> I have migrated to NixOS and ported the configurations and scripts to Nix.
+> For my up-to-date configuration, check out [theopn/nix-conf](https://github.com/theopn/nix-conf).
+> This repository remains as a reference and will receive periodic syncs.
+
 
 | <img src="./assets/haunted-tiles-logo.png" width="250" alt="Haunted Tiles logo"> |
 | :--:                                                                             |
+| ![niri-sc](./assets/niri-sc.png)                                                 |
+| Niri (NixOS)                                                                     |
 | ![sway-sc](./assets/sway-sc.png)                                                 |
-| SwayFX                                                                           |
+| SwayFX (Fedora)                                                                  |
 
 
 ## Usage
