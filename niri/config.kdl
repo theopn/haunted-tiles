@@ -19,6 +19,8 @@ input {
         xkb {
             options "ctrl:swapcaps"
         }
+        repeat-delay 300
+        repeat-rate 33
         numlock
     }
 
