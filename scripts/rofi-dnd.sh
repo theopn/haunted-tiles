@@ -3,6 +3,14 @@
 on_action=' Pause Notification'
 off_action=' Resume Notification'
 
+if ! pgrep -x "dunst" > /dev/null && ! pgrep -x ".dunst-wrapped" > /dev/null; then
+  # -modi run to prevent loading other plugins
+  rofi -modi run -e 'Dunst not running :(' \
+    -theme-str 'window {height: 150px; width: 400px;}' \
+    -theme-str 'textbox {horizontal-align: 0.5; vertical-align: 0.5;}'
+  exit 1
+fi
+
 current=' You are being disturbed'
 toggle="$on_action"
 if [[ $(dunstctl is-paused) == 'true' ]]; then
